@@ -1,0 +1,37 @@
+export const SOURCES = [
+    { key: 'vidlink', sourceFile: 'vidlink', label: 'Sentinel', proxyParam: 'vl', timeout: 25000, jitter: 500, retries: 2 },
+    { key: 'vidzee', sourceFile: 'vidzee', label: 'Cipher', proxyParam: 'vz', timeout: 25000, jitter: 400, retries: 3, sourcesTimeout: 5000 },
+    { key: 'meowtv', sourceFile: 'meowtv', label: 'Luminox', proxyParam: 'mt', timeout: 25000, jitter: 500, retries: 2 },
+    { key: 'flixhq', sourceFile: 'flixhq', label: 'Praetor', proxyParam: 'fq', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'cinesu', sourceFile: 'cinesu', label: 'Solaris', proxyParam: 'cs', timeout: 15000, jitter: 500, retries: 2 },
+    { key: 'icefy', sourceFile: 'icefy', label: 'Frostbyte', proxyParam: 'iy', timeout: 25000, jitter: 500, retries: 2, sourcesTimeout: 5000 },
+    { key: 'vidrock', sourceFile: 'vidrock', label: 'Obsidian', proxyParam: 'vr', timeout: 20000, jitter: 800, retries: 3 },
+    { key: 'vidsrc', sourceFile: 'vidsrc', label: 'Phantom', proxyParam: 'vs', timeout: 25000, jitter: 700, retries: 2, sourcesTimeout: 5000, disabled: true },
+    { key: 'vixsrc', sourceFile: 'vixsrc', label: 'Meridian', proxyParam: 'vx', timeout: 20000, jitter: 500, retries: 2 },
+    { key: 'videasy', sourceFile: 'videasy', label: 'Crystal', proxyParam: 'vy', timeout: 20000, jitter: 900, retries: 3, sourcesTimeout: 5000 },
+    { key: 'streammafia', sourceFile: 'streammafia', label: 'Syndicate', proxyParam: 'sm', timeout: 25000, jitter: 600, retries: 2, disabled: true },
+    { key: '02movie', sourceFile: '02movie', label: 'Forge', proxyParam: 'zm', timeout: 35000, jitter: 600, retries: 1, disabled: true },
+    { key: 'moviebox', sourceFile: 'moviebox', label: 'Vault', proxyParam: 'mb', timeout: 25000, jitter: 500, retries: 2, sourcesTimeout: 8000, disabled: true },
+    { key: 'vidnest', sourceFile: 'vidnest', label: 'Haven', proxyParam: 'vn', timeout: 20000, jitter: 600, retries: 3, disabled: true },
+    { key: 'popr', sourceFile: 'popr', label: 'Spark', proxyParam: 'pp', timeout: 20000, jitter: 600, retries: 2, disabled: true },
+    { key: 'cinezo', sourceFile: 'cinezo', label: 'Relay', proxyParam: 'cz', timeout: 25000, jitter: 500, retries: 2 },
+    { key: 'vidfun', sourceFile: 'vidfun', label: 'Plasma', proxyParam: 'vf', timeout: 30000, jitter: 500, retries: 2 },
+    { key: 'fsharetv', sourceFile: 'fsharetv', label: 'Horizon', proxyParam: 'fs', timeout: 30000, jitter: 600, retries: 2 },
+    { key: 'vidapi', sourceFile: 'vidapi', label: 'Atlas', proxyParam: 'va', timeout: 25000, jitter: 500, retries: 2 },
+    { key: 'fsonic', sourceFile: 'fsonic', label: 'Thunder', proxyParam: 'fn', timeout: 35000, jitter: 600, retries: 1 },
+    { key: 'flaxmovies', sourceFile: 'flaxmovies', label: 'Vortex', proxyParam: 'fm', timeout: 15000, jitter: 500, retries: 2 },
+    { key: 'flixtrz', sourceFile: 'flixtrz', label: 'Radiant', proxyParam: 'fz', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'lookmovie', sourceFile: 'lookmovie', label: 'Vertex', proxyParam: 'lm', timeout: 30000, jitter: 700, retries: 2 },
+    { key: 'miruro', sourceFile: 'miruro', label: 'Quasar', proxyParam: 'mr', timeout: 25000, jitter: 500, retries: 2 },
+    { key: 'movsrc', sourceFile: 'movsrc', label: 'Surge', proxyParam: 'ms', timeout: 15000, jitter: 500, retries: 2 },
+    { key: 'peachify', sourceFile: 'peachify', label: 'Apex', proxyParam: 'pf', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'toustream', sourceFile: 'toustream', label: 'Torrent', proxyParam: 'ts', timeout: 25000, jitter: 700, retries: 2 },
+    { key: 'tryembed', sourceFile: 'tryembed', label: 'Pulse', proxyParam: 'te', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'vapor', sourceFile: 'vapor', label: 'Eclipse', proxyParam: 'vp', timeout: 15000, jitter: 500, retries: 2 },
+    { key: 'vidify', sourceFile: 'vidify', label: 'Nova', proxyParam: 'vi', timeout: 20000, jitter: 700, retries: 2 },
+];
+
+export const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.key, s]));
+export const ALLOWED_ORIGINS = ['*'];
+export const HEALTH_PROBE_ID = '155';
+export const CACHE_TTL = 5 * 60 * 1000;

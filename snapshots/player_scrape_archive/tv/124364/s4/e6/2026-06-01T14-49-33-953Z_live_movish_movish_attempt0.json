@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-06-01T14:49:33.953Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "124364",
+    "season": "4",
+    "episode": "6"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/124364/4/6",
+  "status": 200,
+  "ok": true,
+  "sourceCount": 1
+}

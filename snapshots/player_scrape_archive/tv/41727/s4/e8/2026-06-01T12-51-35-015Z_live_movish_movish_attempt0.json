@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-06-01T12:51:35.015Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "41727",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/41727/4/8",
+  "status": 200,
+  "ok": true,
+  "sourceCount": 1
+}

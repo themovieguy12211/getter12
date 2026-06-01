@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-01T12:51:27.613Z",
+  "family": "rive",
+  "provider": "guru",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "41727",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=guru&id=41727&season=4&episode=8",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

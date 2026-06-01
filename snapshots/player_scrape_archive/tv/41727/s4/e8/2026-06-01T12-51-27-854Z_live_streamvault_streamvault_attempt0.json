@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-01T12:51:27.854Z",
+  "family": "streamvault",
+  "provider": "streamvault",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "41727",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://streamvaultsrc.click/api/embed-streams/sse/tv/41727/4/8",
+  "status": 403,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "HTTP 403"
+}
