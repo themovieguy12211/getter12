@@ -496,25 +496,6 @@
     "reason": "Missing priority providers: flowcast, primevids, guru"
   },
   {
-    "requestKey": "tv_1622_s1_e17",
-    "request": {
-      "type": "tv",
-      "id": "1622",
-      "season": "1",
-      "episode": "17"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-03T19:34:16.617Z",
-    "createdAt": "2026-06-03T13:34:16.617Z",
-    "updatedAt": "2026-06-03T13:34:16.617Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "Missing priority providers: flowcast, primevids, guru"
-  },
-  {
     "requestKey": "tv_220102_s1_e1",
     "request": {
       "type": "tv",
@@ -551,5 +532,79 @@
       "primevids"
     ],
     "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "movie_73",
+    "request": {
+      "type": "movie",
+      "id": "73"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T03:21:18.718Z",
+    "createdAt": "2026-06-03T21:21:18.718Z",
+    "updatedAt": "2026-06-03T21:21:18.718Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_1622_s1_e18",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "18"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T04:48:10.253Z",
+    "createdAt": "2026-06-03T22:48:10.253Z",
+    "updatedAt": "2026-06-03T22:48:10.253Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_1622_s1_e17",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "17"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T04:48:10.726Z",
+    "createdAt": "2026-06-03T13:34:16.617Z",
+    "updatedAt": "2026-06-03T22:48:10.726Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_220102_s1_e2",
+    "request": {
+      "type": "tv",
+      "id": "220102",
+      "season": "1",
+      "episode": "2"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T04:59:14.117Z",
+    "createdAt": "2026-06-03T22:59:14.117Z",
+    "updatedAt": "2026-06-03T22:59:14.117Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

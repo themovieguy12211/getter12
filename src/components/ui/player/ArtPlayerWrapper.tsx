@@ -82,8 +82,17 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         }));
         if (decoded.length === 0) throw new Error("No sources available");
 
-        const qualities = decoded.map((s) => ({
-          default: s.default,
+        // Sort so Frostbite is the default if available
+        const frostbiteIdx = decoded.findIndex(
+          (s) => s.html.toLowerCase().includes("frostbite")
+        );
+        if (frostbiteIdx > 0) {
+          const [item] = decoded.splice(frostbiteIdx, 1);
+          decoded.unshift(item);
+        }
+
+        const qualities = decoded.map((s, i) => ({
+          default: i === 0,
           html: s.html,
           url: s.url,
         }));
@@ -184,9 +193,12 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
               artplayerPluginHlsControl({
                 quality: { control: false, setting: true, title: "Quality" },
               }),
-            ],
-            customType: isMp4 ? {} : {
+            ] : [],
+            customType: {
               m3u8: function (this: ArtPlayer, video: HTMLVideoElement, url: string) {
+                // Destroy existing HLS instance if any
+                const existing = (this as any).hls as Hls | undefined;
+                if (existing) existing.destroy();
                 const hls = new Hls();
                 hls.loadSource(url);
                 hls.attachMedia(video);
@@ -215,9 +227,18 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         artRef.current = art;
         setLoading(false);
 
-        // Handle errors
-        art.on("error", (err: any) => {
-          console.error("[ArtPlayer] Error:", err);
+        // Handle errors — auto-switch to next source on video error
+        let errorRetries = 0;
+        art.on("error", () => {
+          // Try next quality on video errors
+          const qualities = art.quality;
+          const currentIdx = qualities.findIndex((q: any) => q.url === art.url);
+          if (currentIdx >= 0 && currentIdx < qualities.length - 1 && errorRetries < 3) {
+            errorRetries++;
+            const next = qualities[currentIdx + 1];
+            art.notice.show = `Source unavailable, trying ${next.html}...`;
+            art.switchQuality(next.url);
+          }
         });
 
         // ── Skip Intro ─────────────────────────────────────────────────────

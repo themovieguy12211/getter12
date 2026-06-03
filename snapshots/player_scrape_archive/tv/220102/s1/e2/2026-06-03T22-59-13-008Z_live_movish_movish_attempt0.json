@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-03T22:59:13.008Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "220102",
+    "season": "1",
+    "episode": "2"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/220102/1/2",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout"
+}
