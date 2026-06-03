@@ -7,7 +7,18 @@ import Hls from "hls.js";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaPause, FaPlay, FaServer } from "react-icons/fa";
 import { IoMdVolumeHigh, IoMdVolumeLow, IoMdVolumeMute } from "react-icons/io";
-import { MdClosedCaption, MdClosedCaptionDisabled, MdForward10, MdFullscreen, MdFullscreenExit, MdHighQuality, MdReplay10, MdSettings, MdSpeed } from "react-icons/md";
+import {
+  MdClosedCaption,
+  MdClosedCaptionDisabled,
+  MdDownload,
+  MdForward10,
+  MdFullscreen,
+  MdFullscreenExit,
+  MdHighQuality,
+  MdReplay10,
+  MdSettings,
+  MdSpeed,
+} from "react-icons/md";
 
 // ─── Types ─────────────────────────────────────────────────────────────────────
 
@@ -47,6 +58,15 @@ interface ExternalSubtitleTrack {
   format: string;
 }
 
+interface DownloadOption {
+  quality: string;
+  url: string;
+  size: string | null;
+  format: string;
+  server?: string | number;
+  source: string;
+}
+
 /** External (Wyzie) subtitle IDs start at this offset to avoid clashing with HLS track indices. */
 const EXTERNAL_SUB_ID_OFFSET = 1000;
 
@@ -57,7 +77,7 @@ interface QualityLevel {
 }
 
 type LocalPlayerEventType = "play" | "pause" | "seeked" | "ended" | "timeupdate";
-type SettingsTab = "source" | "quality" | "subtitles" | "speed";
+type SettingsTab = "source" | "quality" | "subtitles" | "speed" | "download";
 type SettingsView = "grid" | SettingsTab;
 
 export interface NetflixPlayerProps {
@@ -186,6 +206,52 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
   const cueCleanupRef = useRef<(() => void) | null>(null);
   const [externalSubtitles, setExternalSubtitles] = useState<ExternalSubtitleTrack[]>([]);
   const externalTrackElementsRef = useRef<HTMLTrackElement[]>([]);
+  const [downloads, setDownloads] = useState<DownloadOption[]>([]);
+  const [downloadsLoading, setDownloadsLoading] = useState(false);
+  const [downloadsLoaded, setDownloadsLoaded] = useState(false);
+  const [downloadsError, setDownloadsError] = useState<string | null>(null);
+
+  const downloadEndpoint = mediaType === "movie"
+    ? `/api/321movies/downloads/movie/${mediaId}`
+    : typeof season === "number" && typeof episode === "number"
+      ? `/api/321movies/downloads/tv/${mediaId}/${season}/${episode}`
+      : null;
+
+  const loadDownloads = useCallback(async () => {
+    if (!downloadEndpoint || downloadsLoading) return;
+
+    setDownloadsLoading(true);
+    setDownloadsError(null);
+
+    try {
+      const response = await fetch(downloadEndpoint, { cache: "no-store" });
+      if (!response.ok) {
+        throw new Error("Failed to load downloads");
+      }
+
+      const payload = (await response.json()) as { downloads?: DownloadOption[] };
+      setDownloads(Array.isArray(payload.downloads) ? payload.downloads : []);
+      setDownloadsLoaded(true);
+    } catch {
+      setDownloads([]);
+      setDownloadsError("Couldn't load download links.");
+      setDownloadsLoaded(true);
+    } finally {
+      setDownloadsLoading(false);
+    }
+  }, [downloadEndpoint, downloadsLoading]);
+
+  useEffect(() => {
+    setDownloads([]);
+    setDownloadsLoading(false);
+    setDownloadsLoaded(false);
+    setDownloadsError(null);
+  }, [downloadEndpoint]);
+
+  useEffect(() => {
+    if (!settingsOpen || settingsView !== "download" || downloadsLoaded || !downloadEndpoint) return;
+    void loadDownloads();
+  }, [downloadEndpoint, downloadsLoaded, loadDownloads, settingsOpen, settingsView]);
 
   // ── Subtitle helpers ──────────────────────────────────────────────────────────
 
@@ -1186,7 +1252,15 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
                     <FaChevronLeft size={11} />
                   </button>
                   <p className="text-xs font-semibold text-white/70">
-                    {settingsView === "source" ? "Source" : settingsView === "quality" ? "Quality" : settingsView === "subtitles" ? "Captions" : "Speed"}
+                    {settingsView === "source"
+                      ? "Source"
+                      : settingsView === "quality"
+                        ? "Quality"
+                        : settingsView === "subtitles"
+                          ? "Captions"
+                          : settingsView === "download"
+                            ? "Download"
+                            : "Speed"}
                   </p>
                 </div>
                 <div className="max-h-64 overflow-y-auto p-1.5 scrollbar-thin">
@@ -1274,6 +1348,51 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
                         </button>
                       )) : (
                         <p className="px-3 py-4 text-center text-xs text-white/30">No subtitle tracks detected</p>
+                      )}
+                    </>
+                  )}
+
+                  {settingsView === "download" && (
+                    <>
+                      {downloadsLoading ? (
+                        <p className="px-3 py-4 text-center text-xs text-white/30">Loading download links...</p>
+                      ) : downloadsError ? (
+                        <div className="px-3 py-4 text-center">
+                          <p className="text-xs text-white/40">{downloadsError}</p>
+                          <button
+                            type="button"
+                            onClick={() => void loadDownloads()}
+                            className="mt-3 rounded-full border border-white/10 px-3 py-1.5 text-xs font-semibold text-white/80 transition hover:bg-white/[0.06]"
+                          >
+                            Retry
+                          </button>
+                        </div>
+                      ) : downloads.length > 0 ? (
+                        downloads.map((download, idx) => (
+                          <button
+                            key={`${download.url}-${idx}`}
+                            type="button"
+                            onClick={() => {
+                              window.open(download.url, "_blank", "noopener,noreferrer");
+                              resetHideTimer();
+                            }}
+                            className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm text-white/80 transition hover:bg-white/[0.06] hover:text-white"
+                          >
+                            <MdDownload size={14} className="shrink-0 opacity-60" />
+                            <span className="min-w-0 flex-1">
+                              <span className="block truncate font-medium">
+                                {download.quality || "Download"}
+                              </span>
+                              <span className="block truncate text-[11px] text-white/35">
+                                {[download.format ? download.format.toUpperCase() : null, download.size, download.server ? `Server ${download.server}` : null]
+                                  .filter(Boolean)
+                                  .join(" | ")}
+                              </span>
+                            </span>
+                          </button>
+                        ))
+                      ) : (
+                        <p className="px-3 py-4 text-center text-xs text-white/30">No download links available</p>
                       )}
                     </>
                   )}
@@ -1493,6 +1612,24 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
             >
               {activeSubtitleId >= 0 ? <MdClosedCaption size={20} /> : <MdClosedCaptionDisabled size={20} />}
             </button>
+
+            {/* Download selector */}
+            {downloadEndpoint && (
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSettingsView("download");
+                  setSettingsOpen((prev) => settingsView === "download" ? !prev : true);
+                  resetHideTimer();
+                }}
+                className="rounded-full p-1 transition hover:bg-white/10"
+                style={settingsView === "download" && settingsOpen ? { color: NETFLIX_RED } : { color: "rgba(255,255,255,0.7)" }}
+                aria-label="Download"
+              >
+                <MdDownload size={20} />
+              </button>
+            )}
 
             {/* Source selector */}
             {sources.length > 1 && (

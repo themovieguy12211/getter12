@@ -21,6 +21,7 @@ const PlayerAccessNotice = dynamic(() => import("@/components/ui/overlay/PlayerA
 const HlsJsonPlayer = dynamic(() => import("@/components/ui/player/HlsJsonPlayer"));
 const VylaPlayer = dynamic(() => import("@/components/ui/player/VylaPlayer"));
 const NetflixPlayer = dynamic(() => import("@/components/ui/player/NetflixPlayer"));
+const ArtPlayerWrapper = dynamic(() => import("@/components/ui/player/ArtPlayerWrapper"));
 const TvShowPlayerHeader = dynamic(() => import("./Header"));
 const TvShowPlayerSourceSelection = dynamic(() => import("./SourceSelection"));
 const TvShowPlayerEpisodeSelection = dynamic(() => import("./EpisodeSelection"));
@@ -200,6 +201,13 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     setDismissedPlayerNotice(false);
   }, [missing321Requirements.join("|")]);
 
+  // Prevent page scroll on player pages
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
   useEffect(() => {
     hasAutoNextNavigatedRef.current = false;
     autoNextSuppressedRef.current = false;
@@ -288,7 +296,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
         missingRequirements={missing321Requirements}
       />
 
-      <div className={cn("relative", SpacingClasses.reset)}>
+      <div className={cn("relative flex flex-col overflow-hidden", SpacingClasses.reset)} style={{ height: "100dvh" }}>
         <TvShowPlayerHeader
           id={id}
           episode={episode}
@@ -304,7 +312,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
           {...props}
         />
 
-        <Card shadow="md" radius="none" className="relative h-screen overflow-y-auto">
+        <Card shadow="md" radius="none" className="relative min-h-0 flex-1 overflow-y-auto">
           <Skeleton className="absolute h-full w-full" />
           {seen && (
             PLAYER.mode === "playlist_json" ? (
@@ -338,8 +346,8 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
                 title={props.seriesName}
                 subtitle={episode.name}
               />
-            ) : PLAYER.mode === "strata" ? (
-              <NetflixPlayer
+            ) : PLAYER.mode === "strata" || PLAYER.mode === "strata_testing" || PLAYER.mode === "artplayer" ? (
+              <ArtPlayerWrapper
                 key={PLAYER.source}
                 playlistUrl={PLAYER.source}
                 mediaId={id}
@@ -349,7 +357,6 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
                 startAt={startAt}
                 onFatalError={handlePrimaryPlayerError}
                 className="absolute inset-0 z-10 h-full w-full"
-                title={`${props.seriesName} - ${episode.name}`}
               />
             ) : (
               <iframe

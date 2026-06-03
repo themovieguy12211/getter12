@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/utils/supabase/server";
+import type { Database } from "@/utils/supabase/types";
+
+type RewardRequestUpdate = Database["public"]["Tables"]["reward_requests"]["Update"];
 
 export async function PATCH(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient();
@@ -26,7 +29,7 @@ export async function PATCH(request: NextRequest, { params }: { params: Promise<
     return NextResponse.json({ error: "Request is already fulfilled" }, { status: 400 });
   }
 
-  const updatePayload: Record<string, string | null> = {
+  const updatePayload: RewardRequestUpdate = {
     status: body.status,
     admin_notes: body.admin_notes?.trim() ? body.admin_notes.trim() : null,
     reviewed_at: new Date().toISOString(),

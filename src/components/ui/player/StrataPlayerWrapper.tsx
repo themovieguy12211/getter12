@@ -46,6 +46,9 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
   const playerRef = React.useRef<any>(null);
+  const onFatalErrorRef = React.useRef(onFatalError);
+  onFatalErrorRef.current = onFatalError;
+  const plugins = React.useMemo(() => [new HlsPlugin(), new DashPlugin()], []);
 
   // Fetch playlist and adapt to StrataPlayer format
   const adaptedSources = useMemo(() => {
@@ -107,14 +110,14 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
       } catch (err) {
         const errorMsg = err instanceof Error ? err.message : "Unknown error";
         setError(errorMsg);
-        onFatalError?.();
+        onFatalErrorRef.current?.();
       } finally {
         setLoading(false);
       }
     };
 
     loadSources();
-  }, [playlistUrl, onFatalError]);
+  }, [playlistUrl]);
 
   // Handle source menu signal (for external trigger)
   useEffect(() => {
@@ -149,11 +152,10 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
   }
 
   return (
-    <div className={`${className} relative overflow-visible z-50`} style={{ overflow: "visible", zIndex: 50 }}>
-      <div className="w-full h-full overflow-visible z-50 flex flex-col" style={{ overflow: "visible", zIndex: 50 }}>
-        <StrataPlayerComponent
+    <div className={`${className} bg-black`}>
+      <StrataPlayerComponent
           sources={adaptedSources}
-          plugins={[new HlsPlugin(), new DashPlugin()]}
+          plugins={plugins}
           autoPlay={false}
           volume={0.8}
           theme="hacker"
@@ -170,10 +172,15 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
         onGetInstance={(instance: any) => {
           playerRef.current = instance;
 
+          // Auto-enter web fullscreen (required for settings menu to work)
+          instance.toggleWebFullscreen();
+
           // Handle startAt - ensure it's a valid number
           const validStartAt = typeof startAt === 'number' && isFinite(startAt) && startAt > 0 ? startAt : 0;
           if (validStartAt > 0) {
             instance.on("ready", () => {
+              // Only seek when video has valid duration
+              if (!instance.video || !isFinite(instance.video.duration)) return;
               try {
                 instance.currentTime = validStartAt;
               } catch (e) {
@@ -182,18 +189,12 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
             });
           }
 
-          // Track events
+          // Track errors (non-fatal - don't call onFatalError here to avoid remounts)
           instance.on("error", (err: any) => {
             console.error("[StrataPlayer] Error:", err);
-            onFatalError?.();
-          });
-
-          instance.on("timeupdate", () => {
-            // Could track playback progress here
           });
         }}
       />
-      </div>
     </div>
   );
 };

@@ -43,9 +43,8 @@ const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: n
   const { data: startAt, isPending: isPendingStartAt } = useQuery({
     queryFn: () => getTvShowLastPosition(id, season, episode),
     queryKey: ["tv-show-player-start-at", id, season, episode],
-    staleTime: 1000 * 60 * 10,
-    refetchOnWindowFocus: false,
-    refetchOnReconnect: false,
+    staleTime: 0,
+    refetchOnMount: true,
   });
 
   const { data: piracyEmbedUrl, isPending: isPendingPiracy } = useQuery({

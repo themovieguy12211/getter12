@@ -22,6 +22,7 @@ const PlayerAccessNotice = dynamic(() => import("@/components/ui/overlay/PlayerA
 const HlsJsonPlayer = dynamic(() => import("@/components/ui/player/HlsJsonPlayer"));
 const VylaPlayer = dynamic(() => import("@/components/ui/player/VylaPlayer"));
 const NetflixPlayer = dynamic(() => import("@/components/ui/player/NetflixPlayer"));
+const ArtPlayerWrapper = dynamic(() => import("@/components/ui/player/ArtPlayerWrapper"));
 const MoviePlayerHeader = dynamic(() => import("./Header"));
 const MoviePlayerSourceSelection = dynamic(() => import("./SourceSelection"));
 
@@ -87,6 +88,13 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
     setDismissedPlayerNotice(false);
   }, [missing321Requirements.join("|")]);
 
+  // Prevent page scroll on player pages
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.body.style.overflow = prev; };
+  }, []);
+
   useEffect(() => {
     if (!players.length) return;
     if (selectedSource < players.length) return;
@@ -136,7 +144,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
         missingRequirements={missing321Requirements}
       />
 
-      <div className={cn("relative", SpacingClasses.reset)}>
+      <div className={cn("relative flex flex-col overflow-hidden", SpacingClasses.reset)} style={{ height: "100dvh" }}>
         <MoviePlayerHeader
           id={movie.id}
           movieName={title}
@@ -147,7 +155,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
           onStartParty={showServerButton ? handleStartParty : undefined}
           partyCreating={partyCreating}
         />
-        <Card shadow="md" radius="none" className="relative h-screen overflow-visible" style={{ overflow: "visible" }}>
+        <Card shadow="md" radius="none" className="relative min-h-0 flex-1 overflow-visible" style={{ overflow: "visible" }}>
           <Skeleton className="absolute h-full w-full" />
           {seen && (
             PLAYER.mode === "playlist_json" ? (
@@ -176,8 +184,8 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
                 backdropUrl={movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : undefined}
                 title={title}
               />
-            ) : PLAYER.mode === "strata" ? (
-              <NetflixPlayer
+            ) : PLAYER.mode === "strata" || PLAYER.mode === "strata_testing" || PLAYER.mode === "artplayer" ? (
+              <ArtPlayerWrapper
                 key={PLAYER.source}
                 playlistUrl={PLAYER.source}
                 mediaId={movie.id}
@@ -185,7 +193,6 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
                 startAt={startAt}
                 onFatalError={handlePrimaryPlayerError}
                 className="absolute inset-0 z-10 h-full w-full"
-                title={title}
               />
             ) : (
               <iframe

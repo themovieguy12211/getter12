@@ -494,5 +494,62 @@
       "primevids"
     ],
     "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_1622_s1_e17",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "17"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-03T19:34:16.617Z",
+    "createdAt": "2026-06-03T13:34:16.617Z",
+    "updatedAt": "2026-06-03T13:34:16.617Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_220102_s1_e1",
+    "request": {
+      "type": "tv",
+      "id": "220102",
+      "season": "1",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T01:47:11.369Z",
+    "createdAt": "2026-06-03T13:37:26.506Z",
+    "updatedAt": "2026-06-03T19:47:11.369Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_117648_s1_e1",
+    "request": {
+      "type": "tv",
+      "id": "117648",
+      "season": "1",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T01:51:38.289Z",
+    "createdAt": "2026-06-03T13:34:43.784Z",
+    "updatedAt": "2026-06-03T19:51:38.289Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
   }
 ]

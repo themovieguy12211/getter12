@@ -22,6 +22,7 @@ export type RewardLedgerEntry = {
   entry_type: string;
   points: number;
   reference_id: number | null;
+  reward_key: string | null;
   metadata: Record<string, unknown>;
   created_at: string;
   username?: string | null;

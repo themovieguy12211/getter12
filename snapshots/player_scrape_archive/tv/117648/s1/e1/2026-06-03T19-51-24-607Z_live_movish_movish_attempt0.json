@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-06-03T19:51:24.607Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "117648",
+    "season": "1",
+    "episode": "1"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/117648/1/1",
+  "status": 200,
+  "ok": true,
+  "sourceCount": 1
+}

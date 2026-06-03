@@ -61,7 +61,7 @@ export type SiteConfigType = {
 export type PlayersProps = {
   title: string;
   source: string;
-  mode?: "embed" | "playlist_json" | "native_hls" | "strata";
+  mode?: "embed" | "playlist_json" | "native_hls" | "strata" | "strata_testing" | "artplayer";
   recommended?: boolean;
   fast?: boolean;
   ads?: boolean;

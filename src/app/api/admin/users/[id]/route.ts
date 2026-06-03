@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdminRoute } from "@/utils/admin";
+import type { Database } from "@/utils/supabase/types";
+
+type ProfileUpdate = Database["public"]["Tables"]["profiles"]["Update"];
 
 export async function PATCH(
   request: NextRequest,
@@ -19,7 +22,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid user id" }, { status: 400 });
   }
 
-  const updates: Record<string, string | boolean> = {};
+  const updates: ProfileUpdate = {};
 
   if (typeof body.is_admin === "boolean") {
     updates.is_admin = body.is_admin;

@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdminRoute } from "@/utils/admin";
+import type { Database } from "@/utils/supabase/types";
+
+type PremiumCodeUpdate = Database["public"]["Tables"]["premium_codes"]["Update"];
 
 export async function PATCH(
   request: NextRequest,
@@ -21,7 +24,7 @@ export async function PATCH(
     return NextResponse.json({ error: "Invalid code id" }, { status: 400 });
   }
 
-  const updates: Record<string, boolean | number | string | null> = {};
+  const updates: PremiumCodeUpdate = {};
 
   if (typeof body.active === "boolean") updates.active = body.active;
   if (typeof body.max_redemptions === "number") updates.max_redemptions = body.max_redemptions;

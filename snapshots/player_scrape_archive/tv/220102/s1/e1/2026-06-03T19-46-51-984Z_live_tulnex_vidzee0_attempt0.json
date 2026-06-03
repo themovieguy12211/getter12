@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-03T19:46:51.984Z",
+  "family": "tulnex",
+  "provider": "vidzee0",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "220102",
+    "season": "1",
+    "episode": "1"
+  },
+  "url": "https://api.tulnex.com/vidzee/tv/220102/1/1?server=0",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

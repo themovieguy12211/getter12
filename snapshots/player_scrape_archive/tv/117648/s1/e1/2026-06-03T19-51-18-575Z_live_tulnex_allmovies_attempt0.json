@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-03T19:51:18.575Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "117648",
+    "season": "1",
+    "episode": "1"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/tv/117648/1/1?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}
