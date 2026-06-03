@@ -82,15 +82,6 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         }));
         if (decoded.length === 0) throw new Error("No sources available");
 
-        // Sort so Frostbite is the default if available
-        const frostbiteIdx = decoded.findIndex(
-          (s) => s.html.toLowerCase().includes("frostbite")
-        );
-        if (frostbiteIdx > 0) {
-          const [item] = decoded.splice(frostbiteIdx, 1);
-          decoded.unshift(item);
-        }
-
         const qualities = decoded.map((s, i) => ({
           default: i === 0,
           html: s.html,
@@ -193,7 +184,7 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
               artplayerPluginHlsControl({
                 quality: { control: false, setting: true, title: "Quality" },
               }),
-            ] : [],
+            ],
             customType: {
               m3u8: function (this: ArtPlayer, video: HTMLVideoElement, url: string) {
                 // Destroy existing HLS instance if any
