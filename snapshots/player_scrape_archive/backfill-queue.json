@@ -606,5 +606,41 @@
       "primevids"
     ],
     "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "tv_1622_s1_e19",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "19"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T14:44:24.563Z",
+    "createdAt": "2026-06-04T08:44:24.563Z",
+    "updatedAt": "2026-06-04T08:44:24.563Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "movie_1083381",
+    "request": {
+      "type": "movie",
+      "id": "1083381"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-04T14:44:28.987Z",
+    "createdAt": "2026-06-04T08:44:28.987Z",
+    "updatedAt": "2026-06-04T08:44:28.987Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
   }
 ]

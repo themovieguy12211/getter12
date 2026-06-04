@@ -165,7 +165,7 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
             url: defaultSource.url,
             ...(isMp4 ? {} : { type: "m3u8" as const }),
             quality: qualities,
-            settings: settings.length > 0 ? settings : undefined,
+            settings: settings,
             subtitleOffset: true,
             setting: true,
             fullscreen: true,

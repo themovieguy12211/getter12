@@ -1,0 +1,17 @@
+{
+  "createdAt": "2026-06-04T08:44:09.472Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "19"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/1622/1/19",
+  "status": 200,
+  "ok": true,
+  "sourceCount": 1
+}

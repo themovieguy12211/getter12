@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-04T08:44:13.932Z",
+  "family": "rive",
+  "provider": "primevids",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1083381"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=primevids&id=1083381",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}
