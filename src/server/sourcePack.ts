@@ -20,6 +20,12 @@ interface SourcePackConfig {
   retries: number;
   disabled?: boolean;
   multiBase?: boolean;
+  objectArgs?: boolean;
+  skipProxy?: boolean;
+  cdnHeaders?: Array<{ pattern: RegExp; headers: HeaderMap }>;
+  headers?: HeaderMap;
+  proxyHeaders?: HeaderMap;
+  verifyHeaders?: HeaderMap;
 }
 
 interface SourcePackModule {
@@ -33,13 +39,7 @@ interface SourcePackModule {
     season?: string | null,
     episode?: string | null,
   ) => Promise<unknown>;
-  getStream?: (
-    id: string,
-    season?: string | null,
-    episode?: string | null,
-    baseOrClientIp?: string | null,
-    clientIp?: string | null,
-  ) => Promise<unknown>;
+  getStream?: (...args: unknown[]) => Promise<unknown>;
 }
 
 interface SourcePackRawCandidate {
@@ -123,6 +123,10 @@ const SOURCE_PACK_ORDER: Record<string, number> = {
   tryembed: 22,
   vapor: 23,
   vidify: 24,
+  moviebite: 25,
+  animehub: 26,
+  "kiroku-sub": 27,
+  "kiroku-dub": 28,
 };
 
 const SUBTITLE_BASES = [
@@ -239,11 +243,19 @@ const normalizeHeaders = (headers: unknown): HeaderMap => {
   return normalized;
 };
 
+const getConfigHeaders = (config: SourcePackConfig): HeaderMap =>
+  normalizeHeaders(config.proxyHeaders || config.verifyHeaders || config.headers);
+
 const getModuleHeaders = (module: SourcePackModule): HeaderMap =>
   normalizeHeaders(module.PROXY_HEADERS || module.VERIFY_HEADERS || module.HEADERS);
 
-const applyCdnHeaders = (module: SourcePackModule, url: string, headers: HeaderMap) => {
-  for (const rule of module.CDN_HEADERS || []) {
+const applyCdnHeaders = (
+  config: SourcePackConfig,
+  module: SourcePackModule,
+  url: string,
+  headers: HeaderMap,
+) => {
+  for (const rule of [...(config.cdnHeaders || []), ...(module.CDN_HEADERS || [])]) {
     if (rule.pattern.test(url)) {
       Object.assign(headers, normalizeHeaders(rule.headers));
       return;
@@ -318,6 +330,37 @@ const toRawCandidates = (raw: unknown): SourcePackRawCandidate[] => {
   return [];
 };
 
+const getAudio = (config: SourcePackConfig): "sub" | "dub" =>
+  config.key.endsWith("-dub") ? "dub" : "sub";
+
+const callGetStream = (
+  config: SourcePackConfig,
+  module: SourcePackModule,
+  request: SourcePackRequest,
+  season: string | null,
+  episode: string | null,
+  clientIp: string | null,
+  baseOrClientIp?: string | null,
+) => {
+  if (config.objectArgs) {
+    return module.getStream!({
+      id: request.id,
+      s: season,
+      e: episode,
+      season,
+      episode,
+      clientIP: clientIp,
+      clientIp,
+      absoluteBase: baseOrClientIp || undefined,
+      audio: getAudio(config),
+      config,
+    });
+  }
+
+  if (baseOrClientIp) return module.getStream!(request.id, season, episode, baseOrClientIp, clientIp);
+  return module.getStream!(request.id, season, episode, clientIp);
+};
+
 const fetchSource = async (
   config: SourcePackConfig,
   module: SourcePackModule,
@@ -337,7 +380,7 @@ const fetchSource = async (
       jitter(config.jitter || 0).then(async () => {
         for (const base of module.BASES || []) {
           const result = await getCached(`${cacheKey}:${base}`, () =>
-            withRetry(() => module.getStream!(request.id, season, episode, base, clientIp), retries, 500),
+            withRetry(() => callGetStream(config, module, request, season, episode, clientIp, base), retries, 500),
           );
           if (result) return result;
         }
@@ -350,7 +393,7 @@ const fetchSource = async (
   return withTimeout(
     jitter(config.jitter || 0).then(() =>
       getCached(cacheKey, () =>
-        withRetry(() => module.getStream!(request.id, season, episode, clientIp), retries, 1000),
+        withRetry(() => callGetStream(config, module, request, season, episode, clientIp), retries, 1000),
       ),
     ),
     timeoutMs,
@@ -362,7 +405,7 @@ const mapSource = (
   module: SourcePackModule,
   raw: unknown,
 ): LocalSourcePackStream[] => {
-  const baseHeaders = getModuleHeaders(module);
+  const baseHeaders = { ...getConfigHeaders(config), ...getModuleHeaders(module) };
   const candidates = toRawCandidates(raw);
 
   return candidates.flatMap((candidate, index) => {
@@ -371,7 +414,7 @@ const mapSource = (
     const normalized = cleanUrlAndHeaders(candidate.url, baseHeaders, normalizeHeaders(candidate.headers));
     if (!normalized) return [];
 
-    applyCdnHeaders(module, normalized.url, normalized.headers);
+    applyCdnHeaders(config, module, normalized.url, normalized.headers);
 
     const quality = candidate.quality || candidate.resolution;
     const labelSuffix = quality ? ` ${quality}` : candidates.length > 1 ? ` ${index + 1}` : "";
@@ -382,7 +425,7 @@ const mapSource = (
       label: `${config.label}${labelSuffix}`,
       url: normalized.url,
       headers: normalized.headers,
-      skipProxy: Boolean(candidate.skipProxy),
+      skipProxy: Boolean(config.skipProxy || candidate.skipProxy),
       kind: inferKind(normalized.url),
     }];
   });

@@ -29,6 +29,28 @@ export const SOURCES = [
     { key: 'tryembed', sourceFile: 'tryembed', label: 'Pulse', proxyParam: 'te', timeout: 25000, jitter: 600, retries: 2 },
     { key: 'vapor', sourceFile: 'vapor', label: 'Eclipse', proxyParam: 'vp', timeout: 15000, jitter: 500, retries: 2 },
     { key: 'vidify', sourceFile: 'vidify', label: 'Nova', proxyParam: 'vi', timeout: 20000, jitter: 700, retries: 2 },
+    { key: 'moviebite', sourceFile: 'moviebite', label: 'Orbit', proxyParam: 'bt', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true },
+    {
+        key: 'animehub',
+        sourceFile: 'animehub',
+        label: 'Echo',
+        proxyParam: 'ah',
+        timeout: 25000,
+        jitter: 500,
+        retries: 2,
+        objectArgs: true,
+        cdnHeaders: [
+            {
+                pattern: /hlsx\d+cdn\.|burntburst\d+\.store|echovideo\.ru/i,
+                headers: {
+                    Referer: 'https://play2.echovideo.ru/',
+                    Origin: 'https://play2.echovideo.ru',
+                },
+            },
+        ],
+    },
+    { key: 'kiroku-sub', sourceFile: 'kiroku', label: 'Arcadia Sub', proxyParam: 'ks', timeout: 25000, jitter: 300, retries: 2, objectArgs: true, skipProxy: true },
+    { key: 'kiroku-dub', sourceFile: 'kiroku', label: 'Arcadia Dub', proxyParam: 'kd', timeout: 25000, jitter: 300, retries: 2, objectArgs: true, skipProxy: true },
 ];
 
 export const SOURCE_MAP = Object.fromEntries(SOURCES.map(s => [s.key, s]));

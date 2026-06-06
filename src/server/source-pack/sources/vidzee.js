@@ -41,7 +41,7 @@ async function deriveKey(e) {
     i.set(a, 0);
     i.set(r, a.length);
     const encoder = new TextEncoder();
-    const l = await crypto.subtle.digest('SHA-256', encoder.encode('4f2a9c7d1e8b3a6f0d5c2e9a7b1f4d8c'));
+    const l = await crypto.subtle.digest('SHA-256', encoder.encode('c4a8f1d7e2b9a6c3d0f5e8a1b7c4d9e2'));
     const o = await crypto.subtle.importKey('raw', l, { name: 'AES-GCM' }, false, ['decrypt']);
     const c = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: n, tagLength: 128 }, o, i);
     return new TextDecoder().decode(c);
@@ -69,11 +69,13 @@ function fetchWithTimeout(url, headers, ms) {
         .finally(() => clearTimeout(timer));
 }
 
-async function getStream(id, s, e) {
-    const type = s ? 'tv' : 'movie';
-    const season = s || '1';
-    const episode = e || '1';
-    const headers = makeHeaders(null);
+let apiKeyCache = null;
+let apiKeyCacheTs = 0;
+const API_KEY_TTL = 120000;
+
+async function getDecKey(headers) {
+    const now = Date.now();
+    if (apiKeyCache && now - apiKeyCacheTs < API_KEY_TTL) return apiKeyCache;
 
     const apiKeyResponse = await fetchWithTimeout(`${CORE_URL}/api-key`, headers, 5000);
     if (!apiKeyResponse.ok) throw new Error(`VidZee API key failed: ${apiKeyResponse.status}`);
@@ -81,6 +83,17 @@ async function getStream(id, s, e) {
 
     const decKey = await deriveKey(apiKeyText);
     if (!decKey) throw new Error('VidZee: failed to derive key');
+    apiKeyCache = decKey;
+    apiKeyCacheTs = now;
+    return decKey;
+}
+
+async function getStream(id, s, e) {
+    const type = s ? 'tv' : 'movie';
+    const season = s || '1';
+    const episode = e || '1';
+    const headers = makeHeaders(null);
+    const decKey = await getDecKey(headers);
 
     for (let sr = 0; sr < 14; sr++) {
         let data;

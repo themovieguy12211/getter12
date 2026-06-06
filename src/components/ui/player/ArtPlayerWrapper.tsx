@@ -15,6 +15,7 @@ interface ArtPlayerWrapperProps {
   startAt?: number;
   className?: string;
   onFatalError?: () => void;
+  onNextEpisode?: (season: number, episode: number) => void;
 }
 
 interface ExternalSubtitleTrack {
@@ -22,6 +23,20 @@ interface ExternalSubtitleTrack {
   lang: string;
   label: string;
   format: string;
+}
+
+interface Segment {
+  type: "intro" | "recap" | "credits" | "preview";
+  start: number;
+  end: number;
+  label: string;
+}
+
+interface SegmentData {
+  intro?: Array<{ start_ms?: number; end_ms?: number }>;
+  recap?: Array<{ start_ms?: number; end_ms?: number }>;
+  credits?: Array<{ start_ms?: number; end_ms?: number }>;
+  preview?: Array<{ start_ms?: number; end_ms?: number }>;
 }
 
 export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
@@ -33,12 +48,15 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
   startAt,
   className = "",
   onFatalError,
+  onNextEpisode,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const artRef = useRef<ArtPlayer | null>(null);
   const [loading, setLoading] = useState(true);
   const [loadingStatus, setLoadingStatus] = useState("Starting...");
   const [loadError, setLoadError] = useState<string | null>(null);
+
+
 
   useEffect(() => {
     let cancelled = false;
@@ -49,7 +67,6 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
 
       try {
         setLoadingStatus("Fetching playlist...");
-        // Fetch playlist (no cache to always get fresh sources)
         const response = await fetch(playlistUrl);
         if (!response.ok) {
           throw new Error(`Failed to load: ${response.status}`);
@@ -106,7 +123,6 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
           const subData: { tracks?: ExternalSubtitleTrack[] } = await subRes.json();
           if (!cancelled && Array.isArray(subData?.tracks)) {
             subtitleTracks.push(...subData.tracks);
-            // Don't set a default subtitle — user can enable from settings menu
           }
         } catch {
           // Subtitles are optional
@@ -128,7 +144,6 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
           ],
           onSelect: function (this: ArtPlayer, item: any) {
             if (item.html === "Off") {
-              // Disable subtitle by removing the track and clearing the display
               const art = this as any;
               const $track = art.template?.$track;
               if ($track) {
@@ -152,11 +167,10 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
           },
         } : undefined;
 
-        // Build settings array
         const settings: any[] = [];
         if (subtitleSetting) settings.push(subtitleSetting);
 
-        // Create ArtPlayer instance with ready callback for startAt
+        // Create ArtPlayer instance
         setLoadingStatus("Starting player...");
         const willSeek = typeof startAt === "number" && isFinite(startAt) && startAt > 0;
         const art = new ArtPlayer(
@@ -187,7 +201,6 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
             ],
             customType: {
               m3u8: function (this: ArtPlayer, video: HTMLVideoElement, url: string) {
-                // Destroy existing HLS instance if any
                 const existing = (this as any).hls as Hls | undefined;
                 if (existing) existing.destroy();
                 const hls = new Hls();
@@ -205,11 +218,9 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
                   seeked = true;
                   art.seek = startAt!;
                 };
-                // Seek immediately — works for HLS where duration is available
                 if (art.video && isFinite(art.video.duration) && art.video.duration > 0) {
                   doSeek();
                 }
-                // Also seek on loadedmetadata — needed for MP4 where metadata loads async
                 art.on("video:loadedmetadata", doSeek);
               }
             : undefined,
@@ -218,10 +229,9 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         artRef.current = art;
         setLoading(false);
 
-        // Handle errors — auto-switch to next source on video error
+        // ── Handle source errors ─────────────────────────────────────────
         let errorRetries = 0;
         art.on("error", () => {
-          // Try next quality on video errors
           const qualities = art.quality;
           const currentIdx = qualities.findIndex((q: any) => q.url === art.url);
           if (currentIdx >= 0 && currentIdx < qualities.length - 1 && errorRetries < 3) {
@@ -232,72 +242,158 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
           }
         });
 
-        // ── Skip Intro ─────────────────────────────────────────────────────
-        setLoadingStatus("Checking for intro...");
-        let introTimestamps: { start: number; end: number } | null = null;
-        let showSkipIntro = false;
+        // ── Fetch and setup skip segments ────────────────────────────────
+        setLoadingStatus("Loading segments...");
+        let skipSegments: Segment[] = [];
+        let activeSegment: Segment | null = null;
         let skipBtn: HTMLButtonElement | null = null;
+        let skipLabel: HTMLSpanElement | null = null;
 
-        const fetchIntro = async () => {
+        const fetchSegments = async () => {
           try {
-            const params = new URLSearchParams({ tmdb_id: String(mediaId) });
+            const apiUrl = new URL("https://api.theintrodb.org/v3/media");
+            apiUrl.searchParams.set("tmdb_id", String(mediaId));
             if (mediaType === "tv" && season != null && episode != null) {
-              params.set("season", String(season));
-              params.set("episode", String(episode));
+              apiUrl.searchParams.set("season", String(season));
+              apiUrl.searchParams.set("episode", String(episode));
             }
-            const r = await fetch(
-              `https://api.theintrodb.org/v1/media?${params.toString()}`,
-              { signal: AbortSignal.timeout(5000) },
-            );
-            if (!r.ok) throw new Error("intro fetch failed");
-            const d = (await r.json()) as {
-              intro?: { start_ms?: number; end_ms?: number } | null;
+            if (art.video && isFinite(art.video.duration)) {
+              apiUrl.searchParams.set("duration_ms", Math.round(art.video.duration * 1000).toString());
+            }
+
+            const response = await fetch(apiUrl.toString(), { signal: AbortSignal.timeout(5000) });
+            if (!response.ok) throw new Error("Failed to fetch segments");
+
+            const data: SegmentData = await response.json();
+
+            // Parse all segment types
+            const segTypeConfig = {
+              intro: { label: "Skip Intro", icon: "🎬" },
+              recap: { label: "Skip Recap", icon: "⏮️" },
+              credits: { label: "Skip Credits", icon: "🎞️" },
+              preview: { label: "Skip Preview", icon: "▶️" },
             };
-            if (
-              d.intro &&
-              typeof d.intro.start_ms === "number" &&
-              typeof d.intro.end_ms === "number"
-            ) {
-              introTimestamps = {
-                start: d.intro.start_ms / 1000,
-                end: d.intro.end_ms / 1000,
-              };
-              return;
-            }
+
+            (["intro", "recap", "credits", "preview"] as const).forEach((type) => {
+              const arr = data[type];
+              if (arr && Array.isArray(arr)) {
+                arr.forEach((seg) => {
+                  skipSegments.push({
+                    type,
+                    start: (seg.start_ms ?? 0) / 1000,
+                    end: (seg.end_ms ?? art.video.duration) / 1000,
+                    label: segTypeConfig[type].label,
+                  });
+                });
+              }
+            });
           } catch {
-            /* intro is optional */
-          }
-          // Fallback: timer-based range for TV episodes
-          if (mediaType === "tv" && season != null && episode != null) {
-            introTimestamps = { start: 30, end: 90 };
+            // Segments are optional
           }
         };
-        await fetchIntro();
 
-        if (introTimestamps) {
-          // Create skip button
+        await fetchSegments();
+
+        // Create skip button if segments exist
+        if (skipSegments.length > 0) {
           skipBtn = document.createElement("button");
-          skipBtn.textContent = "Skip Intro";
+          skipLabel = document.createElement("span");
+          skipLabel.textContent = "Skip";
+          skipBtn.appendChild(skipLabel);
           skipBtn.className =
-            "art-skip-intro absolute right-4 bottom-24 z-50 rounded border-2 border-white/70 bg-black/60 px-5 py-2 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-black pointer-events-auto";
+            "art-skip-segment absolute right-4 bottom-24 z-50 rounded border-2 border-white/70 bg-black/60 px-5 py-2 text-sm font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-black pointer-events-auto";
           skipBtn.style.display = "none";
           containerRef.current?.appendChild(skipBtn);
 
           skipBtn.onclick = () => {
-            if (art.video && introTimestamps) {
-              art.seek = introTimestamps.end;
+            if (activeSegment && art.video) {
+              art.seek = activeSegment.end;
               skipBtn!.style.display = "none";
+              activeSegment = null;
             }
           };
 
           art.on("video:timeupdate", () => {
-            if (!introTimestamps) return;
-            const t = art.currentTime;
-            const inIntro = t >= introTimestamps.start && t < introTimestamps.end;
-            if (inIntro !== showSkipIntro) {
-              showSkipIntro = inIntro;
-              skipBtn!.style.display = inIntro ? "" : "none";
+            if (!skipSegments.length) return;
+            const ct = art.currentTime;
+            let current: Segment | null = null;
+
+            for (const seg of skipSegments) {
+              if (ct >= seg.start && ct < seg.end) {
+                current = seg;
+                break;
+              }
             }
+
+            if (current !== activeSegment) {
+              activeSegment = current;
+              if (current) {
+                skipLabel!.textContent = current.label;
+                skipBtn!.style.display = "";
+              } else {
+                skipBtn!.style.display = "none";
+              }
+            }
+          });
+        }
+
+        // ── Auto Next Episode ────────────────────────────────────────────
+        if (mediaType === "tv" && season != null && episode != null) {
+          let nextEpisodeTimer: NodeJS.Timeout | null = null;
+          let showingNextEp = false;
+
+          const showNextEpisodePrompt = () => {
+            if (showingNextEp) return;
+            showingNextEp = true;
+
+            const nextEpisode = (episode || 1) + 1;
+            const nextEpDiv = document.createElement("div");
+            nextEpDiv.className =
+              "art-next-episode fixed bottom-4 right-4 z-50 bg-black/80 backdrop-blur-sm rounded-lg p-5 border border-white/20 text-white";
+            nextEpDiv.innerHTML = `
+              <div class="font-semibold mb-2">Next Episode</div>
+              <div class="text-sm text-white/70 mb-3">Season ${season} • Episode ${nextEpisode}</div>
+              <div class="flex gap-2">
+                <button class="art-next-cancel text-sm px-3 py-1 bg-white/10 hover:bg-white/20 rounded">Cancel</button>
+                <button class="art-next-play text-sm px-3 py-1 bg-red-600 hover:bg-red-700 rounded font-semibold">Play</button>
+              </div>
+              <div class="text-xs text-white/50 mt-2">Plays in <span class="art-next-countdown">5</span>s</div>
+            `;
+
+            containerRef.current?.appendChild(nextEpDiv);
+
+            let countdown = 5;
+            const countdownEl = nextEpDiv.querySelector(".art-next-countdown");
+
+            const cancelBtn = nextEpDiv.querySelector(".art-next-cancel") as HTMLButtonElement;
+            const playBtn = nextEpDiv.querySelector(".art-next-play") as HTMLButtonElement;
+
+            cancelBtn?.addEventListener("click", () => {
+              nextEpDiv.remove();
+              if (nextEpisodeTimer) clearTimeout(nextEpisodeTimer);
+            });
+
+            playBtn?.addEventListener("click", () => {
+              onNextEpisode?.(season, nextEpisode);
+              nextEpDiv.remove();
+              if (nextEpisodeTimer) clearTimeout(nextEpisodeTimer);
+            });
+
+            const countInterval = setInterval(() => {
+              countdown--;
+              if (countdownEl) countdownEl.textContent = countdown.toString();
+              if (countdown <= 0) {
+                clearInterval(countInterval);
+                if (nextEpDiv.parentElement) {
+                  onNextEpisode?.(season, nextEpisode);
+                  nextEpDiv.remove();
+                }
+              }
+            }, 1000);
+          };
+
+          art.on("video:ended", () => {
+            showNextEpisodePrompt();
           });
         }
 
@@ -345,19 +441,35 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         artRef.current.destroy(false);
         artRef.current = null;
       }
-      // Remove skip button if it exists
-      const btn = containerRef.current?.querySelector(".art-skip-intro");
+      const btn = containerRef.current?.querySelector(".art-skip-segment");
       if (btn) btn.remove();
+      const nextEpDiv = containerRef.current?.querySelector(".art-next-episode");
+      if (nextEpDiv) nextEpDiv.remove();
     };
-  }, [playlistUrl]);
+  }, [playlistUrl, onNextEpisode]);
 
   return (
-    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+    <div style={{ 
+      position: "relative", 
+      width: "100%", 
+      height: "100%", 
+      overflow: "hidden",
+      maxWidth: "100vw",
+      boxSizing: "border-box"
+    }}>
       <div
         ref={containerRef}
         className={className}
-        style={{ width: "100%", height: "100%", minHeight: "100%" }}
+        style={{ 
+          width: "100%", 
+          height: "100%", 
+          minHeight: "100%",
+          overflow: "hidden",
+          boxSizing: "border-box",
+          maxWidth: "100vw"
+        }}
       />
+
       {loading && (
         <div className={`${className} bg-black flex items-center justify-center`} style={{ position: "absolute", inset: 0, zIndex: 10 }}>
           <div className="text-white text-center">
