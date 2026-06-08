@@ -83,23 +83,6 @@
     "reason": "Missing priority providers: flowcast, guru"
   },
   {
-    "requestKey": "movie_1304313",
-    "request": {
-      "type": "movie",
-      "id": "1304313"
-    },
-    "attempts": 0,
-    "dueAt": "2026-04-20T01:46:48.728Z",
-    "createdAt": "2026-04-19T19:46:48.728Z",
-    "updatedAt": "2026-04-19T19:46:48.728Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "Missing priority providers: flowcast, primevids, guru"
-  },
-  {
     "requestKey": "movie_1613798",
     "request": {
       "type": "movie",
@@ -661,5 +644,22 @@
       "primevids"
     ],
     "reason": "Missing priority providers: flowcast, primevids, guru"
+  },
+  {
+    "requestKey": "movie_1304313",
+    "request": {
+      "type": "movie",
+      "id": "1304313"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-09T03:22:19.519Z",
+    "createdAt": "2026-04-19T19:46:48.728Z",
+    "updatedAt": "2026-06-08T21:22:19.519Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

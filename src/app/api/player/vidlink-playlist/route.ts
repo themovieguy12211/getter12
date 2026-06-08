@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { encodePlayerStreamUrl } from "@/utils/playerUrlCodec";
 
 const REQUEST_TIMEOUT_MS = 35000;
-const DEFAULT_WORKER_PROXY = "https://small-cake-fdee.piracya.workers.dev";
+const DEFAULT_WORKER_PROXY = "https://muddy-grass-267d.piracya.workers.dev/";
 const VIDRUSH_REFERER = "https://player.vidrush.net/";
 const VIDRUSH_ORIGIN = "https://player.vidrush.net";
 const DI = "Sn00pD0g#L1_X0R_M4st3rK3y!2025";
