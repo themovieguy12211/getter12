@@ -661,5 +661,39 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_936075",
+    "request": {
+      "type": "movie",
+      "id": "936075"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-09T18:22:24.412Z",
+    "createdAt": "2026-06-09T12:21:28.789Z",
+    "updatedAt": "2026-06-09T12:22:24.412Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_454639",
+    "request": {
+      "type": "movie",
+      "id": "454639"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-09T18:22:43.091Z",
+    "createdAt": "2026-06-09T12:22:43.091Z",
+    "updatedAt": "2026-06-09T12:22:43.091Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "Missing priority providers: flowcast, primevids, guru"
   }
 ]

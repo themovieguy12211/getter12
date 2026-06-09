@@ -73,9 +73,6 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     [episode.episode_number, episode.season_number, id, startAt, piracyEmbedUrl],
   );
   const { isAdBlockDetected, isChecking: isAdBlockChecking } = useAdBlockDetector();
-  const canUse321Player =
-    !isUserLoading &&
-    (isPremium || (!isAdBlockChecking && !isAdBlockDetected));
   const missing321Requirements = useMemo(() => {
     if (isUserLoading || isAdBlockChecking) return [];
     const missing: string[] = [];
@@ -83,13 +80,11 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     return missing;
   }, [isAdBlockChecking, isAdBlockDetected, isPremium, isUserLoading]);
   const players = useMemo(() => {
-    if (canUse321Player) return allPlayers;
+    if (isPremium || !isAdBlockDetected) return allPlayers;
 
-    const filteredPlayers = allPlayers.filter(
-      (player) => player.mode !== "playlist_json" && player.mode !== "native_hls",
-    );
+    const filteredPlayers = allPlayers.filter((player) => player.mode !== "artplayer");
     return filteredPlayers.length > 0 ? filteredPlayers : allPlayers;
-  }, [allPlayers, canUse321Player]);
+  }, [allPlayers, isAdBlockDetected, isPremium]);
   const [dismissedPlayerNotice, setDismissedPlayerNotice] = useState(false);
 
   const idle = useIdle(3000);
@@ -292,7 +287,10 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
       <AdsWarning />
       <PlayerAccessNotice
         isOpen={missing321Requirements.length > 0 && !dismissedPlayerNotice}
-        onClose={() => setDismissedPlayerNotice(true)}
+        onClose={() => {
+          setDismissedPlayerNotice(true);
+          void setSelectedSource(0);
+        }}
         missingRequirements={missing321Requirements}
       />
 
