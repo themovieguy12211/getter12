@@ -49,7 +49,7 @@ const STREAMVAULT_LABELS: Record<string, string> = {
 const REQUEST_TIMEOUT_MS = 15000;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
-const DEFAULT_WORKER_PROXY = "https://muddy-grass-267d.piracya.workers.dev/";
+const DEFAULT_WORKER_PROXY = "https://cdn.piracy.cloud/";
 const BACKFILL_PRIORITY_PROVIDERS = ["flowcast", "primevids", "guru"] as const;
 const MAX_BACKFILL_ATTEMPTS = 3;
 

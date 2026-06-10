@@ -15,7 +15,7 @@ import { archiveScrapeResponse } from "@/utils/playerScrapeArchive";
 const VIDRUSH_ORIGIN = "https://player.vidrush.net";
 const VIDRUSH_REFERER = "https://player.vidrush.net/";
 const REQUEST_TIMEOUT_MS = 35_000;
-const DEFAULT_WORKER_PROXY = "https://muddy-grass-267d.piracya.workers.dev/";
+const DEFAULT_WORKER_PROXY = "https://cdn.piracy.cloud/";
 
 // ─── Decryption constants (public-side, from vidrush client bundle) ───────────
 const DI = "Sn00pD0g#L1_X0R_M4st3rK3y!2025";
