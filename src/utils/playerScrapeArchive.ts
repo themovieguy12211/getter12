@@ -52,6 +52,7 @@ export interface CachedPlaylistSource {
 
 interface CachedPlaylistEntry {
   cachedAt: string;
+  urlsRefreshedAt: string;
   sources: CachedPlaylistSource[];
 }
 
@@ -63,7 +64,8 @@ export const saveCachedPlaylist = async (
   sources: CachedPlaylistSource[],
 ): Promise<void> => {
   await mkdir(CACHE_ROOT, { recursive: true });
-  const entry: CachedPlaylistEntry = { cachedAt: new Date().toISOString(), sources };
+  const now = new Date().toISOString();
+  const entry: CachedPlaylistEntry = { cachedAt: now, urlsRefreshedAt: now, sources };
   await writeFile(getCacheFilePath(request), JSON.stringify(entry, null, 2));
 };
 

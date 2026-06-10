@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-10T15:56:48.589Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "11"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/tv/1622/1/11?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

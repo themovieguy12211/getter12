@@ -50,6 +50,79 @@ const REQUEST_TIMEOUT_MS = 15000;
 const USER_AGENT =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36";
 const DEFAULT_WORKER_PROXY = "https://cdn.piracy.cloud/";
+
+/**
+ * ─── MULTI-PROXY SETUP ───────────────────────────────────────────────────────
+ * Rotate through multiple CF Workers to avoid rate limiting on .ts segments
+ */
+const PROXY_WORKERS = [
+ 
+   "https://muddy-grass-267d.piracya.workers.dev/",
+ "https://soft-pine-fef5.piracya.workers.dev/",
+ "https://bitter-darkness-a64a.piracya.workers.dev/",
+ "https://shrill-recipe-569e.piracya.workers.dev/",
+ "https://fragrant-credit-afc4.piracya.workers.dev/",
+  "https://holy-math-0b13.piracya.workers.dev/",
+  "https://soft-star-14d4.piracya.workers.dev/",
+  "https://solitary-hat-5db7.piracya.workers.dev/",
+  "https://sparkling-star-f108.piracya.workers.dev/",
+  "https://super-meadow-1145.piracya.workers.dev/"
+];
+
+let proxyRotationIndex = 0;
+
+const getNextProxyWorker = (): string => {
+  const worker = PROXY_WORKERS[proxyRotationIndex % PROXY_WORKERS.length];
+  proxyRotationIndex++;
+  return worker;
+};
+
+const getRandomProxyWorker = (): string => {
+  return PROXY_WORKERS[Math.floor(Math.random() * PROXY_WORKERS.length)];
+};
+
+/**
+ * Replace proxy hosts in M3U8 segment URLs to distribute load
+ * Rotates through available workers for each segment
+ */
+const rotateProxiesInM3u8 = (m3u8Content: string): string => {
+  return m3u8Content.split('\n').map(line => {
+    if (line.startsWith('http') && line.includes('/ts-proxy')) {
+      // Replace the proxy host with a random worker
+      const url = new URL(line);
+      const randomProxy = getRandomProxyWorker();
+      url.hostname = new URL(randomProxy).hostname;
+      url.protocol = new URL(randomProxy).protocol;
+      return url.toString();
+    }
+    return line;
+  }).join('\n');
+};
+
+/**
+ * Add segment indices to M3U8 URLs so they route through ts-rotate distributor
+ * This enables proxy rotation every 50 segments
+ */
+const addSegmentIndicesToM3u8 = (m3u8Content: string, baseUrl: string): string => {
+  let segmentIndex = 0;
+  return m3u8Content.split('\n').map((line) => {
+    // Skip metadata and comments
+    if (line.startsWith('#')) return line;
+    
+    // Check if this is a .ts segment URL
+    if (line.startsWith('http') && (line.includes('.ts') || line.includes('/ts-proxy'))) {
+      const tsUrl = line.trim();
+      if (tsUrl) {
+        // Route through our ts-rotate distributor with segment index
+        const rotateUrl = `/api/player/ts-rotate?url=${encodeURIComponent(tsUrl)}&seg=${segmentIndex}`;
+        segmentIndex++;
+        return rotateUrl;
+      }
+    }
+    
+    return line;
+  }).join('\n');
+};
 const BACKFILL_PRIORITY_PROVIDERS = ["flowcast", "primevids", "guru"] as const;
 const MAX_BACKFILL_ATTEMPTS = 3;
 
@@ -1021,11 +1094,25 @@ export const GET = async (request: NextRequest) => {
   const { searchParams } = request.nextUrl;
   const requestParams = parseMediaRequest(searchParams);
   const shouldEncodeUrls = searchParams.get("raw") !== "1";
+  let sourceIndex = 0;
   const serializeSources = (sources: PlaylistSource[]) =>
-    sources.map((s) => ({
-      ...s,
-      file: shouldEncodeUrls ? encodePlayerStreamUrl(s.file) : s.file,
-    }));
+    sources.map((s) => {
+      let file = s.file;
+      // Rotate proxy workers for M3U8 URLs (every source gets a different proxy)
+      if (file.includes('/m3u8-proxy') || file.includes('/mp4-proxy')) {
+        const url = new URL(file);
+        const workerIndex = sourceIndex % PROXY_WORKERS.length;
+        const selectedProxy = new URL(PROXY_WORKERS[workerIndex]);
+        url.hostname = selectedProxy.hostname;
+        url.protocol = selectedProxy.protocol;
+        file = url.toString();
+        sourceIndex++;
+      }
+      return {
+        ...s,
+        file: shouldEncodeUrls ? encodePlayerStreamUrl(file) : file,
+      };
+    });
   const forwardedFor = request.headers.get("x-forwarded-for");
   const clientIp = forwardedFor?.split(",")[0]?.trim() || request.headers.get("x-real-ip") || null;
   const runContext: ScrapeRunContext = {

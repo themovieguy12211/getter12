@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-10T15:56:48.508Z",
+  "family": "rive",
+  "provider": "primevids",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "11"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=primevids&id=1622&season=1&episode=11",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

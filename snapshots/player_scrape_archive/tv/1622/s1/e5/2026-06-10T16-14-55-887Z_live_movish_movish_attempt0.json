@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-10T16:14:55.887Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "5"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/1622/1/5",
+  "status": 200,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "No video src in HTML"
+}

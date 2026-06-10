@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-10T15:55:38.320Z",
+  "family": "rive",
+  "provider": "ophim",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "7"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=ophim&id=1622&season=1&episode=7",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}
