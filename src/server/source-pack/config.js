@@ -20,7 +20,7 @@ export const SOURCES = [
     { key: 'vidapi', sourceFile: 'vidapi', label: 'Atlas', proxyParam: 'va', timeout: 25000, jitter: 500, retries: 2 },
     { key: 'fsonic', sourceFile: 'fsonic', label: 'Thunder', proxyParam: 'fn', timeout: 35000, jitter: 600, retries: 1 },
     { key: 'flaxmovies', sourceFile: 'flaxmovies', label: 'Vortex', proxyParam: 'fm', timeout: 15000, jitter: 500, retries: 2 },
-    { key: 'flixtrz', sourceFile: 'flixtrz', label: 'Radiant', proxyParam: 'fz', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'flixtrz', sourceFile: 'flixtrz', label: 'Radiant', proxyParam: 'fz', timeout: 25000, jitter: 600, retries: 2, disabled: true },
     { key: 'lookmovie', sourceFile: 'lookmovie', label: 'Vertex', proxyParam: 'lm', timeout: 30000, jitter: 700, retries: 2 },
     { key: 'miruro', sourceFile: 'miruro', label: 'Quasar', proxyParam: 'mr', timeout: 25000, jitter: 500, retries: 2 },
     { key: 'movsrc', sourceFile: 'movsrc', label: 'Surge', proxyParam: 'ms', timeout: 15000, jitter: 500, retries: 2 },
@@ -29,6 +29,8 @@ export const SOURCES = [
     { key: 'tryembed', sourceFile: 'tryembed', label: 'Pulse', proxyParam: 'te', timeout: 25000, jitter: 600, retries: 2 },
     { key: 'vapor', sourceFile: 'vapor', label: 'Eclipse', proxyParam: 'vp', timeout: 15000, jitter: 500, retries: 2 },
     { key: 'vidify', sourceFile: 'vidify', label: 'Nova', proxyParam: 'vi', timeout: 20000, jitter: 700, retries: 2 },
+    { key: 'streamvault', sourceFile: 'streamvault', label: 'StreamVault', proxyParam: 'sv', timeout: 20000, jitter: 500, retries: 2, disabled: true },
+    { key: 'movieboxonline', sourceFile: 'movieboxonline', label: 'MovieBox', proxyParam: 'mo', timeout: 15000, jitter: 500, retries: 2, disabled: true },
     { key: 'moviebite', sourceFile: 'moviebite', label: 'Orbit', proxyParam: 'bt', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true },
     {
         key: 'animehub',

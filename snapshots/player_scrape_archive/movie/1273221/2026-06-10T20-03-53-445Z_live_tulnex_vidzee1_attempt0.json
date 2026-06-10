@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-10T20:03:53.445Z",
+  "family": "tulnex",
+  "provider": "vidzee1",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1273221"
+  },
+  "url": "https://api.tulnex.com/vidzee/movie/1273221?server=1",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

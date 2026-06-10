@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-10T18:49:17.757Z",
+  "family": "movish",
+  "provider": "movish",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "15",
+    "episode": "3"
+  },
+  "url": "https://movish.net/moviebox-embed/tv/1622/15/3",
+  "status": 200,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "No video src in HTML"
+}

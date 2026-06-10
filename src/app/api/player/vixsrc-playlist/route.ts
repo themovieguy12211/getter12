@@ -962,84 +962,10 @@ const fetchMovishSources = async (
   requestParams: ParsedMediaRequest,
   runContext: ScrapeRunContext,
 ): Promise<PlaylistSource[]> => {
-  const embedUrl = requestParams.type === "movie"
-    ? `${MOVISH_ORIGIN}/moviebox-embed/movie/${requestParams.id}`
-    : `${MOVISH_ORIGIN}/moviebox-embed/tv/${requestParams.id}/${requestParams.season}/${requestParams.episode}`;
-
-  const fetchHeaders: HeaderMap = {
-    Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "en-US,en;q=0.9",
-    Referer: MOVISH_REFERER,
-    Origin: MOVISH_ORIGIN,
-    "User-Agent": USER_AGENT,
-  };
-
-  try {
-    const proxyUrl = buildWorkerApiProxyUrl(embedUrl, fetchHeaders);
-    const res = await fetchWithTimeout(proxyUrl, { cache: "no-store" }, REQUEST_TIMEOUT_MS);
-    if (!res?.ok) {
-      await archiveProviderResponse("movish", "movish", requestParams, runContext, {
-        url: embedUrl,
-        status: res?.status ?? null,
-        ok: false,
-        sourceCount: 0,
-        error: res ? `HTTP ${res.status}` : "timeout",
-      });
-      return [];
-    }
-
-    const html = await res.text();
-    const videoSrcMatch =
-      html.match(/<video[^>]*id=["']moviebox-player["'][^>]*\ssrc=["']([^"']+)["']/i) ??
-      html.match(/<video[^>]*\ssrc=["']([^"']+)["'][^>]*id=["']moviebox-player["']/i);
-
-    if (!videoSrcMatch?.[1]) {
-      await archiveProviderResponse("movish", "movish", requestParams, runContext, {
-        url: embedUrl,
-        status: res.status,
-        ok: false,
-        sourceCount: 0,
-        error: "No video src in HTML",
-      });
-      return [];
-    }
-
-    const rawSrc = videoSrcMatch[1];
-    let cdnUrl: string;
-    try {
-      const parsed = new URL(rawSrc.startsWith("http") ? rawSrc : `${MOVISH_ORIGIN}${rawSrc}`);
-      const inner = parsed.searchParams.get("url");
-      cdnUrl = inner ? decodeURIComponent(inner) : rawSrc;
-    } catch {
-      cdnUrl = rawSrc;
-    }
-
-    if (!cdnUrl.startsWith("http")) {
-      await archiveProviderResponse("movish", "movish", requestParams, runContext, {
-        url: embedUrl, status: res.status, ok: false, sourceCount: 0, error: `Invalid CDN URL: ${cdnUrl}`,
-      });
-      return [];
-    }
-
-    // Use 123movienow.cc Referer — hakunaymatata.com CDN allowlists this domain
-    const streamHeaders: HeaderMap = { Referer: "https://123movienow.cc/", Origin: "https://123movienow.cc" };
-    const isMp4 = /\.mp4($|\?)/i.test(cdnUrl);
-    const proxiedFile = isMp4
-      ? buildWorkerMp4ProxyUrl(cdnUrl, streamHeaders)
-      : buildWorkerM3u8ProxyUrl(cdnUrl, streamHeaders);
-
-    await archiveProviderResponse("movish", "movish", requestParams, runContext, {
-      url: embedUrl, status: res.status, ok: true, sourceCount: 1,
-    });
-    console.log(`[Movish] Found ${isMp4 ? "MP4" : "HLS"} for ${requestParams.type} ${requestParams.id}`);
-    return [{ type: "hls", file: proxiedFile, label: "NovaCast", provider: "movish" }];
-  } catch (e) {
-    await archiveProviderResponse("movish", "movish", requestParams, runContext, {
-      url: embedUrl, status: null, ok: false, sourceCount: 0,
-      error: e instanceof Error ? e.message : String(e),
-    });
-    return [];
-  }
+  // Movish uses runtime JavaScript to load stream URLs - requires headless browser rendering
+  // Disabled for now since it can't work with simple server-side HTML parsing
+  console.log(`[Movish] DISABLED - requires browser rendering`);
+  return [];
 };
 
 const dedupeSources = (sources: PlaylistSource[]): PlaylistSource[] => {

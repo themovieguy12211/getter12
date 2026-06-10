@@ -1,0 +1,16 @@
+{
+  "createdAt": "2026-06-10T19:50:49.074Z",
+  "family": "streamvault",
+  "provider": "streamvault",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "936075"
+  },
+  "url": "https://streamvaultsrc.click/api/embed-streams/sse/movie/936075",
+  "status": 403,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "HTTP 403"
+}

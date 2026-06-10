@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-10T18:00:43.671Z",
+  "family": "tulnex",
+  "provider": "primeshows",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "931285"
+  },
+  "url": "https://api.tulnex.com/indra/movie/931285",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

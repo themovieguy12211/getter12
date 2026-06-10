@@ -24,8 +24,7 @@ function slugify(name) {
 }
 
 async function tmdbSlug(id, isMovie) {
-    const k = process.env.TMDB_API_KEY;
-    if (!k) throw new Error('no TMDB key');
+    const k = process.env.TMDB_API_KEY || '338a47b75eab45d9e64e67088f910f93';
     const url = isMovie
         ? `https://api.themoviedb.org/3/movie/${id}?api_key=${k}`
         : `https://api.themoviedb.org/3/tv/${id}?api_key=${k}`;

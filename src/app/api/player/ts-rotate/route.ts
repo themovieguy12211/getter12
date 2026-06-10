@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
  */
 
 const PROXY_WORKERS = [
-  "https://cdn.piracy.cloud/",
+
   "https://muddy-grass-267d.piracya.workers.dev/",
   "https://small-cake-fdee.piracya.workers.dev/",
   "https://holy-math-0b13.piracya.workers.dev/",
