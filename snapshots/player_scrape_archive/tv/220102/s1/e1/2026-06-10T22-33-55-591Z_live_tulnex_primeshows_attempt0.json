@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-10T22:33:55.591Z",
+  "family": "tulnex",
+  "provider": "primeshows",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "220102",
+    "season": "1",
+    "episode": "1"
+  },
+  "url": "https://api.tulnex.com/indra/tv/220102/1/1",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

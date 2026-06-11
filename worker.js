@@ -7,6 +7,7 @@ const DEFAULT_ALLOWED_HOSTS = [
   "localhost:3038",
   "127.0.0.1:3038",
   "localhost",
+  "piracy.cloud"
 ];
 
 // --- HELPERS ---

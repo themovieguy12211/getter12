@@ -8,7 +8,15 @@ const SERVERS = ['snake', 'vulture', 'viper', 'panther', 'eagle', 'turtle', 'pho
 
 export const CDN_HEADERS = [
     {
-        pattern: /toustream\.xyz|cdn\.1shows\.app/,
+        pattern: /cdn\.1shows\.app/,
+        headers: {
+            'Referer': 'https://1shows.app/',
+            'Origin': 'https://1shows.app',
+            'User-Agent': UA,
+        },
+    },
+    {
+        pattern: /toustream\.xyz/,
         headers: {
             'Referer': 'https://toustream.xyz/',
             'Origin': 'https://toustream.xyz',
@@ -58,9 +66,26 @@ export async function getStream(id, season, episode, clientIp) {
                 // Decode the URL (it's URL encoded)
                 let streamUrl = decodeURIComponent(data.Auto);
                 
+                // Extract CDN URL and origin from proxy wrapper if present
+                // Format: https://toustream.xyz/tou/bp/?url=https://cdn.1shows.app/...&origin=https://...
+                const urlParam = streamUrl.match(/[?&]url=([^&]+)/);
+                const originParam = streamUrl.match(/[?&]origin=([^&]+)/);
+                
+                if (urlParam) {
+                    streamUrl = decodeURIComponent(urlParam[1]);
+                }
+                
                 // If it's a relative proxy path, make it absolute
                 if (streamUrl.startsWith('/tou/')) {
                     streamUrl = 'https://toustream.xyz' + streamUrl;
+                }
+                
+                // Determine the correct referrer based on the CDN host
+                let referer = 'https://toustream.xyz';
+                if (streamUrl.includes('cdn.1shows.app')) {
+                    referer = 'https://1shows.app';
+                } else if (originParam) {
+                    referer = decodeURIComponent(originParam[1]);
                 }
                 
                 console.log(`[TouStream] Found stream from ${server}: ${streamUrl.substring(0, 80)}...`);
@@ -68,8 +93,8 @@ export async function getStream(id, season, episode, clientIp) {
                 allUrls.push({
                     url: streamUrl,
                     headers: {
-                        'Referer': 'https://toustream.xyz',
-                        'Origin': 'https://toustream.xyz',
+                        'Referer': referer,
+                        'Origin': referer.replace(/\/$/, ''),
                     },
                 });
             } catch (e) {

@@ -203,7 +203,51 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
               m3u8: function (this: ArtPlayer, video: HTMLVideoElement, url: string) {
                 const existing = (this as any).hls as Hls | undefined;
                 if (existing) existing.destroy();
-                const hls = new Hls();
+                const hls = new Hls({
+                  maxLoadingDelay: 4,
+                  minAutoBitrate: 0,
+                  maxBufferLength: 30,
+                  maxMaxBufferLength: 60,
+                  backBufferLength: 30,
+                });
+                
+                let segment403Count = 0;
+                let lastReloadTime = 0;
+                let isReloading = false;
+                const RELOAD_COOLDOWN_MS = 5000; // 5 second cooldown between reloads
+                const THRESHOLD_403 = 20; // Increased threshold to prevent false positives
+                
+                // On segment 403, resume loading without disrupting stream
+                hls.on(Hls.Events.ERROR, (event: any, data: any) => {
+                  if (data.type === "networkError" && data.response?.code === 403 && data.details === "fragLoadError") {
+                    segment403Count++;
+                    console.warn(`[HLS] Segment 403 (count: ${segment403Count}/${THRESHOLD_403})`);
+                    
+                    // Resume loading if threshold reached and cooldown elapsed
+                    const now = Date.now();
+                    if (segment403Count >= THRESHOLD_403 && !isReloading && now - lastReloadTime >= RELOAD_COOLDOWN_MS) {
+                      isReloading = true;
+                      lastReloadTime = now;
+                      segment403Count = 0; // Reset counter after retry
+                      
+                      console.warn(`[HLS] Resuming manifest load due to persistent 403 errors (no stream interruption)`);
+                      
+                      // Resume loading without disrupting playback - just tell HLS to retry
+                      hls.startLoad();
+                      
+                      // Clear reload flag after a moment
+                      setTimeout(() => {
+                        isReloading = false;
+                      }, 1000);
+                    }
+                  }
+                });
+                
+                // Reset 403 counter on successful segment load
+                hls.on(Hls.Events.FRAG_LOADED, () => {
+                  segment403Count = 0;
+                });
+                
                 hls.loadSource(url);
                 hls.attachMedia(video);
                 (this as any).hls = hls;

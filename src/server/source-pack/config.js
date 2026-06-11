@@ -25,7 +25,7 @@ export const SOURCES = [
     { key: 'miruro', sourceFile: 'miruro', label: 'Quasar', proxyParam: 'mr', timeout: 25000, jitter: 500, retries: 2 },
     { key: 'movsrc', sourceFile: 'movsrc', label: 'Surge', proxyParam: 'ms', timeout: 15000, jitter: 500, retries: 2 },
     { key: 'peachify', sourceFile: 'peachify', label: 'Apex', proxyParam: 'pf', timeout: 25000, jitter: 600, retries: 2 },
-    { key: 'toustream', sourceFile: 'toustream', label: 'Torrent', proxyParam: 'ts', timeout: 25000, jitter: 700, retries: 2 },
+    { key: 'toustream', sourceFile: 'toustream', label: 'Torrent', proxyParam: 'ts', timeout: 25000, jitter: 700, retries: 2, disabled: true },
     { key: 'tryembed', sourceFile: 'tryembed', label: 'Pulse', proxyParam: 'te', timeout: 25000, jitter: 600, retries: 2 },
     { key: 'vapor', sourceFile: 'vapor', label: 'Eclipse', proxyParam: 'vp', timeout: 15000, jitter: 500, retries: 2 },
     { key: 'vidify', sourceFile: 'vidify', label: 'Nova', proxyParam: 'vi', timeout: 20000, jitter: 700, retries: 2 },

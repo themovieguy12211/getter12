@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-11T00:41:02.758Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "4",
+    "episode": "22"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/tv/1622/4/22?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

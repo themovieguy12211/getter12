@@ -1,0 +1,30 @@
+{
+  "createdAt": "2026-06-10T23:22:47.194Z",
+  "family": "streamvault",
+  "provider": "streamvault",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "1"
+  },
+  "url": "https://streamvaultsrc.click/api/embed-streams/sse/tv/1622/1/1",
+  "status": 200,
+  "ok": true,
+  "sourceCount": 8,
+  "responseText": "data: {\"url\":\"\",\"quality\":\"LS-25\",\"type\":\"hls\",\"provider\":\"Moonstone\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRmdvb2RzdHJlYW0uY2MlMkZzdHJlYW1zdnIlMkZ0S3VGc2VIV2JEJTJGMS02JTNGZSUzRE5sZFRTekZOTHpWbE9HSlpXbEJ3WWtoWlMxWm1WM1UyVkZsSmFubFNWVnBsUVZOTVJUTjRNWHBtUlQwVSZoPSU3QiUyMlJlZmVyZXIlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnZpZG5lc3QuZnVuJTJGJTIyJTdE\"}\n\ndata: {\"url\":\"\",\"quality\":\"GS-25\",\"type\":\"hls\",\"provider\":\"Moonstone\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRmdvb2RzdHJlYW0uY2MlMkZwbCUyRjBPRWQ2YzdJNTUzVTVlMSUyRjAtNiUzRmUlM0RObGRUU3pGTkx6VmxPR0paV2xCd1lraFpTMVptVjNVMlZGbEphbmxTVlZwbFFWTk1SVE40TVhwbVJUMFUmaD0lN0IlMjJSZWZlcmVyJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZ2aWRuZXN0LmZ1biUyRiUyMiU3RA==\"}\n\ndata: {\"url\":\"\",\"quality\":\"1080p\",\"type\":\"hls\",\"provider\":\"Aragonite\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRnN0b3JycnJycm0uc2l0ZSUyRnN0cmVhbSUyRjVlYzI5ZGMzNGUwY2FjNGElMkZtYXN0ZXIubTN1OCZoPSU3QiUyMlJlZmVyZXIlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnZpZHJvY2sucnUlMkYlMjIlN0Q=\"}\n\ndata: {\"url\":\"\",\"quality\":\"1080p\",\"type\":\"hls\",\"provider\":\"Aragonite\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRm9yaW9uLmh5ZHJvc3Rvcm0ud29ya2Vycy5kZXYlMkZmaWxlMiUyRmUzZjdmMTYyMTkzYjRhMDlkYTkyMmRlYjg0NGExNzM2YWQwYTYwZmI3ODgzODEwZGU5OWE0YzNlZDQ2NWUxOTIlMkZtYXN0ZXIubTN1OCZoPSU3QiUyMlJlZmVyZXIlMjIlM0ElMjJodHRwcyUzQSUyRiUyRnZpZHJvY2sucnUlMkYlMjIlN0Q=\"}\n\ndata: {\"url\":\"\",\"quality\":\"720p\",\"type\":\"mp4\",\"provider\":\"Tourmaline\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvc2VnP3U9aHR0cHMlM0ElMkYlMkZwcm94eS52YWxoYWxsYXN0cmVhbS5kcGRucy5vcmclMkZwcm94eSUzRnVybCUzRGh0dHBzJTI1M0ElMjUyRiUyNTJGYmNkbnh3Lmhha3VuYXltYXRhdGEuY29tJTI1MkZyZXNvdXJjZSUyNTJGOGI1ODllNzM4NWEyOTM2Y2Y0YzYyY2QxMjA0YmMzNDMubXA0JTI1M0ZzaWduJTI1M0RkZDNlMTFmYjAzYjY3ZGZkOTk1NmNlNGIyMjM0YzA2MSUyNTI2dCUyNTNEMTc4MTExOTQzNiUyNmhlYWRlcnMlM0QlMjU3QiUyNTIyUmVmZXJlciUyNTIyJTI1M0ElMjUyMmh0dHBzJTI1M0ElMjUyRiUyNTJGMTIzbW92aWVub3cuY2MlMjUyRiUyNTIyJTI1MkMlMjUyMk9yaWdpbiUyNTIyJTI1M0ElMjUyMmh0dHBzJTI1M0ElMjUyRiUyNTJGMTIzbW92aWVub3cuY2MlMjUyMiUyNTdEJmg9JTdCJTIyUmVmZXJlciUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGcml2ZXN0cmVhbS50b3AlMkYlMjIlMkMlMjJPcmlnaW4lMjIlM0ElMjJodHRwcyUzQSUyRiUyRnJpdmVzdHJlYW0udG9wJTIyJTdE\"}\n\ndata: {\"url\":\"\",\"quality\":\"360p\",\"type\":\"mp4\",\"provider\":\"Tourmaline\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvc2VnP3U9aHR0cHMlM0ElMkYlMkZwcm94eS52YWxoYWxsYXN0cmVhbS5kcGRucy5vcmclMkZwcm94eSUzRnVybCUzRGh0dHBzJTI1M0ElMjUyRiUyNTJGYmNkbnh3Lmhha3VuYXltYXRhdGEuY29tJTI1MkZyZXNvdXJjZSUyNTJGZThhZjkxNGRlOTU2YjE4YTM3Y2EyODYwZjZkYzc4MGIubXA0JTI1M0ZzaWduJTI1M0Q5YWM2ZTM5ZjJkZGVmYWVjODRjY2QzNDgzNGE5YzNiMyUyNTI2dCUyNTNEMTc4MTExOTQzNiUyNmhlYWRlcnMlM0QlMjU3QiUyNTIyUmVmZXJlciUyNTIyJTI1M0ElMjUyMmh0dHBzJTI1M0ElMjUyRiUyNTJGMTIzbW92aWVub3cuY2MlMjUyRiUyNTIyJTI1MkMlMjUyMk9yaWdpbiUyNTIyJTI1M0ElMjUyMmh0dHBzJTI1M0ElMjUyRiUyNTJGMTIzbW92aWVub3cuY2MlMjUyMiUyNTdEJmg9JTdCJTIyUmVmZXJlciUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGcml2ZXN0cmVhbS50b3AlMkYlMjIlMkMlMjJPcmlnaW4lMjIlM0ElMjJodHRwcyUzQSUyRiUyRnJpdmVzdHJlYW0udG9wJTIyJTdE\"}\n\ndata: {\"url\":\"\",\"quality\":\"auto\",\"type\":\"hls\",\"provider\":\"Tourmaline\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRmNkbi4xc2hvd3MuYXBwJTJGZSUyRkZRQk9ibGRXVms1Y1hGQSUyRm1hc3Rlci5tM3U4Jmg9JTdCJTIyUmVmZXJlciUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGcml2ZXN0cmVhbS50b3AlMkYlMjIlMkMlMjJPcmlnaW4lMjIlM0ElMjJodHRwcyUzQSUyRiUyRnJpdmVzdHJlYW0udG9wJTIyJTdE\"}\n\ndata: {\"url\":\"\",\"quality\":\"auto\",\"type\":\"hls\",\"provider\":\"Tourmaline\",\"headers\":{},\"url_b64\":\"aHR0cHM6Ly9zdHJlYW12YXVsdHNyYy5jbGljay9zdHJlYW0tcHJveHkvcGw/dT1odHRwcyUzQSUyRiUyRnR3aWxpZ2h0LWRldy04ODcyLjkxLTdlMy53b3JrZXJzLmRldiUyRnR2JTJGV2t1SnhOZ1lQbVpJeDNub0FIRjR3ejFCMXZleDZFakJIS3Fwbzc5TDRJSUtVdkNBR1RRc2lzb21kYUpXbEhDMi5PLVFTVWRScSUyRmluZGV4Lm0zdTgmaD0lN0IlMjJSZWZlcmVyJTIyJTNBJTIyaHR0cHMlM0ElMkYlMkZyaXZlc3RyZWFtLnRvcCUyRiUyMiUyQyUyMk9yaWdpbiUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGcml2ZXN0cmVhbS50b3AlMjIlN0Q=\"}\n\ndata: {\"done\":true}\n\n",
+  "extra": {
+    "providers": [
+      "Moonstone",
+      "Moonstone",
+      "Aragonite",
+      "Aragonite",
+      "Tourmaline",
+      "Tourmaline",
+      "Tourmaline",
+      "Tourmaline"
+    ]
+  }
+}
