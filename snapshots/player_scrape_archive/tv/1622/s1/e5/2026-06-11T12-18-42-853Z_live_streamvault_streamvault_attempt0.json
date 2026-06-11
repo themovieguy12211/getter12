@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-11T12:18:42.853Z",
+  "family": "streamvault",
+  "provider": "streamvault",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "5"
+  },
+  "url": "https://streamvaultsrc.click/api/embed-streams/sse/tv/1622/1/5",
+  "status": 403,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "HTTP 403"
+}

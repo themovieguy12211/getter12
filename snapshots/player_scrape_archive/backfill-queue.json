@@ -680,44 +680,6 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "tv_1622_s1_e7",
-    "request": {
-      "type": "tv",
-      "id": "1622",
-      "season": "1",
-      "episode": "7"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-10T21:56:02.793Z",
-    "createdAt": "2026-06-10T15:56:02.793Z",
-    "updatedAt": "2026-06-10T15:56:02.793Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
-    "requestKey": "tv_1622_s1_e8",
-    "request": {
-      "type": "tv",
-      "id": "1622",
-      "season": "1",
-      "episode": "8"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-10T21:56:42.776Z",
-    "createdAt": "2026-06-10T15:56:42.776Z",
-    "updatedAt": "2026-06-10T15:56:42.776Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
     "requestKey": "tv_1622_s1_e11",
     "request": {
       "type": "tv",
@@ -729,25 +691,6 @@
     "dueAt": "2026-06-10T21:57:13.402Z",
     "createdAt": "2026-06-10T15:57:13.402Z",
     "updatedAt": "2026-06-10T15:57:13.402Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
-    "requestKey": "tv_1622_s1_e6",
-    "request": {
-      "type": "tv",
-      "id": "1622",
-      "season": "1",
-      "episode": "6"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-10T22:16:03.981Z",
-    "createdAt": "2026-06-10T16:16:03.981Z",
-    "updatedAt": "2026-06-10T16:16:03.981Z",
     "missingProviders": [
       "flowcast",
       "guru",
@@ -1044,17 +987,36 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "tv_1622_s1_e4",
+    "requestKey": "tv_1622_s4_e22",
     "request": {
       "type": "tv",
       "id": "1622",
-      "season": "1",
-      "episode": "4"
+      "season": "4",
+      "episode": "22"
     },
     "attempts": 0,
-    "dueAt": "2026-06-11T17:12:52.468Z",
-    "createdAt": "2026-06-11T10:36:52.441Z",
-    "updatedAt": "2026-06-11T11:12:52.468Z",
+    "dueAt": "2026-06-11T17:13:12.200Z",
+    "createdAt": "2026-06-10T20:28:41.103Z",
+    "updatedAt": "2026-06-11T11:13:12.200Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s5_e1",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "5",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T17:53:48.151Z",
+    "createdAt": "2026-06-11T11:53:38.319Z",
+    "updatedAt": "2026-06-11T11:53:48.151Z",
     "missingProviders": [
       "flowcast",
       "guru",
@@ -1071,9 +1033,47 @@
       "episode": "3"
     },
     "attempts": 0,
-    "dueAt": "2026-06-11T17:12:53.856Z",
+    "dueAt": "2026-06-11T18:06:04.953Z",
     "createdAt": "2026-06-11T10:36:41.334Z",
-    "updatedAt": "2026-06-11T11:12:53.856Z",
+    "updatedAt": "2026-06-11T12:06:04.953Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s1_e4",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "4"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T18:14:39.184Z",
+    "createdAt": "2026-06-11T10:36:52.441Z",
+    "updatedAt": "2026-06-11T12:14:39.184Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s1_e6",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "6"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T18:24:50.374Z",
+    "createdAt": "2026-06-10T16:16:03.981Z",
+    "updatedAt": "2026-06-11T12:24:50.374Z",
     "missingProviders": [
       "flowcast",
       "guru",
@@ -1090,9 +1090,9 @@
       "episode": "5"
     },
     "attempts": 0,
-    "dueAt": "2026-06-11T17:13:09.902Z",
+    "dueAt": "2026-06-11T18:28:14.646Z",
     "createdAt": "2026-06-10T16:15:20.529Z",
-    "updatedAt": "2026-06-11T11:13:09.902Z",
+    "updatedAt": "2026-06-11T12:28:14.646Z",
     "missingProviders": [
       "flowcast",
       "guru",
@@ -1101,17 +1101,74 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "tv_1622_s4_e22",
+    "requestKey": "tv_1622_s1_e8",
     "request": {
       "type": "tv",
       "id": "1622",
-      "season": "4",
-      "episode": "22"
+      "season": "1",
+      "episode": "8"
     },
     "attempts": 0,
-    "dueAt": "2026-06-11T17:13:12.200Z",
-    "createdAt": "2026-06-10T20:28:41.103Z",
-    "updatedAt": "2026-06-11T11:13:12.200Z",
+    "dueAt": "2026-06-11T18:39:14.296Z",
+    "createdAt": "2026-06-10T15:56:42.776Z",
+    "updatedAt": "2026-06-11T12:39:14.296Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s1_e7",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "7"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T18:39:18.368Z",
+    "createdAt": "2026-06-10T15:56:02.793Z",
+    "updatedAt": "2026-06-11T12:39:18.368Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s1_e9",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "9"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T18:54:53.934Z",
+    "createdAt": "2026-06-11T12:39:26.140Z",
+    "updatedAt": "2026-06-11T12:54:53.934Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s1_e10",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "1",
+      "episode": "10"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-11T19:01:25.977Z",
+    "createdAt": "2026-06-11T12:55:10.415Z",
+    "updatedAt": "2026-06-11T13:01:25.977Z",
     "missingProviders": [
       "flowcast",
       "guru",

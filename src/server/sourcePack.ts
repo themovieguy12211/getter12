@@ -99,36 +99,40 @@ const SOURCE_PACK_SKIP_KEYS = new Set([
 const SOURCE_PACK_DOWNLOAD_KEYS = new Set(["02movie", "moviebox"]);
 
 const SOURCE_PACK_ORDER: Record<string, number> = {
-  vidzee: 1,
-  toustream: 2,
-  meowtv: 3,
-  flixhq: 4,
-  cinesu: 5,
-  icefy: 6,
-  vidrock: 7,
-  vixsrc: 8,
-  videasy: 9,
-  "02movie": 10,
-  cinezo: 11,
-  vidfun: 12,
-  fsharetv: 13,
-  vidapi: 14,
-  fsonic: 15,
-  flaxmovies: 16,
-  flixtrz: 17,
-  lookmovie: 18,
-  miruro: 19,
-  movsrc: 20,
-  peachify: 21,
-  tryembed: 22,
-  vapor: 23,
-  vidify: 24,
-  streamvault: 24,
-  movieboxonline: 25,
-  moviebite: 25,
-  animehub: 26,
-  "kiroku-sub": 27,
-  "kiroku-dub": 28,
+  notorrent: 0,
+  lordflix: 1,
+  vidzee: 2,
+  toustream: 3,
+  meowtv: 4,
+  flixhq: 5,
+  cinesu: 6,
+  icefy: 7,
+  vidrock: 8,
+  vixsrc: 9,
+  videasy: 10,
+  "02movie": 11,
+  cinezo: 12,
+  vidfun: 13,
+  fsharetv: 14,
+  vidapi: 15,
+  fsonic: 16,
+  flaxmovies: 17,
+  flixtrz: 18,
+  lookmovie: 19,
+  miruro: 20,
+  movsrc: 21,
+  peachify: 22,
+  tryembed: 23,
+  vapor: 24,
+  vidify: 25,
+  streamvault: 25,
+  movieboxonline: 26,
+  moviebite: 26,
+  animehub: 27,
+  "kiroku-sub": 28,
+  "kiroku-dub": 29,
+  dahmermovies: 30,
+  "4khdhub": 31,
 };
 
 const SUBTITLE_BASES = [
@@ -295,13 +299,17 @@ const inferKind = (url: string): "hls" | "mp4" => {
   const lowerUrl = url.toLowerCase();
   if (
     lowerUrl.includes(".m3u8") ||
+    lowerUrl.includes(".ts") ||
     lowerUrl.includes("mpegurl") ||
     lowerUrl.includes("/playlist/") ||
     lowerUrl.includes("/stream/master/") ||
     lowerUrl.includes("/stream/variant/") ||
     lowerUrl.includes("/master.m3u8") ||
     lowerUrl.includes("/list.m3u8") ||
-    lowerUrl.includes("rendition=")
+    lowerUrl.includes("rendition=") ||
+    // Stremio addon URLs are typically HLS playlists
+    lowerUrl.includes("notorrent") ||
+    lowerUrl.includes("stremio")
   ) {
     return "hls";
   }

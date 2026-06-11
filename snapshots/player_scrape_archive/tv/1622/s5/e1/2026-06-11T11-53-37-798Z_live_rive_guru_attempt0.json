@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-11T11:53:37.798Z",
+  "family": "rive",
+  "provider": "guru",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "5",
+    "episode": "1"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=guru&id=1622&season=5&episode=1",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

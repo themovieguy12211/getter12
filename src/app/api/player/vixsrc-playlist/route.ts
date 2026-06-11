@@ -113,7 +113,14 @@ const addSegmentIndicesToM3u8 = (m3u8Content: string, baseUrl: string): string =
     if (line.startsWith('http') && (line.includes('.ts') || line.includes('/ts-proxy'))) {
       const tsUrl = line.trim();
       if (tsUrl) {
-        // Route through our ts-rotate distributor with segment index
+        // Skip CF Worker rotation for pre-proxied services
+        // NotOrrent/Stremio segments come from workers.dev which are already proxies
+        // Re-proxying through /ts-proxy causes 400 errors due to auth token mismatch
+        if (tsUrl.includes('notorrent') || tsUrl.includes('stremio') || tsUrl.includes('workers.dev')) {
+          return tsUrl; // Play directly from the proxy service
+        }
+        
+        // Route normal segments through our ts-rotate distributor with segment index
         const rotateUrl = `/api/player/ts-rotate?url=${encodeURIComponent(tsUrl)}&seg=${segmentIndex}`;
         segmentIndex++;
         return rotateUrl;

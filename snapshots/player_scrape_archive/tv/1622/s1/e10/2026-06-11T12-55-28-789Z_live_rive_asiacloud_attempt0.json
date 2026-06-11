@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-11T12:55:28.789Z",
+  "family": "rive",
+  "provider": "asiacloud",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "1",
+    "episode": "10"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=asiacloud&id=1622&season=1&episode=10",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}
