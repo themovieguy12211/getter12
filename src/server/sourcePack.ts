@@ -309,7 +309,10 @@ const inferKind = (url: string): "hls" | "mp4" => {
     lowerUrl.includes("rendition=") ||
     // Stremio addon URLs are typically HLS playlists
     lowerUrl.includes("notorrent") ||
-    lowerUrl.includes("stremio")
+    lowerUrl.includes("stremio") ||
+    // Lordflix/tcloud proxy URLs wrap HLS streams
+    lowerUrl.includes("tcloud") ||
+    lowerUrl.includes("lordflix")
   ) {
     return "hls";
   }

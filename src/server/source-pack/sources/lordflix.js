@@ -7,7 +7,7 @@ const LORDFLIX_HEADERS = {
 
 const LORDFLIX_API = 'https://snowhouse.lordflix.club';
 const MULTI_DECRYPT_API = 'https://enc-dec.app/api';
-const SERVERS = ['Berlin', 'Marseille', 'Backrooms', 'Phoenix', 'Oslo', 'Luna', 'Sakura', 'Rio', 'Ativa', 'Moscow'];
+const SERVERS = ['Phoenix'];
 
 function encodeQuote(str) {
     return encodeURIComponent(str).replace(/%20/g, '+').replace(/\+/g, '%20');

@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-11T13:20:58.156Z",
+  "family": "tulnex",
+  "provider": "vidzee1",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "5",
+    "episode": "3"
+  },
+  "url": "https://api.tulnex.com/vidzee/tv/1622/5/3?server=1",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

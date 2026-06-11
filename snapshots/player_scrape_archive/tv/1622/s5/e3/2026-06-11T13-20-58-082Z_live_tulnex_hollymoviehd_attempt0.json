@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-11T13:20:58.082Z",
+  "family": "tulnex",
+  "provider": "hollymoviehd",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "5",
+    "episode": "3"
+  },
+  "url": "https://api.tulnex.com/provider/hollymoviehd/tv/1622/5/3",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

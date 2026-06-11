@@ -109,14 +109,15 @@ const addSegmentIndicesToM3u8 = (m3u8Content: string, baseUrl: string): string =
     // Skip metadata and comments
     if (line.startsWith('#')) return line;
     
-    // Check if this is a .ts segment URL
+    // Check if this is a .ts segment URL or proxy wrapper
     if (line.startsWith('http') && (line.includes('.ts') || line.includes('/ts-proxy'))) {
       const tsUrl = line.trim();
       if (tsUrl) {
         // Skip CF Worker rotation for pre-proxied services
         // NotOrrent/Stremio segments come from workers.dev which are already proxies
-        // Re-proxying through /ts-proxy causes 400 errors due to auth token mismatch
-        if (tsUrl.includes('notorrent') || tsUrl.includes('stremio') || tsUrl.includes('workers.dev')) {
+        // Lordflix/tcloud segments are wrapped by Lordflix's proxy
+        // Re-proxying through /ts-proxy causes issues with auth tokens
+        if (tsUrl.includes('notorrent') || tsUrl.includes('stremio') || tsUrl.includes('workers.dev') || tsUrl.includes('tcloud') || tsUrl.includes('lordflix')) {
           return tsUrl; // Play directly from the proxy service
         }
         

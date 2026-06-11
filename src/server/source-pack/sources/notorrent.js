@@ -71,8 +71,6 @@ export async function getStream(tmdbId, season, episode, clientIp) {
         for (const item of rawList) {
             if (item.externalUrl || !item.url) continue;
             if (item.url.includes('github.com') || item.url.includes('googleusercontent')) continue;
-            // Only include .m3u8 streams (working ones)
-            if (!item.url.includes('.m3u8')) continue;
 
             const cleanTitleStr = cleanText(item.title || '');
             const quality = extractQuality(cleanTitleStr);

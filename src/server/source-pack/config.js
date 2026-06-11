@@ -53,7 +53,7 @@ export const SOURCES = [
     },
     { key: 'kiroku-sub', sourceFile: 'kiroku', label: 'Arcadia Sub', proxyParam: 'ks', timeout: 25000, jitter: 300, retries: 2, objectArgs: true, skipProxy: true },
     { key: 'kiroku-dub', sourceFile: 'kiroku', label: 'Arcadia Dub', proxyParam: 'kd', timeout: 25000, jitter: 300, retries: 2, objectArgs: true, skipProxy: true },
-    { key: 'notorrent', sourceFile: 'notorrent', label: 'Nexus', proxyParam: 'nt', timeout: 25000, jitter: 600, retries: 2 },
+    { key: 'notorrent', sourceFile: 'notorrent', label: 'Nexus', proxyParam: 'nt', timeout: 25000, jitter: 600, retries: 2, disabled: true },
     { key: 'lordflix', sourceFile: 'lordflix', label: 'Crown', proxyParam: 'lf', timeout: 25000, jitter: 600, retries: 2 },
     { key: 'dahmermovies', sourceFile: 'dahmermovies', label: 'DahmerMovies', proxyParam: 'dm', timeout: 25000, jitter: 600, retries: 2 },
     { key: '4khdhub', sourceFile: '4khdhub', label: '4KHDHub', proxyParam: '4k', timeout: 30000, jitter: 700, retries: 2 },
