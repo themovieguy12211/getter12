@@ -1082,10 +1082,9 @@ export const GET = async (request: NextRequest) => {
 
   console.log(`[Rive Response] Processing ${requestParams.type} (${requestParams.id})`);
 
-  const [rivResults, tulnexResults, streamVaultSources, movishResult, sourcePackSources] = await Promise.all([
+  const [rivResults, tulnexResults, movishResult, sourcePackSources] = await Promise.all([
     Promise.allSettled(PROVIDERS.map((p) => fetchProviderSources(p, requestParams, runContext))),
     Promise.allSettled(TULNEX_PROVIDERS.map((p) => fetchTulnexProviderSources(p, requestParams, runContext))),
-    fetchStreamVaultSources(requestParams, runContext),
     fetchMovishSources(requestParams, runContext),
     fetchSourcePackSources(requestParams, clientIp),
   ]);
@@ -1118,9 +1117,6 @@ export const GET = async (request: NextRequest) => {
       allSources.push(...result.value);
     }
   });
-
-  // Add StreamVault sources but don't log them separately
-  allSources.push(...streamVaultSources);
 
   // Add Movish sources (kept separate — excluded from cache due to time-limited signed URLs)
   const movishSources = Array.isArray(movishResult) ? movishResult : [];
