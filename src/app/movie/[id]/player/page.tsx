@@ -10,6 +10,9 @@ import { useQuery } from "@tanstack/react-query";
 import { NextPage } from "next";
 import { notFound } from "next/navigation";
 import { use } from "react";
+import dynamic from "next/dynamic";
+
+const AdNetworkScript = dynamic(() => import("@/components/ui/layout/AdNetworkScript"));
 
 const MoviePlayerPage: NextPage<Params<{ id: number }>> = ({ params }) => {
   const { id } = use(params);
@@ -65,7 +68,12 @@ const MoviePlayerPage: NextPage<Params<{ id: number }>> = ({ params }) => {
 
   if (error || isEmpty(movie)) return notFound();
 
-  return <MoviePlayer movie={movie} startAt={startAt} piracyEmbedUrl={piracyEmbedUrl} customEmbeds={customEmbeds} />;
+  return (
+    <>
+      <AdNetworkScript />
+      <MoviePlayer movie={movie} startAt={startAt} piracyEmbedUrl={piracyEmbedUrl} customEmbeds={customEmbeds} />
+    </>
+  );
 };
 
 export default MoviePlayerPage;

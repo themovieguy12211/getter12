@@ -23,8 +23,6 @@ export async function GET(request: NextRequest) {
 
   if (type === "tv" && season && episode) {
     query = query.eq("season", Number(season)).eq("episode", Number(episode));
-  } else if (type === "movie") {
-    query = query.is("season", null).is("episode", null);
   }
 
   const { data } = await query;

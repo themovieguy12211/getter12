@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-14T17:25:53.625Z",
+  "family": "tulnex",
+  "provider": "hollymoviehd",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "936075"
+  },
+  "url": "https://api.tulnex.com/provider/hollymoviehd/movie/936075",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

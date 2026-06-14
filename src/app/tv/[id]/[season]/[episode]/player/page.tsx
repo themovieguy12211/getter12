@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 import { NextPage } from "next";
 import { getTvShowLastPosition } from "@/actions/histories";
 const TvShowPlayer = dynamic(() => import("@/components/sections/TV/Player/Player"));
+const AdNetworkScript = dynamic(() => import("@/components/ui/layout/AdNetworkScript"));
 
 const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: number }>> = ({
   params,
@@ -106,19 +107,22 @@ const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: n
     currentEpisodeIndex > 0 ? seasonDetail.episodes[currentEpisodeIndex - 1].episode_number : null;
 
   return (
-    <TvShowPlayer
-      tv={tv}
-      id={id}
-      seriesName={tv.name}
-      seasonName={seasonDetail.name}
-      episode={EPISODE}
-      episodes={seasonDetail.episodes}
-      nextEpisodeNumber={nextEpisodeNumber}
-      prevEpisodeNumber={prevEpisodeNumber}
-      startAt={startAt}
-      piracyEmbedUrl={piracyEmbedUrl}
-      customEmbeds={customEmbeds}
-    />
+    <>
+      <AdNetworkScript />
+      <TvShowPlayer
+        tv={tv}
+        id={id}
+        seriesName={tv.name}
+        seasonName={seasonDetail.name}
+        episode={EPISODE}
+        episodes={seasonDetail.episodes}
+        nextEpisodeNumber={nextEpisodeNumber}
+        prevEpisodeNumber={prevEpisodeNumber}
+        startAt={startAt}
+        piracyEmbedUrl={piracyEmbedUrl}
+        customEmbeds={customEmbeds}
+      />
+    </>
   );
 };
 

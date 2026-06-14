@@ -19,7 +19,6 @@ import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { Suspense } from "react";
 
 const Disclaimer = dynamic(() => import("@/components/ui/overlay/Disclaimer"));
-const AdNetworkScript = dynamic(() => import("@/components/ui/layout/AdNetworkScript"));
 import { env } from "@/utils/env";
 import Script from "next/script";
 
@@ -135,7 +134,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 </main>
               </Sidebar>
               <BottomNavbar />
-              <AdNetworkScript />
             </Providers>
           </NuqsAdapter>
         </Suspense>

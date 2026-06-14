@@ -12,12 +12,11 @@ import useBreakpoints from "@/hooks/useBreakpoints";
 import { ADS_WARNING_STORAGE_KEY, SpacingClasses } from "@/utils/constants";
 import { usePlayerEvents } from "@/hooks/usePlayerEvents";
 import useSupabaseUser from "@/hooks/useSupabaseUser";
-import useAdBlockDetector from "@/hooks/useAdBlockDetector";
 import { isPremiumUser } from "@/utils/billing/premium";
 import { createPartyRoom } from "@/actions/party";
 import { markEpisodeCompleted, markMediaVisited } from "@/actions/histories";
 const AdsWarning = dynamic(() => import("@/components/ui/overlay/AdsWarning"));
-const PlayerAccessNotice = dynamic(() => import("@/components/ui/overlay/PlayerAccessNotice"));
+const AdBlockBanner = dynamic(() => import("@/components/ui/notice/AdBlockBanner"));
 const HlsJsonPlayer = dynamic(() => import("@/components/ui/player/HlsJsonPlayer"));
 const VylaPlayer = dynamic(() => import("@/components/ui/player/VylaPlayer"));
 const NetflixPlayer = dynamic(() => import("@/components/ui/player/NetflixPlayer"));
@@ -66,7 +65,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     getInitialValueInEffect: false,
   });
 
-  const { data: user, isLoading: isUserLoading } = useSupabaseUser();
+  const { data: user } = useSupabaseUser();
   const isPremium = isPremiumUser(user);
 
   const { mobile } = useBreakpoints();
@@ -74,20 +73,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     () => getTvShowPlayers(id, episode.season_number, episode.episode_number, startAt, piracyEmbedUrl, customEmbeds),
     [episode.episode_number, episode.season_number, id, startAt, piracyEmbedUrl, customEmbeds],
   );
-  const { isAdBlockDetected, isChecking: isAdBlockChecking } = useAdBlockDetector();
-  const missing321Requirements = useMemo(() => {
-    if (isUserLoading || isAdBlockChecking) return [];
-    const missing: string[] = [];
-    if (!isPremium && isAdBlockDetected) missing.push("Disable your ad blocker for this site.");
-    return missing;
-  }, [isAdBlockChecking, isAdBlockDetected, isPremium, isUserLoading]);
-  const players = useMemo(() => {
-    if (isPremium || !isAdBlockDetected) return allPlayers;
-
-    const filteredPlayers = allPlayers.filter((player) => player.mode !== "artplayer");
-    return filteredPlayers.length > 0 ? filteredPlayers : allPlayers;
-  }, [allPlayers, isAdBlockDetected, isPremium]);
-  const [dismissedPlayerNotice, setDismissedPlayerNotice] = useState(false);
+  const players = allPlayers;
 
   const idle = useIdle(3000);
   const [sourceOpened, sourceHandlers] = useDisclosure(false);
@@ -194,10 +180,6 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     `Play ${props.seriesName} - ${props.seasonName} - ${episode.name} | ${siteConfig.name}`,
   );
 
-  useEffect(() => {
-    setDismissedPlayerNotice(false);
-  }, [missing321Requirements.join("|")]);
-
   // Prevent page scroll on player pages
   useEffect(() => {
     const prev = document.body.style.overflow;
@@ -287,14 +269,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
   return (
     <>
       <AdsWarning />
-      <PlayerAccessNotice
-        isOpen={missing321Requirements.length > 0 && !dismissedPlayerNotice}
-        onClose={() => {
-          setDismissedPlayerNotice(true);
-          void setSelectedSource(0);
-        }}
-        missingRequirements={missing321Requirements}
-      />
+      <AdBlockBanner />
 
       <div className={cn("relative flex flex-col overflow-hidden", SpacingClasses.reset)} style={{ height: "100dvh" }}>
         <TvShowPlayerHeader
