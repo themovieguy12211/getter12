@@ -1,6 +1,6 @@
 import { siteConfig } from "@/config/site";
 import { cn } from "@/utils/helpers";
-import { getTvShowPlayers } from "@/utils/players";
+import { getTvShowPlayers, type CustomEmbed } from "@/utils/players";
 import { Card, Skeleton } from "@heroui/react";
 import { useDisclosure, useDocumentTitle, useIdle, useLocalStorage } from "@mantine/hooks";
 import dynamic from "next/dynamic";
@@ -42,6 +42,7 @@ export interface TvShowPlayerProps {
   prevEpisodeNumber: number | null;
   startAt?: number;
   piracyEmbedUrl?: string | null;
+  customEmbeds?: CustomEmbed[];
 }
 
 const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
@@ -51,6 +52,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
   episodes,
   startAt,
   piracyEmbedUrl,
+  customEmbeds,
   ...props
 }) => {
   const router = useRouter();
@@ -69,8 +71,8 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
 
   const { mobile } = useBreakpoints();
   const allPlayers = useMemo(
-    () => getTvShowPlayers(id, episode.season_number, episode.episode_number, startAt, piracyEmbedUrl),
-    [episode.episode_number, episode.season_number, id, startAt, piracyEmbedUrl],
+    () => getTvShowPlayers(id, episode.season_number, episode.episode_number, startAt, piracyEmbedUrl, customEmbeds),
+    [episode.episode_number, episode.season_number, id, startAt, piracyEmbedUrl, customEmbeds],
   );
   const { isAdBlockDetected, isChecking: isAdBlockChecking } = useAdBlockDetector();
   const missing321Requirements = useMemo(() => {

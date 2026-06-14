@@ -62,7 +62,22 @@ const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: n
     refetchOnReconnect: false,
   });
 
-  if (isPendingTv || isPendingSeason || isPendingStartAt || isPendingPiracy) {
+  const { data: customEmbeds, isPending: isPendingEmbeds } = useQuery({
+    queryFn: async () => {
+      const res = await fetch(
+        `/api/player/custom-embed?type=tv&id=${id}&season=${season}&episode=${episode}`,
+      );
+      if (!res.ok) return [];
+      const data = (await res.json()) as { embeds: { title: string; url: string }[] };
+      return data.embeds;
+    },
+    queryKey: ["tv-show-player-custom-embeds", id, season, episode],
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+
+  if (isPendingTv || isPendingSeason || isPendingStartAt || isPendingPiracy || isPendingEmbeds) {
     return <Spinner size="lg" className="absolute-center" color="warning" variant="simple" />;
   }
 
@@ -102,6 +117,7 @@ const TvShowPlayerPage: NextPage<Params<{ id: number; season: number; episode: n
       prevEpisodeNumber={prevEpisodeNumber}
       startAt={startAt}
       piracyEmbedUrl={piracyEmbedUrl}
+      customEmbeds={customEmbeds}
     />
   );
 };

@@ -46,13 +46,26 @@ const MoviePlayerPage: NextPage<Params<{ id: number }>> = ({ params }) => {
     refetchOnReconnect: false,
   });
 
-  if (isPending || isPendingStartAt || isPendingPiracy) {
+  const { data: customEmbeds, isPending: isPendingEmbeds } = useQuery({
+    queryFn: async () => {
+      const res = await fetch(`/api/player/custom-embed?type=movie&id=${id}`);
+      if (!res.ok) return [];
+      const data = (await res.json()) as { embeds: { title: string; url: string }[] };
+      return data.embeds;
+    },
+    queryKey: ["movie-player-custom-embeds", id],
+    staleTime: 1000 * 60 * 10,
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
+
+  if (isPending || isPendingStartAt || isPendingPiracy || isPendingEmbeds) {
     return <Spinner size="lg" className="absolute-center" variant="simple" />;
   }
 
   if (error || isEmpty(movie)) return notFound();
 
-  return <MoviePlayer movie={movie} startAt={startAt} piracyEmbedUrl={piracyEmbedUrl} />;
+  return <MoviePlayer movie={movie} startAt={startAt} piracyEmbedUrl={piracyEmbedUrl} customEmbeds={customEmbeds} />;
 };
 
 export default MoviePlayerPage;

@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import useBreakpoints from "@/hooks/useBreakpoints";
 import { cn } from "@/utils/helpers";
 import { mutateMovieTitle } from "@/utils/movies";
-import { getMoviePlayers } from "@/utils/players";
+import { getMoviePlayers, type CustomEmbed } from "@/utils/players";
 import { Card, Skeleton } from "@heroui/react";
 import { useDisclosure, useDocumentTitle, useIdle, useLocalStorage } from "@mantine/hooks";
 import dynamic from "next/dynamic";
@@ -30,9 +30,10 @@ interface MoviePlayerProps {
   movie: MovieDetails;
   startAt?: number;
   piracyEmbedUrl?: string | null;
+  customEmbeds?: CustomEmbed[];
 }
 
-const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUrl }) => {
+const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUrl, customEmbeds }) => {
   const router = useRouter();
   const [seen] = useLocalStorage<boolean>({
     key: ADS_WARNING_STORAGE_KEY,
@@ -43,8 +44,8 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
   const isPremium = isPremiumUser(user);
 
   const allPlayers = useMemo(
-    () => getMoviePlayers(movie.id, startAt, piracyEmbedUrl),
-    [movie.id, startAt, piracyEmbedUrl],
+    () => getMoviePlayers(movie.id, startAt, piracyEmbedUrl, customEmbeds),
+    [movie.id, startAt, piracyEmbedUrl, customEmbeds],
   );
   const { isAdBlockDetected, isChecking: isAdBlockChecking } = useAdBlockDetector();
   const missing321Requirements = useMemo(() => {

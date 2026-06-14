@@ -32,68 +32,68 @@ export async function GET(request: NextRequest) {
     rewardAccountsRes,
     referralsRes,
   ] = await Promise.all([
-    adminSupabase.auth.admin.listUsers({ page: 1, perPage: 100 }),
+    adminSupabase.auth.admin.listUsers({ page: 1, perPage: 10000 }),
     adminSupabase
       .from("profiles")
       .select("id, username, is_admin, created_at")
       .order("created_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("comments")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("ratings")
       .select("*")
       .order("updated_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("histories")
       .select("*")
       .order("updated_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("watchlist")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("premium_codes")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("premium_code_redemptions")
       .select("*")
       .order("redeemed_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase
       .from("party_rooms")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(100),
+      .limit(10000),
     adminSupabase
       .from("party_messages")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(200),
+      .limit(10000),
     adminSupabase.from("app_downloads").select("*").limit(1).maybeSingle(),
     adminSupabase
       .from("reward_requests")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(100),
+      .limit(10000),
     adminSupabase
       .from("reward_accounts")
       .select("*")
       .order("updated_at", { ascending: false })
-      .limit(100),
+      .limit(10000),
     adminSupabase
       .from("referrals")
       .select("*")
       .order("created_at", { ascending: false })
-      .limit(100),
+      .limit(10000),
   ]);
 
   const authUsers = (

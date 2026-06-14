@@ -2,28 +2,28 @@
 
 import { useEffect } from "react";
 
-const BOOTSTRAP_LINK_ID = "admin-bootstrap-runtime";
-
-const ensureBootstrapStylesheet = () => {
-  const existing = document.getElementById(BOOTSTRAP_LINK_ID) as HTMLLinkElement | null;
-  if (existing) return existing;
-
-  const link = document.createElement("link");
-  link.id = BOOTSTRAP_LINK_ID;
-  link.rel = "stylesheet";
-  link.href = "/vendor/bootstrap.min.css";
-  document.head.appendChild(link);
-  return link;
-};
-
 const AdminStyleProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   useEffect(() => {
-    const link = ensureBootstrapStylesheet();
+    const bs = document.createElement("link");
+    bs.id = "admin-bs-css";
+    bs.rel = "stylesheet";
+    bs.href = "/vendor/bootstrap.min.css";
+    document.head.appendChild(bs);
+
+    const icons = document.createElement("link");
+    icons.id = "admin-bs-icons";
+    icons.rel = "stylesheet";
+    icons.href = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css";
+    document.head.appendChild(icons);
+
     document.body.classList.add("admin-body-active");
+    document.documentElement.setAttribute("data-bs-theme", "dark");
 
     return () => {
       document.body.classList.remove("admin-body-active");
-      link.remove();
+      document.documentElement.removeAttribute("data-bs-theme");
+      document.getElementById("admin-bs-css")?.remove();
+      document.getElementById("admin-bs-icons")?.remove();
     };
   }, []);
 

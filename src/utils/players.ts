@@ -1,5 +1,7 @@
 import { PlayersProps } from "@/types";
 
+export type CustomEmbed = { title: string; url: string };
+
 const get321MoviePlaylistUrl = (id: string | number): string => {
   const params = new URLSearchParams({
     type: "movie",
@@ -39,7 +41,18 @@ export const getMoviePlayers = (
   id: string | number,
   startAt?: number,
   piracyEmbedUrl?: string | null,
+  customEmbeds?: CustomEmbed[],
 ): PlayersProps[] => {
+  if (customEmbeds?.length) {
+    return customEmbeds.map((embed) => ({
+      title: embed.title,
+      source: embed.url,
+      recommended: true,
+      fast: true,
+      ads: false,
+      resumable: false,
+    }));
+  }
   const players: PlayersProps[] = [];
   players.push(
     {
@@ -203,7 +216,18 @@ export const getTvShowPlayers = (
   episode: number,
   startAt?: number,
   piracyEmbedUrl?: string | null,
+  customEmbeds?: CustomEmbed[],
 ): PlayersProps[] => {
+  if (customEmbeds?.length) {
+    return customEmbeds.map((embed) => ({
+      title: embed.title,
+      source: embed.url,
+      recommended: true,
+      fast: true,
+      ads: false,
+      resumable: false,
+    }));
+  }
   const players: PlayersProps[] = [];
   players.push(
     {
