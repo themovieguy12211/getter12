@@ -606,23 +606,6 @@
     "reason": "Missing priority providers: flowcast, primevids, guru"
   },
   {
-    "requestKey": "movie_1083381",
-    "request": {
-      "type": "movie",
-      "id": "1083381"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-10T20:46:12.013Z",
-    "createdAt": "2026-06-04T08:44:28.987Z",
-    "updatedAt": "2026-06-10T14:46:12.013Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
     "requestKey": "tv_1622_s4_e18",
     "request": {
       "type": "tv",
@@ -1336,6 +1319,61 @@
     "dueAt": "2026-06-14T23:27:29.255Z",
     "createdAt": "2026-06-10T19:37:50.085Z",
     "updatedAt": "2026-06-14T17:27:29.255Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_124364_s4_e8",
+    "request": {
+      "type": "tv",
+      "id": "124364",
+      "season": "4",
+      "episode": "8"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-14T23:47:03.004Z",
+    "createdAt": "2026-06-14T17:47:03.004Z",
+    "updatedAt": "2026-06-14T17:47:03.004Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_124364_s4_e7",
+    "request": {
+      "type": "tv",
+      "id": "124364",
+      "season": "4",
+      "episode": "7"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-14T23:55:16.946Z",
+    "createdAt": "2026-06-14T17:55:16.946Z",
+    "updatedAt": "2026-06-14T17:55:16.946Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_1083381",
+    "request": {
+      "type": "movie",
+      "id": "1083381"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-15T00:48:34.380Z",
+    "createdAt": "2026-06-04T08:44:28.987Z",
+    "updatedAt": "2026-06-14T18:48:34.380Z",
     "missingProviders": [
       "flowcast",
       "guru",

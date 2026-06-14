@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-14T17:55:07.157Z",
+  "family": "rive",
+  "provider": "primevids",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "124364",
+    "season": "4",
+    "episode": "7"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=primevids&id=124364&season=4&episode=7",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

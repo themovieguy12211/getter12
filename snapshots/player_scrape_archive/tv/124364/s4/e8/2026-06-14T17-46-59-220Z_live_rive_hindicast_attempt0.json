@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-14T17:46:59.220Z",
+  "family": "rive",
+  "provider": "hindicast",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "124364",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=hindicast&id=124364&season=4&episode=8",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

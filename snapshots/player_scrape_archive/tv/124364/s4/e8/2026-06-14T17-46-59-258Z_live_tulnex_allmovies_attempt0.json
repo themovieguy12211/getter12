@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-14T17:46:59.258Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "124364",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/tv/124364/4/8?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-14T17:46:59.258Z",
+  "family": "tulnex",
+  "provider": "vidzee0",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "124364",
+    "season": "4",
+    "episode": "8"
+  },
+  "url": "https://api.tulnex.com/vidzee/tv/124364/4/8?server=0",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

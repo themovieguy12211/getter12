@@ -228,18 +228,15 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
   const PLAYER = useMemo(() => players[selectedSource] || players[0], [players, selectedSource]);
   const isPlaylistJsonPlayer = PLAYER.mode === "playlist_json";
   const isNativeHlsPlayer = PLAYER.mode === "native_hls";
-  const isMixDropPlayer = PLAYER.title === "MixDrop";
   const showServerButton = isPlaylistJsonPlayer || isNativeHlsPlayer;
 
   useEffect(() => {
-    if (!isMixDropPlayer) return;
     void markMediaVisited("tv", id, episode.season_number, episode.episode_number);
-  }, [isMixDropPlayer, id, episode.season_number, episode.episode_number]);
+  }, [id, episode.season_number, episode.episode_number]);
 
   const handleNextEpisodeClick = useCallback(() => {
-    if (!isMixDropPlayer) return;
     void markEpisodeCompleted("tv", id, episode.season_number, episode.episode_number);
-  }, [isMixDropPlayer, id, episode.season_number, episode.episode_number]);
+  }, [id, episode.season_number, episode.episode_number]);
   const handlePrimaryPlayerError = useCallback(() => {
     const fallbackIndex = players.findIndex((_, index) => index > selectedSource);
     if (fallbackIndex < 0) return;
