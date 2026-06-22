@@ -93,6 +93,11 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
     if (fallbackIndex < 0) return;
     void setSelectedSource(fallbackIndex);
   }, [players, selectedSource, setSelectedSource]);
+
+  const handleNetflixError = useCallback((_msg: string) => {
+    handlePrimaryPlayerError();
+  }, [handlePrimaryPlayerError]);
+
   const handleOpenStreamSourceMenu = useCallback(() => {
     setStreamSourceMenuSignal((value) => value + 1);
   }, []);
@@ -152,6 +157,19 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
                 mediaType="movie"
                 startAt={startAt}
                 onFatalError={handlePrimaryPlayerError}
+                className="absolute inset-0 z-10 h-full w-full"
+                openSourceMenuSignal={streamSourceMenuSignal}
+                backdropUrl={movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : undefined}
+                title={title}
+              />
+            ) : PLAYER.mode === "netflix" ? (
+              <NetflixPlayer
+                key={PLAYER.source}
+                playlistUrl={PLAYER.source}
+                mediaId={movie.id}
+                mediaType="movie"
+                startAt={startAt}
+                onFatalError={handleNetflixError}
                 className="absolute inset-0 z-10 h-full w-full"
                 openSourceMenuSignal={streamSourceMenuSignal}
                 backdropUrl={movie.backdrop_path ? `https://image.tmdb.org/t/p/w1280${movie.backdrop_path}` : undefined}

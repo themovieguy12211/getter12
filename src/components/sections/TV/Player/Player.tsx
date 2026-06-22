@@ -242,6 +242,10 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     if (fallbackIndex < 0) return;
     void setSelectedSource(fallbackIndex);
   }, [players, selectedSource, setSelectedSource]);
+
+  const handleNetflixError = useCallback((_msg: string) => {
+    handlePrimaryPlayerError();
+  }, [handlePrimaryPlayerError]);
   const handleOpenStreamSourceMenu = useCallback(() => {
     setStreamSourceMenuSignal((value) => value + 1);
   }, []);
@@ -312,6 +316,22 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
                 episode={episode.episode_number}
                 startAt={startAt}
                 onFatalError={handlePrimaryPlayerError}
+                className="absolute inset-0 z-10 h-full w-full"
+                openSourceMenuSignal={streamSourceMenuSignal}
+                backdropUrl={tv.backdrop_path ? `https://image.tmdb.org/t/p/w1280${tv.backdrop_path}` : undefined}
+                title={props.seriesName}
+                subtitle={episode.name}
+              />
+            ) : PLAYER.mode === "netflix" ? (
+              <NetflixPlayer
+                key={PLAYER.source}
+                playlistUrl={PLAYER.source}
+                mediaId={id}
+                mediaType="tv"
+                season={episode.season_number}
+                episode={episode.episode_number}
+                startAt={startAt}
+                onFatalError={handleNetflixError}
                 className="absolute inset-0 z-10 h-full w-full"
                 openSourceMenuSignal={streamSourceMenuSignal}
                 backdropUrl={tv.backdrop_path ? `https://image.tmdb.org/t/p/w1280${tv.backdrop_path}` : undefined}

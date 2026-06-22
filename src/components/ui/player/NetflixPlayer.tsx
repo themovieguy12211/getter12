@@ -108,6 +108,8 @@ const formatTime = (seconds: number): string => {
   return `${m}:${String(s).padStart(2, "0")}`;
 };
 
+const BLOCKED_LABELS = [/ls-\d+/i, /4k/i];
+
 const pickHlsSources = (payload: PlaylistResponse): StreamSourceOption[] => {
   if (!Array.isArray(payload.playlist)) return [];
   const collected: StreamSourceOption[] = [];
@@ -116,11 +118,13 @@ const pickHlsSources = (payload: PlaylistResponse): StreamSourceOption[] => {
     for (const source of item.sources) {
       // Accept both HLS and MP4 sources
       if ((source?.type !== "hls" && source?.type !== "mp4") || typeof source.file !== "string" || source.file.length === 0) continue;
+      const label = source.label?.trim() || "Auto";
+      if (BLOCKED_LABELS.some(p => p.test(label))) continue;
       const decodedFile = decodePlayerStreamUrl(source.file);
       if (!decodedFile || decodedFile.length === 0) continue;
       collected.push({
         file: decodedFile,
-        label: source.label?.trim() || "Auto",
+        label,
         provider: source.provider,
         isDefault: Boolean(source.default),
       });
@@ -167,6 +171,8 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
 
   const [sources, setSources] = useState<StreamSourceOption[]>([]);
   const [activeSourceIndex, setActiveSourceIndex] = useState(0);
+  const sourcesRef = useRef<StreamSourceOption[]>([]);
+  sourcesRef.current = sources;
   const [subtitleTracks, setSubtitleTracks] = useState<SubtitleTrack[]>([]);
   const [activeSubtitleId, setActiveSubtitleId] = useState<number>(-1);
   const [qualityLevels, setQualityLevels] = useState<QualityLevel[]>([]);
@@ -344,13 +350,24 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
 
       if (isMp4) {
         mp4RetryCountRef.current = 0;
-        // Remove crossOrigin for MP4 — CDN servers reject CORS requests
-        video.removeAttribute("crossorigin");
-        video.src = decodedUrl;
-        video.load();
-        applyStartAt();
-        setQualityLevels([{ id: 0, label: "Source", height: 0 }]);
-        void video.play().catch(() => {});
+        // Pre-check: verify the MP4 is actually accessible before setting src
+        fetch(decodedUrl, { method: 'HEAD' }).then(res => {
+          if (!res.ok) {
+            console.log('[Netflix] MP4 pre-check failed:', res.status);
+            autoSwitchSource();
+            return;
+          }
+          // Remove crossOrigin for MP4 — CDN servers reject CORS requests
+          video.removeAttribute("crossorigin");
+          video.src = decodedUrl;
+          video.load();
+          applyStartAt();
+          setQualityLevels([{ id: 0, label: "Source", height: 0 }]);
+          void video.play().catch(() => {});
+        }).catch(() => {
+          console.log('[Netflix] MP4 pre-check error');
+          autoSwitchSource();
+        });
         return;
       }
 
@@ -407,14 +424,18 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
         });
 
         hls.on(Hls.Events.ERROR, (_, data) => {
-          if (!data.fatal) return;
-          if (data.type === Hls.ErrorTypes.NETWORK_ERROR) {
-            hls.startLoad();
-          } else if (data.type === Hls.ErrorTypes.MEDIA_ERROR) {
-            hls.recoverMediaError();
-          } else {
-            setError("Stream failed to load.");
-            onFatalError?.("Fatal HLS error");
+          if (data.fatal) {
+            autoSwitchSource();
+            return;
+          }
+          // Auto-switch on any fragment/level/manifest load error
+          if (data.type === Hls.ErrorTypes.NETWORK_ERROR && (
+            data.details === "fragLoadError" ||
+            data.details === "fragLoadTimeOut" ||
+            data.details === "levelLoadError" ||
+            data.details === "manifestLoadError"
+          )) {
+            autoSwitchSource();
           }
         });
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
@@ -471,6 +492,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
           return;
         }
         setSources(parsed);
+        triedRef.current = new Set();
         const defaultIdx = parsed.findIndex((s) => s.isDefault);
         const idx = defaultIdx >= 0 ? defaultIdx : 0;
         setActiveSourceIndex(idx);
@@ -558,6 +580,33 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
     },
     [sources, loadSource],
   );
+
+  const currentIdxRef = useRef(0);
+  const triedRef = useRef<Set<number>>(new Set());
+  currentIdxRef.current = activeSourceIndex;
+
+  const autoSwitchSource = useCallback(() => {
+    const all = sourcesRef.current;
+    if (all.length <= 1) return;
+    triedRef.current.add(currentIdxRef.current);
+    // Find next untried source
+    let nextIdx = (currentIdxRef.current + 1) % all.length;
+    let attempts = 0;
+    while (triedRef.current.has(nextIdx) && attempts < all.length) {
+      nextIdx = (nextIdx + 1) % all.length;
+      attempts++;
+    }
+    if (attempts >= all.length) {
+      console.log('[Netflix] All sources tried, giving up');
+      return;
+    }
+    if (!all[nextIdx]?.file) return;
+    console.log('[Netflix] Auto-switch:', currentIdxRef.current, '→', nextIdx, all[nextIdx].label);
+    currentIdxRef.current = nextIdx;
+    setActiveSourceIndex(nextIdx);
+    loadSource(all[nextIdx].file);
+  }, [loadSource]);
+
 
   const setQuality = useCallback((levelId: number) => {
     const hls = hlsRef.current;
@@ -1052,26 +1101,12 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
             hlsRef.current.recoverMediaError();
             return;
           }
-          // Auto-retry MP4 network errors (transient wifi drops, CDN hiccups)
+          // MP4 errors — switch to next source
           const isCurrentlyMp4 = /\.mp4(?:\?|$)/i.test(video.src) || video.src.includes("/mp4-proxy");
-          if (code === 2 && isCurrentlyMp4) {
-            // If the video is still playing the error was on a background range/buffer request — ignore it
+          if (isCurrentlyMp4 && (code === 2 || code === 3 || code === 4)) {
             if (!video.paused && !video.ended) return;
-            if (mp4RetryCountRef.current < 3) {
-              mp4RetryCountRef.current++;
-              setIsLoading(true);
-              mp4ResumeTimeRef.current = video.currentTime;
-              // Reset retry count after 10s of successful playback so long sessions don't exhaust retries
-              if (mp4RetryResetTimerRef.current) clearTimeout(mp4RetryResetTimerRef.current);
-              mp4RetryResetTimerRef.current = setTimeout(() => { mp4RetryCountRef.current = 0; }, 10000);
-              setTimeout(() => {
-                // Re-remove crossOrigin — React re-applies it on re-render triggered by setIsLoading
-                video.removeAttribute("crossorigin");
-                video.load();
-                void video.play().catch(() => {});
-              }, 1500 * mp4RetryCountRef.current);
-              return;
-            }
+            autoSwitchSource();
+            return;
           }
           const msg = code === 1 ? "Aborted" : code === 2 ? "Network error" : code === 3 ? "Decoding failed" : code === 4 ? "Format not supported" : "Unknown error";
           setError(`Video error: ${msg}`);

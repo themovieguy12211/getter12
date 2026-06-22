@@ -58,7 +58,7 @@ export const getMoviePlayers = (
     {
       title: "321movies",
       source: get321MoviePlaylistUrl(id),
-      mode: "artplayer",
+      mode: "netflix",
       recommended: true,
       fast: true,
       ads: false,
@@ -233,7 +233,7 @@ export const getTvShowPlayers = (
     {
       title: "321movies",
       source: get321TvPlaylistUrl(id, season, episode),
-      mode: "artplayer",
+      mode: "netflix",
       recommended: true,
       fast: true,
       ads: false,
