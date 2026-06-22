@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-22T22:46:43.469Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "278"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/movie/278?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}
