@@ -130,7 +130,109 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         }));
         if (decoded.length === 0) throw new Error("No sources available");
 
-        const qualities = decoded.map((s, i) => ({
+        // ─── Blocklist: filter out known-bad source labels ────────────────
+        const BLOCKED_PATTERNS = [
+          /ls-25/i,
+          /ls-24/i,
+          /ls-23/i,
+          /ls-22/i,
+          /ls-21/i,
+          /ls-20/i,
+        ];
+        const preFiltered = decoded.filter(s => {
+          const blocked = BLOCKED_PATTERNS.some(p => p.test(s.html));
+          if (blocked) console.log('[ArtPlayer] Blocked:', s.html);
+          return !blocked;
+        });
+
+        // ─── Pre-flight: check m3u8 + test TS segments ────────────────────
+        setLoadingStatus("Checking sources...");
+        const checkResults = await Promise.allSettled(
+          preFiltered.map(async (s) => {
+            const ctrl = new AbortController();
+            const timer = setTimeout(() => ctrl.abort(), 7000);
+            try {
+              const isMp4 = s.url.includes('/mp4-proxy') || /\.mp4(?:\?|$)/i.test(s.url);
+              const res = await fetch(s.url, { signal: ctrl.signal });
+              if (!res.ok) {
+                console.log('[ArtPlayer] Dead (manifest):', s.html, res.status);
+                throw new Error(`HTTP ${res.status}`);
+              }
+
+              // For HLS: dig into sub-playlists and test actual TS segments
+              if (!isMp4) {
+                const text = await res.text();
+
+                // Catch proxy returning error page as 200
+                if (!text.trim() || text.includes('<html') || text.includes('Not Found') || text.includes('404')) {
+                  console.log('[ArtPlayer] Dead (invalid m3u8):', s.html);
+                  throw new Error('Invalid m3u8 content');
+                }
+                const lines = text.split('\n');
+                const isVariant = text.includes('#EXT-X-STREAM-INF');
+
+                // Find segment lines — if variant playlist, resolve sub-playlists first
+                let segmentLines: string[] = [];
+                if (isVariant) {
+                  // Variant playlist: fetch first sub-playlist, extract its TS segments
+                  const subUrls = lines
+                    .map(l => l.trim())
+                    .filter(l => l && !l.startsWith('#') && (l.endsWith('.m3u8') || l.includes('.m3u8')));
+                  if (subUrls.length > 0) {
+                    try {
+                      const subRes = await fetch(new URL(subUrls[0], s.url).toString(), { signal: ctrl.signal });
+                      if (subRes.ok) {
+                        const subText = await subRes.text();
+                        segmentLines = subText.split('\n')
+                          .map(l => l.trim())
+                          .filter(l => l && !l.startsWith('#') && (l.endsWith('.ts') || l.includes('.ts?')));
+                      }
+                    } catch {}
+                  }
+                } else {
+                  segmentLines = lines
+                    .map(l => l.trim())
+                    .filter(l => l && !l.startsWith('#') && (l.endsWith('.ts') || l.includes('.ts?')));
+                }
+
+                // Test first + last segment
+                if (segmentLines.length > 0) {
+                  const samples = segmentLines.length > 1
+                    ? [segmentLines[0], segmentLines[segmentLines.length - 1]]
+                    : [segmentLines[0]];
+                  for (const seg of samples) {
+                    const tsUrl = new URL(seg, s.url).toString();
+                    const tsRes = await fetch(tsUrl, { signal: ctrl.signal });
+                    if (!tsRes.ok) {
+                      console.log('[ArtPlayer] Dead (segment):', s.html, tsRes.status);
+                      throw new Error(`TS HTTP ${tsRes.status}`);
+                    }
+                  }
+                }
+              }
+
+              clearTimeout(timer);
+              return s;
+            } catch {
+              return null;
+            } finally {
+              clearTimeout(timer);
+            }
+          }),
+        );
+
+        const working = checkResults
+          .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled' && r.value !== null)
+          .map((r) => r.value);
+
+        if (working.length === 0) {
+          console.warn('[ArtPlayer] All sources failed TS check, using all');
+          working.push(...decoded);
+        }
+
+        console.log(`[ArtPlayer] TS check: ${working.length}/${decoded.length} passed`);
+
+        const qualities = working.map((s, i) => ({
           default: i === 0,
           html: s.html,
           url: s.url,
@@ -242,48 +344,16 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
                   backBufferLength: 30,
                 });
                 
-                let segment403Count = 0;
-                let segmentErrorCount = 0;
-                const THRESHOLD_403 = 5;  // Switch source after 5 consecutive 403s
-                const THRESHOLD_ERROR = 8; // Switch after 8 consecutive errors
-
                 hls.on(Hls.Events.ERROR, (event: any, data: any) => {
                   if (data.fatal) {
-                    // Fatal error → switch source immediately
-                    console.warn('[HLS] Fatal error, switching source:', data.type, data.details);
-                    hls.destroy();
+                    console.warn('[HLS] Fatal error, switching source');
                     switchToNextSource(art);
                     return;
                   }
-
-                  if (data.type === "networkError" && data.response?.code === 403) {
-                    segment403Count++;
-                    segmentErrorCount++;
-                    console.warn(`[HLS] Segment 403 (${segment403Count}/${THRESHOLD_403})`);
-
-                    if (segment403Count >= THRESHOLD_403) {
-                      console.warn('[HLS] Too many 403s, switching source');
-                      hls.destroy();
-                      switchToNextSource(art);
-                    }
-                  } else if (data.type === "networkError") {
-                    segmentErrorCount++;
-                    if (segmentErrorCount >= THRESHOLD_ERROR) {
-                      console.warn('[HLS] Too many network errors, switching source');
-                      hls.destroy();
-                      switchToNextSource(art);
-                    }
+                  if (data.type === "networkError" && data.response?.code === 403 && data.details === "fragLoadError") {
+                    console.warn('[HLS] Segment 403, switching source');
+                    switchToNextSource(art);
                   }
-                });
-
-                // Reset counters on successful loads
-                hls.on(Hls.Events.FRAG_LOADED, () => {
-                  segment403Count = 0;
-                  segmentErrorCount = 0;
-                });
-                hls.on(Hls.Events.MANIFEST_LOADED, () => {
-                  segment403Count = 0;
-                  segmentErrorCount = 0;
                 });
                 
                 hls.loadSource(url);
@@ -312,17 +382,56 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         setLoading(false);
 
         // ── Auto-fallback within ArtPlayer (cycle through qualities) ──────
+        let currentQualityIdx = 0;
+        try {
+          console.log('[ArtPlayer] Sources loaded:', art.quality?.length || 0, art.quality?.map((q: any) => q.html) || []);
+        } catch {}
+
         const switchToNextSource = (artInstance: ArtPlayer) => {
-          const qualities = artInstance.quality || [];
-          const currentIdx = qualities.findIndex((q: any) => q.url === artInstance.url);
-          const nextIdx = (currentIdx + 1) % qualities.length;
+          try {
+            const qualities = artInstance?.quality;
+            if (!qualities || !Array.isArray(qualities) || qualities.length <= 1) return;
 
-          if (qualities.length <= 1 || nextIdx === currentIdx) return;
+            currentQualityIdx = (currentQualityIdx + 1) % qualities.length;
+            const next = qualities[currentQualityIdx];
+            if (!next?.url) return;
 
-          const next = qualities[nextIdx];
-          artInstance.notice.show = `Switching to ${next.html}...`;
-          console.log('[ArtPlayer] Auto-switching source:', currentIdx, '→', nextIdx, next.html);
-          setTimeout(() => artInstance.switchQuality(next.url), 300);
+            console.log('[ArtPlayer] Switching source →', next.html, `(${currentQualityIdx + 1}/${qualities.length})`);
+            artInstance.notice.show = `Trying ${next.html}...`;
+
+            // Directly replace the HLS source on the video element
+            const video = artInstance.video;
+            const oldHls = (artInstance as any).hls as Hls | undefined;
+            if (oldHls) {
+              try { oldHls.destroy(); } catch {}
+              (artInstance as any).hls = null;
+            }
+
+            if (video && next.url.includes('.m3u8')) {
+              const newHls = new Hls({
+                maxLoadingDelay: 4,
+                minAutoBitrate: 0,
+                maxBufferLength: 30,
+                maxMaxBufferLength: 60,
+                backBufferLength: 30,
+              });
+              newHls.loadSource(next.url);
+              newHls.attachMedia(video);
+              (artInstance as any).hls = newHls;
+
+              // Re-apply the 403 handler on the new HLS
+              newHls.on(Hls.Events.ERROR, (_event: any, data: any) => {
+                if (data.fatal || (data.type === "networkError" && data.response?.code === 403)) {
+                  console.warn('[HLS] Error on switched source, switching again');
+                  switchToNextSource(artInstance);
+                }
+              });
+            } else if (video) {
+              video.src = next.url;
+            }
+          } catch (e) {
+            console.warn('[ArtPlayer] switchToNextSource error:', e);
+          }
         };
 
         art.on("error", () => {

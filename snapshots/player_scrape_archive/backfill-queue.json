@@ -1490,25 +1490,6 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "tv_124364_s4_e9",
-    "request": {
-      "type": "tv",
-      "id": "124364",
-      "season": "4",
-      "episode": "9"
-    },
-    "attempts": 0,
-    "dueAt": "2026-06-22T18:20:20.061Z",
-    "createdAt": "2026-06-22T12:20:11.041Z",
-    "updatedAt": "2026-06-22T12:20:20.061Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
     "requestKey": "tv_4057_s19_e5",
     "request": {
       "type": "tv",
@@ -1558,6 +1539,44 @@
     "dueAt": "2026-06-22T19:16:59.660Z",
     "createdAt": "2026-06-22T13:07:30.873Z",
     "updatedAt": "2026-06-22T13:16:59.660Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_124364_s4_e9",
+    "request": {
+      "type": "tv",
+      "id": "124364",
+      "season": "4",
+      "episode": "9"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-22T19:54:10.948Z",
+    "createdAt": "2026-06-22T12:20:11.041Z",
+    "updatedAt": "2026-06-22T13:54:10.948Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1396_s1_e1",
+    "request": {
+      "type": "tv",
+      "id": "1396",
+      "season": "1",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-06-22T20:10:19.350Z",
+    "createdAt": "2026-06-22T13:55:06.047Z",
+    "updatedAt": "2026-06-22T14:10:19.350Z",
     "missingProviders": [
       "flowcast",
       "guru",
