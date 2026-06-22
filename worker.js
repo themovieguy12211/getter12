@@ -379,6 +379,17 @@ export default {
       const requiredKey = (env.PROXY_KEY || "").trim();
       const token = reqUrl.searchParams.get("k") || req.headers.get("x-proxy-key") || defaultKey;
 
+      // /cors-forward: browser-initiated requests → forwards & adds CORS headers (no auth needed)
+      if (reqUrl.pathname.includes("/cors-forward")) {
+        const target = reqUrl.searchParams.get("url");
+        if (!target) return new Response("no url", { status: 400 });
+        const fwdHeaders = buildHeaders(reqUrl.searchParams.get("headers"));
+        // Forward the browser's User-Agent so targets see real browser fingerprint
+        const clientUA = req.headers.get("User-Agent");
+        if (clientUA) fwdHeaders.set("User-Agent", clientUA);
+        return apiProxy(target, fwdHeaders, allowedOrigin);
+      }
+
       // /api-proxy: server-to-server, key-authenticated, no browser origin required
       if (reqUrl.pathname.includes("/api-proxy")) {
         const expectedKey = requiredKey || defaultKey;

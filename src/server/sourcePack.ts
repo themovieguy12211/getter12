@@ -99,9 +99,16 @@ const SOURCE_PACK_SKIP_KEYS = new Set([
 const SOURCE_PACK_DOWNLOAD_KEYS = new Set(["02movie", "moviebox"]);
 
 const SOURCE_PACK_ORDER: Record<string, number> = {
-  notorrent: 0,
-  lordflix: 1,
-  vidzee: 2,
+  "momlover-nova": 0,
+  "momlover-vault": 1,
+  "momlover-wave": 2,
+  "momlover-thorn": 3,
+  "momlover-neo": 4,
+  "momlover-forge": 5,
+  aether: 6,
+  notorrent: 7,
+  lordflix: 8,
+  vidzee: 9,
   toustream: 3,
   meowtv: 4,
   flixhq: 5,

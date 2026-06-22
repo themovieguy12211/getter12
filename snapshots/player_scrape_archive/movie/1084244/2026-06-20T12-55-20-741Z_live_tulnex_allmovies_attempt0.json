@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-20T12:55:20.741Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1084244"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/movie/1084244?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

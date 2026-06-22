@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { readFile } from "fs/promises";
+import path from "path";
 import {
   fetchLocalSourcePackStreams,
   sourcePackProviderOrder,
@@ -12,6 +14,44 @@ import {
   scheduleScrapeBackfill,
 } from "@/utils/playerScrapeArchive";
 import nacl from "tweetnacl";
+
+/**
+ * ─── CLIENT-SOURCE CACHE ──────────────────────────────────────────────────────
+ */
+
+const CLIENT_CACHE_ROOT = path.join(process.cwd(), "snapshots", "player_scrape_client_cache");
+
+const CLIENT_SOURCE_KEYS = ["aether", "vidsrc"] as const;
+
+function buildClientCacheKey(type: string, id: string, season?: string, episode?: string): string {
+  const parts = [type, id];
+  if (type === "tv") {
+    parts.push(`s${season ?? "0"}`, `e${episode ?? "0"}`);
+  }
+  return parts.map(p => p.replace(/[^a-zA-Z0-9_-]+/g, "_")).join("_");
+}
+
+async function getCachedClientSources(
+  requestParams: { type: string; id: string; season?: string; episode?: string },
+  maxAgeMs: number,
+): Promise<{ sources: PlaylistSource[]; missing: string[] }> {
+  try {
+    const key = buildClientCacheKey(requestParams.type, requestParams.id, requestParams.season, requestParams.episode);
+    const filePath = path.join(CLIENT_CACHE_ROOT, `${key}.json`);
+    const raw = await readFile(filePath, "utf8");
+    const entry = JSON.parse(raw);
+    if (!entry.cachedAt || !Array.isArray(entry.sources)) return { sources: [], missing: [...CLIENT_SOURCE_KEYS] };
+    if (Date.now() - Date.parse(entry.cachedAt) > maxAgeMs) return { sources: [], missing: [...CLIENT_SOURCE_KEYS] };
+
+    // Check which sources we have
+    const presentProviders = new Set(entry.sources.map((s: any) => s.provider?.replace("client-", "")));
+    const missing = CLIENT_SOURCE_KEYS.filter(k => !presentProviders.has(k));
+
+    return { sources: entry.sources as PlaylistSource[], missing };
+  } catch {
+    return { sources: [], missing: [...CLIENT_SOURCE_KEYS] };
+  }
+}
 
 /**
  * ─── MOVISH CONFIG ───────────────────────────────────────────────────────────
@@ -987,25 +1027,26 @@ const normalizePlaylistSourceType = (source: PlaylistSource): PlaylistSource => 
 };
 
 const providerOrder = (provider: string | undefined) => {
-  // Top Priority: NovaCast (Movish)
-  if (provider === "movish") return 0;
+  // Top Priority: SourcePack (aether is #1)
+  if (provider?.startsWith("sourcepack-")) return sourcePackProviderOrder(provider);
 
-  // Second Priority: FlowCast
-  if (provider === "flowcast") return 1;
+  // NovaCast (Movish)
+  if (provider === "movish") return 10;
 
-  // Third Priority: PrimeVids
-  if (provider === "primevids") return 2;
+  // FlowCast
+  if (provider === "flowcast") return 11;
 
-  // Fourth Priority: Guru
-  if (provider === "guru") return 3;
+  // PrimeVids
+  if (provider === "primevids") return 12;
 
-  // Fifth Priority: VidLink
-  if (provider === "vidlink") return 4;
+  // Guru
+  if (provider === "guru") return 13;
 
-  // Sixth Priority: StreamVault
-  if (provider === "streamvault") return 5;
+  // VidLink
+  if (provider === "vidlink") return 14;
 
-  if (provider?.startsWith("sourcepack-")) return 20 + sourcePackProviderOrder(provider);
+  // StreamVault
+  if (provider === "streamvault") return 15;
 
   // Everything else (Fallbacks)
   if (provider === "icefy" || provider === "hollymoviehd") return 6;
@@ -1066,15 +1107,17 @@ export const GET = async (request: NextRequest) => {
   if (runContext.phase === "live") {
     const cached = await getCachedPlaylist(requestParams, 6 * 60 * 60 * 1000).catch(() => null);
     if (cached && cached.length > 0) {
+      const clientCache = await getCachedClientSources(requestParams, 6 * 60 * 60 * 1000);
       const sourcePackSources = await fetchSourcePackSources(requestParams, clientIp);
-      const mergedSources = orderAndMarkDefault([...cached, ...sourcePackSources]);
-      console.log(`[Rive Response] Cache HIT for ${requestParams.type} (${requestParams.id}) — ${cached.length} cached, ${sourcePackSources.length} source-pack`);
+      const mergedSources = orderAndMarkDefault([...cached, ...clientCache.sources, ...sourcePackSources]);
+      console.log(`[Rive Response] Cache HIT for ${requestParams.type} (${requestParams.id}) — ${cached.length} cached, ${clientCache.sources.length} client, ${sourcePackSources.length} source-pack`);
       const encodedSources = serializeSources(mergedSources);
       return NextResponse.json({ playlist: [{ sources: encodedSources }] }, {
         headers: {
           "cache-control": "no-store, max-age=0",
           "x-playlist-cache": "hit",
           "x-source-pack-count": String(sourcePackSources.length),
+          "x-client-scrape": clientCache.missing.length > 0 ? clientCache.missing.join(",") : "done",
         },
       });
     }
@@ -1173,7 +1216,11 @@ export const GET = async (request: NextRequest) => {
       console.log(`  [${i}] ${s.label}: ${s.file.substring(0, 100)}...`);
     });
 
-  const encodedSources = serializeSources(orderedSources);
+  // Check client-source cache
+  const clientCache = await getCachedClientSources(requestParams, 6 * 60 * 60 * 1000);
+
+  const finalSources = orderAndMarkDefault([...orderedSources, ...clientCache.sources]);
+  const encodedSources = serializeSources(finalSources);
 
   const response = { playlist: [{ sources: encodedSources }] };
 
@@ -1182,6 +1229,7 @@ export const GET = async (request: NextRequest) => {
       "cache-control": "no-store, max-age=0",
       "x-playlist-cache": "miss",
       "x-source-pack-count": String(sourcePackSources.length),
+      "x-client-scrape": clientCache.missing.length > 0 ? clientCache.missing.join(",") : "done",
     },
   });
 };

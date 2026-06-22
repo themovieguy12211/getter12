@@ -5,6 +5,7 @@ import ArtPlayer from "artplayer";
 import artplayerPluginHlsControl from "artplayer-plugin-hls-control";
 import Hls from "hls.js";
 import { decodePlayerStreamUrl } from "@/utils/playerUrlCodec";
+import { scrapeAndReport } from "@/client/scraper";
 
 interface ArtPlayerWrapperProps {
   playlistUrl: string;
@@ -87,6 +88,36 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         });
         if (allSources.length === 0) {
           throw new Error("No sources available");
+        }
+
+        // ─── Background client-side scraping ─────────────────────────
+        const scrapeHeader = response.headers.get("x-client-scrape");
+        if (scrapeHeader && scrapeHeader !== "done") {
+          const missingSources = scrapeHeader.split(",").filter(Boolean);
+          console.log("[ArtPlayer] Client scraping needed for:", missingSources);
+
+          scrapeAndReport(
+            String(mediaId),
+            mediaType,
+            season != null ? String(season) : null,
+            episode != null ? String(episode) : null,
+          ).then((clientResults) => {
+            if (clientResults.length > 0) {
+              console.log("[ArtPlayer] Client scrape got", clientResults.length, "sources");
+              // Inject into active player sources
+              const newQualities = clientResults.map((r) => ({
+                default: false,
+                html: r.label,
+                url: r.url,
+              }));
+              if (artRef.current) {
+                const existing = artRef.current.quality || [];
+                artRef.current.quality = [...existing, ...newQualities];
+              }
+            }
+          }).catch((err) => {
+            console.warn("[ArtPlayer] Client scrape failed:", err);
+          });
         }
 
         // Decode sources
@@ -212,40 +243,47 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
                 });
                 
                 let segment403Count = 0;
-                let lastReloadTime = 0;
-                let isReloading = false;
-                const RELOAD_COOLDOWN_MS = 5000; // 5 second cooldown between reloads
-                const THRESHOLD_403 = 20; // Increased threshold to prevent false positives
-                
-                // On segment 403, resume loading without disrupting stream
+                let segmentErrorCount = 0;
+                const THRESHOLD_403 = 5;  // Switch source after 5 consecutive 403s
+                const THRESHOLD_ERROR = 8; // Switch after 8 consecutive errors
+
                 hls.on(Hls.Events.ERROR, (event: any, data: any) => {
-                  if (data.type === "networkError" && data.response?.code === 403 && data.details === "fragLoadError") {
+                  if (data.fatal) {
+                    // Fatal error → switch source immediately
+                    console.warn('[HLS] Fatal error, switching source:', data.type, data.details);
+                    hls.destroy();
+                    switchToNextSource(art);
+                    return;
+                  }
+
+                  if (data.type === "networkError" && data.response?.code === 403) {
                     segment403Count++;
-                    console.warn(`[HLS] Segment 403 (count: ${segment403Count}/${THRESHOLD_403})`);
-                    
-                    // Resume loading if threshold reached and cooldown elapsed
-                    const now = Date.now();
-                    if (segment403Count >= THRESHOLD_403 && !isReloading && now - lastReloadTime >= RELOAD_COOLDOWN_MS) {
-                      isReloading = true;
-                      lastReloadTime = now;
-                      segment403Count = 0; // Reset counter after retry
-                      
-                      console.warn(`[HLS] Resuming manifest load due to persistent 403 errors (no stream interruption)`);
-                      
-                      // Resume loading without disrupting playback - just tell HLS to retry
-                      hls.startLoad();
-                      
-                      // Clear reload flag after a moment
-                      setTimeout(() => {
-                        isReloading = false;
-                      }, 1000);
+                    segmentErrorCount++;
+                    console.warn(`[HLS] Segment 403 (${segment403Count}/${THRESHOLD_403})`);
+
+                    if (segment403Count >= THRESHOLD_403) {
+                      console.warn('[HLS] Too many 403s, switching source');
+                      hls.destroy();
+                      switchToNextSource(art);
+                    }
+                  } else if (data.type === "networkError") {
+                    segmentErrorCount++;
+                    if (segmentErrorCount >= THRESHOLD_ERROR) {
+                      console.warn('[HLS] Too many network errors, switching source');
+                      hls.destroy();
+                      switchToNextSource(art);
                     }
                   }
                 });
-                
-                // Reset 403 counter on successful segment load
+
+                // Reset counters on successful loads
                 hls.on(Hls.Events.FRAG_LOADED, () => {
                   segment403Count = 0;
+                  segmentErrorCount = 0;
+                });
+                hls.on(Hls.Events.MANIFEST_LOADED, () => {
+                  segment403Count = 0;
+                  segmentErrorCount = 0;
                 });
                 
                 hls.loadSource(url);
@@ -273,17 +311,22 @@ export const ArtPlayerWrapper: React.FC<ArtPlayerWrapperProps> = ({
         artRef.current = art;
         setLoading(false);
 
-        // ── Handle source errors ─────────────────────────────────────────
-        let errorRetries = 0;
+        // ── Auto-fallback within ArtPlayer (cycle through qualities) ──────
+        const switchToNextSource = (artInstance: ArtPlayer) => {
+          const qualities = artInstance.quality || [];
+          const currentIdx = qualities.findIndex((q: any) => q.url === artInstance.url);
+          const nextIdx = (currentIdx + 1) % qualities.length;
+
+          if (qualities.length <= 1 || nextIdx === currentIdx) return;
+
+          const next = qualities[nextIdx];
+          artInstance.notice.show = `Switching to ${next.html}...`;
+          console.log('[ArtPlayer] Auto-switching source:', currentIdx, '→', nextIdx, next.html);
+          setTimeout(() => artInstance.switchQuality(next.url), 300);
+        };
+
         art.on("error", () => {
-          const qualities = art.quality;
-          const currentIdx = qualities.findIndex((q: any) => q.url === art.url);
-          if (currentIdx >= 0 && currentIdx < qualities.length - 1 && errorRetries < 3) {
-            errorRetries++;
-            const next = qualities[currentIdx + 1];
-            art.notice.show = `Source unavailable, trying ${next.html}...`;
-            art.switchQuality(next.url);
-          }
+          switchToNextSource(art);
         });
 
         // ── Fetch and setup skip segments ────────────────────────────────

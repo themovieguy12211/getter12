@@ -3,6 +3,7 @@ import React, { useMemo, useCallback, useEffect } from "react";
 import { HlsPlugin } from "strataplayer/hls";
 import { DashPlugin } from "strataplayer/dash";
 import { decodePlayerStreamUrl } from "@/utils/playerUrlCodec";
+import { scrapeAndReport } from "@/client/scraper";
 
 // Lazy load StrataPlayer component to reduce bundle
 const StrataPlayerComponent = dynamic(
@@ -107,6 +108,39 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
         }
 
         setSources(allSources);
+
+        // ─── Background client-side scraping ─────────────────────────
+        // If the server signals that client sources need scraping,
+        // run them in the background, inject into current player, and report for caching.
+        const scrapeHeader = response.headers.get("x-client-scrape");
+        if (scrapeHeader && scrapeHeader !== "done") {
+          const missingSources = scrapeHeader.split(",").filter(Boolean);
+          console.log("[StrataPlayer] Client scraping needed for:", missingSources);
+
+          scrapeAndReport(
+            String(mediaId),
+            mediaType,
+            season != null ? String(season) : null,
+            episode != null ? String(episode) : null,
+          ).then((clientResults) => {
+            if (clientResults.length > 0) {
+              console.log("[StrataPlayer] Client scrape results:", clientResults.length);
+              // Inject into active sources so current user sees them
+              setSources((prev: any[]) => {
+                const newSources = clientResults.map((r, i) => ({
+                  file: r.url,
+                  label: r.label,
+                  type: r.url.includes('.m3u8') || r.url.includes('m3u8') ? 'hls' : 'mp4',
+                  provider: `client-${r.provider}`,
+                  default: prev.length === 0 && i === 0,
+                }));
+                return [...prev, ...newSources];
+              });
+            }
+          }).catch((err) => {
+            console.warn("[StrataPlayer] Client scrape failed:", err);
+          });
+        }
       } catch (err) {
         const errorMsg = err instanceof Error ? err.message : "Unknown error";
         setError(errorMsg);
@@ -117,7 +151,7 @@ export const StrataPlayerWrapper: React.FC<StrataPlayerWrapperProps> = ({
     };
 
     loadSources();
-  }, [playlistUrl]);
+  }, [playlistUrl, mediaId, mediaType, season, episode]);
 
   // Handle source menu signal (for external trigger)
   useEffect(() => {

@@ -1,0 +1,20 @@
+{
+  "createdAt": "2026-06-20T12:58:18.940Z",
+  "family": "tulnex",
+  "provider": "hollymoviehd",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "tv",
+    "id": "1622",
+    "season": "12",
+    "episode": "1"
+  },
+  "url": "https://api.tulnex.com/provider/hollymoviehd/tv/1622/12/1",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

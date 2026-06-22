@@ -38,6 +38,8 @@ export const env = createEnv({
     SELLAUTH_MONTHLY_CHECKOUT_URL: optionalUrl,
     SELLAUTH_YEARLY_CHECKOUT_URL: optionalUrl,
     PLAYER_SCRAPE_BACKFILL_TOKEN: optionalNonEmptyString,
+    DISCORD_WEBHOOK_MOVIES: optionalUrl,
+    DISCORD_WEBHOOK_TV: optionalUrl,
   },
   client: {
     NEXT_PUBLIC_TMDB_ACCESS_TOKEN: z.string().min(1),

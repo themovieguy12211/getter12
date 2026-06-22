@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { requireAdminRoute } from "@/utils/admin";
+import { sendNewEmbedNotification } from "@/utils/discord";
 
 export async function GET(request: NextRequest) {
   const adminCheck = await requireAdminRoute();
@@ -62,6 +63,15 @@ export async function POST(request: NextRequest) {
   if (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
+
+  sendNewEmbedNotification({
+    media_type,
+    media_id: Number(media_id),
+    season: season ? Number(season) : null,
+    episode: episode ? Number(episode) : null,
+    title: title || "Abyss",
+    embed_url,
+  }).catch(() => {});
 
   return NextResponse.json({ message: "Embed created", data });
 }

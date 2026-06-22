@@ -83,6 +83,49 @@
   padding: 1rem 1.5rem;
 }
 
+/*
+ * Force Bootstrap grid to work despite Tailwind
+ */
+.admin-main-content .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  margin-right: calc(-.5 * 1rem) !important;
+  margin-left: calc(-.5 * 1rem) !important;
+}
+.admin-main-content .row > * {
+  flex-shrink: 0 !important;
+  padding-right: calc(.5 * 1rem) !important;
+  padding-left: calc(.5 * 1rem) !important;
+}
+.admin-main-content .col-12 { width: 100% !important; }
+.admin-main-content .col-6 { width: 50% !important; }
+.admin-main-content .col-sm-6 { width: 50% !important; }
+@media (min-width: 768px) {
+  .admin-main-content .col-md-6 { width: 50% !important; }
+}
+@media (min-width: 992px) {
+  .admin-main-content .col-lg-3 { width: 25% !important; }
+  .admin-main-content .col-lg-6 { width: 50% !important; }
+}
+@media (min-width: 1200px) {
+  .admin-main-content .col-xl-3 { width: 25% !important; }
+  .admin-main-content .col-xl-4 { width: 33.333333% !important; }
+  .admin-main-content .col-xl-5 { width: 41.666667% !important; }
+  .admin-main-content .col-xl-7 { width: 58.333333% !important; }
+  .admin-main-content .col-xl-8 { width: 66.666667% !important; }
+}
+.admin-main-content .g-2 { --bs-gutter-x: .5rem; --bs-gutter-y: .5rem; }
+.admin-main-content .g-3 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
+.admin-main-content .g-4 { --bs-gutter-x: 1.5rem; --bs-gutter-y: 1.5rem; }
+.admin-main-content [class*="g-"] { margin-top: calc(-1 * var(--bs-gutter-y, 0)) !important; }
+.admin-main-content [class*="g-"] > * { margin-top: var(--bs-gutter-y, 0) !important; }
+.admin-main-content .d-flex { display: flex !important; }
+.admin-main-content .justify-content-between { justify-content: space-between !important; }
+.admin-main-content .align-items-center { align-items: center !important; }
+.admin-main-content .flex-wrap { flex-wrap: wrap !important; }
+.admin-main-content .flex-md-nowrap { flex-wrap: nowrap !important; }
+.admin-main-content .table-responsive { overflow-x: auto !important; display: block !important; }
+
 @media (max-width: 767.98px) {
   .sidebar {
     width: 100%;
