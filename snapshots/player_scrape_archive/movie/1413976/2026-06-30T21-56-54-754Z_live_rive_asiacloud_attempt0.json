@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-30T21:56:54.754Z",
+  "family": "rive",
+  "provider": "asiacloud",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1413976"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=asiacloud&id=1413976",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

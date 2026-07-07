@@ -1,110 +1,62 @@
 'use strict';
 
-const HOSTS = [
-    'https://tiki.aether.bar',
-    'https://cow.aether.bar',
-    'https://gallic.aether.bar',
-];
+import crypto from 'node:crypto';
 
-async function tryHost(host, path) {
+export const SKIP_VERIFY = true;
+
+const BASE = 'https://api.khophim.indevs.in/api/partner';
+
+function decrypt(responseText, key = process.env.DC_KEY) {
     try {
-        const url = `${host}${path}`;
-        const res = await fetch(url, {
-            headers: {
-                'Referer': host + '/',
-                'Origin': host,
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            },
-        });
-
-        if (!res.ok) return null;
-
-        const data = await res.json();
-        if (!data?.stream) return null;
-
-        return {
-            url: data.stream,
-            host,
-        };
+        const [ivBase64, encryptedBase64] = responseText.split(':');
+        if (!ivBase64 || !encryptedBase64) return null;
+        const iv = Buffer.from(ivBase64, 'base64');
+        const keyBuf = crypto.createHash('sha256').update(key).digest();
+        const decipher = crypto.createDecipheriv('aes-256-cbc', keyBuf, iv);
+        let decrypted = decipher.update(encryptedBase64, 'base64', 'utf8');
+        decrypted += decipher.final('utf8');
+        return JSON.parse(decrypted);
     } catch {
         return null;
     }
 }
 
-async function getStream(id, s, e, title) {
-    const path = s && e
-        ? `/tv/${id}/${s}/${e}`
-        : `/movie/${id}`;
-
-    // Try all hosts, return first success
-    for (const host of HOSTS) {
-        const result = await tryHost(host, path);
-        if (result) {
-            return {
-                url: result.url,
-                headers: {
-                    'Referer': result.host + '/',
-                    'Origin': result.host,
-                },
-            };
-        }
-    }
-
-    return null;
-}
-
-async function getSources(id, s, e, title) {
-    const stream = await getStream(id, s, e, title);
-    return stream ? [stream.url] : [];
-}
-
-async function proxyStream(url, res, { fetchUpstream, rewriteM3u8 }) {
+export async function getStream(args) {
+    const { id, s, e } = args;
     try {
-        const host = HOSTS.find(h => url.startsWith(h)) || HOSTS[0];
-        const headers = {
-            'Referer': host + '/',
-            'Origin': host,
-        };
+        const url = s
+            ? `${BASE}/${id}?season=${s}&episode=${e || 1}&source=aether`
+            : `${BASE}/${id}?source=aether`;
 
-        const upstream = await fetch(url, 0, headers);
+        const res = await fetch(url, { signal: AbortSignal.timeout(15000) });
+        if (!res.ok) return null;
 
-        if (!upstream) {
-            res.writeHead(502, { 'Content-Type': 'text/plain' });
-            return res.end('No upstream');
-        }
+        const raw = await res.text();
+        if (!raw) return null;
 
-        const ct = (upstream.headers?.['content-type'] || '').toLowerCase();
-        const isM3u8 = ct.includes('mpegurl') || ct.includes('m3u8') || /\.m3u8?(\?|$)/i.test(url);
+        const data = decrypt(raw);
+        if (!data || data.ok === false || !data.raw_url) return null;
 
-        if (isM3u8) {
-            const chunks = [];
-            for await (const c of upstream) {
-                chunks.push(c);
-            }
-            const body = Buffer.concat(chunks).toString('utf8');
-            res.setHeader('Content-Type', 'application/vnd.apple.mpegurl');
-            res.setHeader('Access-Control-Allow-Origin', '*');
-            res.setHeader('Cache-Control', 'public, max-age=3600');
-            return res.end(rewriteM3u8(body, url, '&aether=1'));
-        }
+        const streamUrl = data.proxied_url || data.raw_url;
+        const isHls = data.type === 'hls' || streamUrl.includes('.m3u8');
 
-        res.setHeader('Content-Type', ct || 'application/octet-stream');
-        res.setHeader('Access-Control-Allow-Origin', '*');
-        res.setHeader('Cache-Control', 'public, max-age=3600');
-        upstream.pipe(res);
-    } catch (err) {
-        if (!res.headersSent) {
-            res.writeHead(502, { 'Content-Type': 'text/plain' });
-            res.end('Proxy failed');
-        }
+        const allUrls = [{
+            url: streamUrl,
+            type: isHls ? 'hls' : 'mp4',
+            audio: 'sub',
+            server: `aether-${data.server || 'unknown'}`,
+            headers: data.headers || undefined,
+            skipProxy: false,
+        }];
+
+        return { allUrls };
+    } catch {
+        return null;
     }
 }
 
-const VERIFY_HEADERS = {
-    'Referer': 'https://tiki.aether.bar/',
-    'Origin': 'https://tiki.aether.bar',
-};
-
-export { getStream, getSources, proxyStream, VERIFY_HEADERS };
-
-export const SKIP_VERIFY = false;
+export async function getSources(args) {
+    const stream = await getStream(args);
+    if (!stream || !stream.allUrls) return [];
+    return [...new Set(stream.allUrls.map(u => u.server))];
+}

@@ -1,0 +1,111 @@
+{
+  "cachedAt": "2026-07-07T17:14:57.710Z",
+  "urlsRefreshedAt": "2026-07-07T17:14:57.710Z",
+  "sources": [
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fgoodstream.cc%2Fstreamsvr%2FheBfAmg_Nc%2F1-38%3Fe%3DNldTSzFNLzVlOGJZWlBwYkhZS1ZmV3U2VFlJanlSVVplQVNMRTN4MXpmRT0U&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream LS-25",
+      "provider": "sourcepack-momlover-nova",
+      "default": true
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F4ba20a5be9647c817449527486e35e9d.mp4%3Fsign%3D053c63d96890253cff8cef76975a69bd%26t%3D1783443396&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 360p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F9ef5c97b4749cd2383ee6adbf9b995eb.mp4%3Fsign%3D3a151282813cd5a6dd670c3700b18856%26t%3D1783443396&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 720p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F15f42b6023aea8fb759dd0f43d69132b.mp4%3Fsign%3Dcad482744aca9131c22a88112ca16c7f%26t%3D1783442905&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 1080p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Finnovationdrivenstudio.site%2FBtG0s01mM%2Fpl%2FH4sIAAAAAAAAAwXByXLCIAAA0F8KZLH06GQzU.iwR25EaKJgdFyi5uv7nnNZmg0e.gzmX2nyV8BhSAbr082mGIYcfdv6etFHZPg5BgOcwcljLyvTO9FJMzOJT4brMhZc4JeEpOLpCHkAd1_WwTeo9KcIsVAFbnLoj4.W9mGlvSm4nK5OgigjSehaGzrXlAd149GsrJ6IaJj1On9YOV0OFdvadv8hYLz5k_n8VoechzsYUgqdJr3vx5VUrPJHtDVlt7iZAd92GLexdw1.sYTclAar7cc3m13lhOI67hbc1p2FRBM4bYXMn1RHSwBdtFDQcHQVAT29josVarLnd00lemplMgcJ.Um7iYoE_QPjX58WQQEAAA--%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fedge1-waw-sprintcdn.r66nv9ed.com%2Fhls2%2F08%2F11581%2F77pfyblpl91n_x%2Fmaster.m3u8%3Ft%3DIBrtIdZseTX5biT077QG1td2BgFk15AMcztRuzSnDTs%26s%3D1783444492%26e%3D10800%26f%3D57905024%26srv%3D1050%26asn%3D13335%26sp%3D5500%26p%3D0&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fshy-smoke-85df.xxw8bjzldt.workers.dev%2Ffile1%2FN2Q5MDExYzI1MWY5NjljNTNiNjM5YTFkYWM1MDU1NzExNzgzMDA4NTgwNTYxOQ%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F134.0.6884.98+Safari%2F537.36%22%2C%22Accept%22%3A%22*%2F*%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Fvidrock.ru%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fvidrock.ru%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Obsidian",
+      "provider": "sourcepack-vidrock",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Finnovationdrivenstudio.site%2FBtG0s01mM%2Fpl%2FH4sIAAAAAAAAAw3OW5aCIAAA0C0JqEfn0yk0DBuRh_KHYjMWppWnrNVPK7g3bCNjgOn9EFljfIiCCER.AD0Aj6EXHL8k2r24IICODFqePDWYJ6oc6evGa9UUUIeBvdD1IAIkRvyqUpDbM76WolubtwStw2H.Lp8iS2pzsbio4vRQJ7naFI65hJgzcWJYBo2at8D4x44zZ.PvTUpcCGQ5v7h7v12AHqK1kd2tqouQbt1H11eJGG1Ti1ulAw0nqNQyFVzuWBX7tJ4RTXUtTgnhGV4aQR97SPZsC2aZ2rFUwaBTl3dwelCXXPtMvvi4kEPWwfakkUbFN4X.WjpZ2PNCbYafVuq73Px9jrFinreW3Iv_AR22BzhBAQAA%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28X11%3B+Linux+x86_64%3B+rv%3A125.0%29+Gecko%2F20100101+Firefox%2F125.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 1",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Finnovationdrivenstudio.site%2FBtG0s01mM%2Fpl%2FH4sIAAAAAAAAAw3D207DIBgA4Feip8x52azUVmEbp79wB6PaDNgaDwv26fVLvp1991VV7y.Nr.ddWVQl2jXWOueLpnna189GmO0s74i8rMKIUIIw1sByv3T5yJJfTMkeVqjfufMcOnOae_xj1dpbyJ3Y8INI9i1Qw9yV1TrgQALW84TbedIlwXGAQI9MLjVJ3z3BA6JIZ1b5joMpaLhneWsTyOWLTK2iST_OMFo.RaSKdmLAuJjUyR3GV1L5UfWoJt0IWsXs1AqiZ6Mvs1UHLCR8fPIU09yvyqUl8FsEKdfghNESj5lu9Oo2.vafyWodRFAYYiwukAsSlvMc4oHDsOlEa94pzqI_mQ3t_wBlt4GLQQEAAA--%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28X11%3B+Linux+x86_64%3B+rv%3A125.0%29+Gecko%2F20100101+Firefox%2F125.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 2",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Finnovationdrivenstudio.site%2FBtG0s01mM%2Fpl%2FH4sIAAAAAAAAAwXB0XpDMBgA0FeKEJ3dzSr6tcQn5A.5C9plJKbWdebpd07YE4zDA0YvNxSQ6Bb4h0GTMLgFmIRak1c4JsHgqaDcWdM1CdZNLAbHi6vjS.arbz7C1CcPLQAKTWHWziytNz2rOfbhZB8CJpS7zfHP6H1w0VcOhsix3ypJZynOtNzpRdb03lo7XvaPv6KeSD8xU_o8rwRfOidWXk9.60qiwKIM55sCNRZCFRn6XbvEPPnIGExMXtMzqed8F5KX7AgYRpuypkXCM1s1BVhjO3fY.JW1.jobccHBU4kFVxDTgQ6o9s2qUkiqU3zvT6bMPEpZ87a2ko6qBiGl2IY0.oGEFUUT27JG0T.m0T1mQQEAAA--%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28X11%3B+Linux+x86_64%3B+rv%3A125.0%29+Gecko%2F20100101+Firefox%2F125.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 3",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F252c3c2d1c493c2b12085736370f2d3c063e101d533d205d0b3751502d0d28080a29010355575c1d165405295c15492b3603261021052c1c3425235c0153173105000e5728155d2007315455503d355c2521513e3b01162a055c16113d0e1e0b032524242455545c54%3Fversion%3D2&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 1",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F252255350d142b25080950001754250d1e17510d2d010817125c12013d110c015c3c1600001733331051012324242455545c54&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 2",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F554927275d37332e232c21285d141354373e1e502e120e1c1532570e16503005352455575d50515c5256525d%3Fhash%3D1-CC9SWJGH&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 3",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F0c101014175e4b4b120a005149091d4a170c051601140b0d0a104a070b0924175c5d3b120a00513b0b0a090d07160b170b02103b070b092406452927103b0526261c0a0f5621275c12340001255720063429061d343332020c2e1101330922161e0d0f022a0a2507122b1521363135160c572a502107232d1e082454553026312328353d3d2f25273d52313c3e3132215750372a2b22372120252a362524242455575d50515c5256525d%3Fhash%3D8f055018-f952-49a5-be49-ae2c88303620&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 4",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fsrv315.heresconstarms.store%2Fs4%2F0%2F9d5bb08658072da2c03649c5280aa1bb75cac5f5966b067e90eae9e44dab6ce0%2FCUvv6zVfUXvNrWPtnX5a7g%2F1783530883%2Fstorage7%2Fmovies%2F1782445368-8814476-supergirl-2026%2F0a20911cb92ab28aa764558a24ad2419.mp4%2Findex.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F127.0.0.0+Safari%2F537.36%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Vertex 480p",
+      "provider": "sourcepack-lookmovie",
+      "default": false
+    }
+  ]
+}

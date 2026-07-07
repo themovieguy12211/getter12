@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-30T22:16:30.133Z",
+  "family": "rive",
+  "provider": "guru",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1169516"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=guru&id=1169516",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

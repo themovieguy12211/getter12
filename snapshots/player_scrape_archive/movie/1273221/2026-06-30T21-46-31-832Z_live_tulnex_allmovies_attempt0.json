@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-30T21:46:31.832Z",
+  "family": "tulnex",
+  "provider": "allmovies",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "1273221"
+  },
+  "url": "https://api.tulnex.com/provider/allmovies/movie/1273221?lang=english",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

@@ -91,11 +91,7 @@ export interface LocalSourcePackDownload {
 
 const SOURCE_PACK_ROOT = path.join(process.cwd(), "src/server/source-pack");
 const SOURCE_PACK_CACHE_TTL_MS = 5 * 60 * 1000;
-const SOURCE_PACK_SKIP_KEYS = new Set([
-  // The app already has its own VidLink integration, and the source-pack copy
-  // needs extra WASM/libsodium dependencies that are not required here.
-  "vidlink",
-]);
+const SOURCE_PACK_SKIP_KEYS = new Set<string>([]);
 const SOURCE_PACK_DOWNLOAD_KEYS = new Set(["02movie", "moviebox"]);
 
 const SOURCE_PACK_ORDER: Record<string, number> = {
@@ -140,6 +136,25 @@ const SOURCE_PACK_ORDER: Record<string, number> = {
   "kiroku-dub": 29,
   dahmermovies: 30,
   "4khdhub": 31,
+  "123anime": 32,
+  anineko: 33,
+  anipm: 34,
+  biavox: 35,
+  dulo: 36,
+  fsonline: 37,
+  goated: 38,
+  hexa: 39,
+  kisskh: 40,
+  nekowatch: 41,
+  netmirror: 42,
+  purstream: 43,
+  spencerdevs: 44,
+  streamguide: 45,
+  vidcore: 46,
+  vidfast: 47,
+  vidsync: 48,
+  xpass: 49,
+  xyra: 50,
 };
 
 const SUBTITLE_BASES = [

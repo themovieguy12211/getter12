@@ -47,6 +47,20 @@ function evict(url: string): void {
 
 (self as any).addEventListener("fetch", (event: any) => {
   const url = new URL(event.request.url as string);
+
+  // Header rewriter: extract __ref/__org query params and inject as Referer/Origin
+  const ref = url.searchParams.get('__ref');
+  const org = url.searchParams.get('__org');
+  if (ref || org) {
+    url.searchParams.delete('__ref');
+    url.searchParams.delete('__org');
+    const headers = new Headers(event.request.headers);
+    if (ref) headers.set('Referer', decodeURIComponent(ref));
+    if (org) headers.set('Origin', decodeURIComponent(org));
+    event.respondWith(fetch(new Request(url.toString(), { headers, method: event.request.method })));
+    return;
+  }
+
   if (!url.pathname.includes("/mp4-proxy")) return;
   const rangeHeader = event.request.headers.get("range") as string | null;
   if (!rangeHeader) return;

@@ -1108,15 +1108,13 @@ export const GET = async (request: NextRequest) => {
     const cached = await getCachedPlaylist(requestParams, 6 * 60 * 60 * 1000).catch(() => null);
     if (cached && cached.length > 0) {
       const clientCache = await getCachedClientSources(requestParams, 6 * 60 * 60 * 1000);
-      const sourcePackSources = await fetchSourcePackSources(requestParams, clientIp);
-      const mergedSources = orderAndMarkDefault([...cached, ...clientCache.sources, ...sourcePackSources]);
-      console.log(`[Rive Response] Cache HIT for ${requestParams.type} (${requestParams.id}) — ${cached.length} cached, ${clientCache.sources.length} client, ${sourcePackSources.length} source-pack`);
+      const mergedSources = orderAndMarkDefault([...cached, ...clientCache.sources]);
+      console.log(`[Rive Response] Cache HIT for ${requestParams.type} (${requestParams.id}) — ${cached.length} cached + ${clientCache.sources.length} client`);
       const encodedSources = serializeSources(mergedSources);
       return NextResponse.json({ playlist: [{ sources: encodedSources }] }, {
         headers: {
           "cache-control": "no-store, max-age=0",
           "x-playlist-cache": "hit",
-          "x-source-pack-count": String(sourcePackSources.length),
           "x-client-scrape": clientCache.missing.length > 0 ? clientCache.missing.join(",") : "done",
         },
       });
@@ -1126,8 +1124,8 @@ export const GET = async (request: NextRequest) => {
   console.log(`[Rive Response] Processing ${requestParams.type} (${requestParams.id})`);
 
   const [rivResults, tulnexResults, movishResult, sourcePackSources] = await Promise.all([
-    Promise.allSettled(PROVIDERS.map((p) => fetchProviderSources(p, requestParams, runContext))),
-    Promise.allSettled(TULNEX_PROVIDERS.map((p) => fetchTulnexProviderSources(p, requestParams, runContext))),
+    Promise.allSettled([] as any[]), // Rive disabled — DNS dead
+    Promise.allSettled([] as any[]), // Tulnex disabled — dead
     fetchMovishSources(requestParams, runContext),
     fetchSourcePackSources(requestParams, clientIp),
   ]);
@@ -1204,7 +1202,7 @@ export const GET = async (request: NextRequest) => {
     return NextResponse.json({ error: "No sources found" }, { status: 502 });
   }
 
-  saveCachedPlaylist(requestParams, nativeOrderedSources).catch((e) =>
+  saveCachedPlaylist(requestParams, orderedSources).catch((e) =>
     console.error("[Cache] Save failed:", e instanceof Error ? e.message : String(e)),
   );
 

@@ -3,6 +3,7 @@
 import { ContentType } from "@/types";
 import { cn } from "@/utils/helpers";
 import { decodePlayerStreamUrl } from "@/utils/playerUrlCodec";
+import { scrapeAndReport } from "@/client/scraper";
 import Hls from "hls.js";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaPause, FaPlay, FaServer } from "react-icons/fa";
@@ -117,8 +118,8 @@ const pickHlsSources = (payload: PlaylistResponse): StreamSourceOption[] => {
     if (!Array.isArray(item.sources)) continue;
     for (const source of item.sources) {
       // Accept both HLS and MP4 sources
-      if ((source?.type !== "hls" && source?.type !== "mp4") || typeof source.file !== "string" || source.file.length === 0) continue;
-      const label = source.label?.trim() || "Auto";
+      if (typeof source.file !== "string" || source.file.length === 0) continue;
+      const label = source.label?.trim() || source.provider || "Auto";
       if (BLOCKED_LABELS.some(p => p.test(label))) continue;
       const decodedFile = decodePlayerStreamUrl(source.file);
       if (!decodedFile || decodedFile.length === 0) continue;
@@ -344,14 +345,14 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
         }
       };
 
-      // Decode URL first to check actual format (handle "enc:" prefix)
-      const decodedUrl = decodePlayerStreamUrl(url);
-      const isMp4 = /\.mp4(?:\?|$)/i.test(decodedUrl) || decodedUrl.includes("/mp4-proxy");
+      // Decode URL — keep worker proxy (it sets correct Referer/Origin headers)
+      const playUrl = decodePlayerStreamUrl(url);
+      const isMp4 = /\.mp4(?:\?|$)/i.test(playUrl) || playUrl.includes("/mp4-proxy");
 
       if (isMp4) {
         mp4RetryCountRef.current = 0;
         // Pre-check: verify the MP4 is actually accessible before setting src
-        fetch(decodedUrl, { method: 'HEAD' }).then(res => {
+        fetch(playUrl, { method: 'HEAD' }).then(res => {
           if (!res.ok) {
             console.log('[Netflix] MP4 pre-check failed:', res.status);
             autoSwitchSource();
@@ -359,7 +360,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
           }
           // Remove crossOrigin for MP4 — CDN servers reject CORS requests
           video.removeAttribute("crossorigin");
-          video.src = decodedUrl;
+          video.src = playUrl;
           video.load();
           applyStartAt();
           setQualityLevels([{ id: 0, label: "Source", height: 0 }]);
@@ -377,10 +378,11 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
       if (Hls.isSupported()) {
         const hls = new Hls({ enableWorker: true, maxBufferLength: 30 });
         hlsRef.current = hls;
-        hls.subtitleDisplay = false; // We render cues ourselves
-        hls.loadSource(decodedUrl);
+        hls.subtitleDisplay = false;
+        hls.loadSource(playUrl);
         hls.attachMedia(video);
 
+        // Pre-flight: test first TS segment after manifest loads. If it 403s, auto-switch.
         hls.on(Hls.Events.MANIFEST_PARSED, (_, data) => {
           // Populate quality levels from HLS manifest
           const byHeight = new Map<number, number>();
@@ -440,7 +442,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
         });
       } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
         // Safari native HLS
-        video.src = decodedUrl;
+        video.src = playUrl;
         applyStartAt();
         setIsLoading(false);
 
@@ -483,7 +485,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
 
     fetch(playlistUrl)
       .then((res) => res.json())
-      .then((payload: PlaylistResponse) => {
+      .then(async (payload: PlaylistResponse) => {
         if (cancelled) return;
         const parsed = pickHlsSources(payload);
         if (parsed.length === 0) {
@@ -491,12 +493,61 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
           onFatalError?.("No streams");
           return;
         }
-        setSources(parsed);
+        // ── Pre-flight: test manifest + first TS on each source ──────────
+        const checkedSources = (await Promise.allSettled(
+          parsed.map(async (s) => {
+            try {
+              const res = await fetch(s.file, { signal: AbortSignal.timeout(5000) });
+              if (!res.ok) return null;
+              const text = await res.text();
+              if (!text.trim() || text.includes('<html')) return null;
+              // Test first TS segment
+              for (const line of text.split('\n')) {
+                const t = line.trim();
+                if (t && !t.startsWith('#') && (t.endsWith('.ts') || t.includes('.ts?'))) {
+                  const tsRes = await fetch(new URL(t, s.file).toString(), { signal: AbortSignal.timeout(4000) });
+                  if (!tsRes.ok) return null;
+                  break;
+                }
+              }
+              return s;
+            } catch { return null; }
+          }),
+        )).filter((r): r is PromiseFulfilledResult<StreamSourceOption> => r.status === 'fulfilled' && r.value !== null).map(r => r.value);
+
+        const validSources = checkedSources.length > 0 ? checkedSources : parsed;
+        console.log(`[Netflix] Pre-flight: ${validSources.length}/${parsed.length} passed`);
+
+        setSources(validSources);
         triedRef.current = new Set();
-        const defaultIdx = parsed.findIndex((s) => s.isDefault);
+        const defaultIdx = validSources.findIndex((s) => s.isDefault);
         const idx = defaultIdx >= 0 ? defaultIdx : 0;
         setActiveSourceIndex(idx);
-        loadSource(parsed[idx].file);
+        loadSource(validSources[idx].file);
+
+        // Background: scrape additional sources from the browser for caching
+        scrapeAndReport(
+          String(mediaId),
+          mediaType,
+          season != null ? String(season) : null,
+          episode != null ? String(episode) : null,
+        ).then(results => {
+          if (results.length > 0) {
+            console.log('[Netflix] Client scrape got', results.length, 'more sources');
+            setSources(prev => {
+              const existing = new Set(prev.map(s => s.file));
+              const added = results
+                .filter(r => r.url && !existing.has(r.url))
+                .map(r => ({
+                  file: r.url,
+                  label: r.label,
+                  provider: 'client-' + r.provider,
+                  isDefault: false,
+                }));
+              return [...prev, ...added];
+            });
+          }
+        }).catch(() => {});
       })
       .catch(() => {
         if (cancelled) return;

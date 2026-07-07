@@ -1,0 +1,62 @@
+{
+  "cachedAt": "2026-06-30T21:57:09.709Z",
+  "urlsRefreshedAt": "2026-06-30T21:57:09.709Z",
+  "sources": [
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fconvert-h264%2F15855c624fcf35b86b93edbff4d850b1.mp4%3Fsign%3D13a058c7de836faf3bd9a237bd739ac8%26t%3D1782852964&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 360p",
+      "provider": "sourcepack-momlover-nova",
+      "default": true
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2F9f53bb4b7aa28dcee9232f95d9843424.mp4%3Fsign%3De897d91c66e81fb7530e0e1a602ee7ce%26t%3D1782855592&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 480p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F804d64e615768af9c21beb16b7c962bd.mp4%3Fsign%3D1a170edcd7240b5f7647dc99923e3e91%26t%3D1782855429&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 1080p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fstorrrrrrm.site%2Fstream%2F1cd0eeb9c2770ec4%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fprofitablecreatorvault.site%2FwxXRxscGc%2Fpl%2FH4sIAAAAAAAAAw3I0XpDMBgA0FcKabbapVqUVswvEnJHZFOhn3101jz9di5Pj7V56TRBhw5hTQ6vwRFpRAgJPokxR_KWiy.X1yzJ7O6rmT1aXzwbSf9vQdx7R8aKqDyHhXhXANNy4ihdi3ufiHu1t1JdmmpKpBSVoYNTEQBU9Fvego9sFqsW4IGvtqtPfTXCxuMVSzvMJSK3jIbWnAF0NPDODg_mBizvzQ9YhCs7XCQdeGEVaJmikvZFH0_sgihhM11Yle6lLxaYC9JMLFV1eGuRUv3INsHTjTt4ZhPD5Zg5EfWSWeWZsT_lEq6tTHBXs5z56tHWdueOVeBCbOi0mnj6VY7mIha.9pai4Cj4AxfAmlNBAQAA%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fedge1-vienna-sprintcdn.owphbf24.com%2Fhls2%2F07%2F11539%2Fg30zyrn6czoe_x%2Fmaster.m3u8%3Ft%3DuiqCr-ZLVg7oJ49-LuBFg5NBiD4QjnyNf-y_qxIi1jI%26s%3D1782853066%26e%3D10800%26f%3D57697751%26srv%3D1070%26asn%3D13335%26sp%3D5500%26p%3D0&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fgoodstream.cc%2Fstreamsvr%2Fqk9jx02PjF%2F0-36%3Fe%3DNldTSzFNLzVlOGJZWlBwYkhZS1ZmV3U2VFlJanlSVVplQVNMRTN4MXpmRT0U&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream LS-25",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fshkn.nuvistar.online%2Fv4%2Fx68%2F5ycrtj%2Fcf-master.1782013368.txt%3Fe%3D%26t%3D&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150+Safari%2F537.36%22%2C%22Accept%22%3A%22*%2F*%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": false
+    }
+  ]
+}

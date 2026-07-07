@@ -1,0 +1,76 @@
+{
+  "cachedAt": "2026-06-30T21:46:46.652Z",
+  "urlsRefreshedAt": "2026-06-30T21:46:46.652Z",
+  "sources": [
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fgoodstream.cc%2Fstreamsvr%2FQDh6p5BZEo%2F0-43%3Fe%3DNldTSzFNLzVlOGJZWlBwYkhZS1ZmV3U2VFlJanlSVVplQVNMRTN4MXpmRT0U&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream LS-25",
+      "provider": "sourcepack-momlover-nova",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fstorrrrrrm.site%2Fstream%2Fcce46703ff1d7730%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2F2b4a971085775fd43017583e8849a762.mp4%3Fsign%3D9b3ea0fd26fa6c5cbbbb77afcecbeaab%26t%3D1782854543&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 360p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2F02cd388ade464f886c16d0a82f1ff1e4.mp4%3Fsign%3D88f2dff4310401488de770f2c957380f%26t%3D1782852593&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 480p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2Fcf9c22351b352eba62e834e537b289d4.mp4%3Fsign%3D809e490159fa80a9df51fd672bd59171%26t%3D1782855151&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream 1080p",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fedge2-waw-sprintcdn.r66nv9ed.com%2Fhls2%2F05%2F11510%2Fh2t8pbcegyjy_x%2Fmaster.m3u8%3Ft%3DbeXtIZGjfr0cLL1WCBIAd4OCqZ674KQzVBF5C7AlB2o%26s%3D1782855927%26e%3D10800%26f%3D57553236%26srv%3D1075%26asn%3D13335%26sp%3D5500%26p%3D0&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fflix2watch.pro%2Fstream%2FScary_Movie%5BCAM%5D_1080p.mp4%3Ftoken%3DkI2QB4udrlhV8GfVAThPUxXqYw1MKyBtPATjRsCXeEY%26expires%3D1782877522&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fstrategicgrowthpartners.site%2F4qxwiL3dO%2Fpl%2FH4sIAAAAAAAAAw3MW3KDIBQA0C3xMHHop_U1JugUvaj8qWiZBgxjMzFx9e1ZwAkXHDI9DHQaThqRYMFTyFiIAr0s53AhH1WnrkNyI7VLnpIkuF59BLF1JTAxdsV7Xu15wv64YEO403eByn2i0eeFsN8mY6_aTVuV.72VNh.sAN6pood0HxIc6TSKeG5c_SNcHZtHQy2URBxlxvLxptLR8kCtOqpAB4A5bXLzEnIKBEK0BU50AlgftpLN91tKf23BrAJHW4l0_v.rGbwURL16KmKN9E3FsEFi3ZgV99Yaz7F8CMrJbG0zg0oFkRkgQ_uu8HNXwuBMytuTHFtPlFX1lzvtkugNaLLVJHjqA7E_H5MBx0EBAAA-%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "NovaStream Auto",
+      "provider": "sourcepack-momlover-nova",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fs6d.digitalhealthhub.space%2Fv4%2Fic%2F138ju%2Fcf-master.1811987200.txt&headers=%7B%22Accept%22%3A%22*%2F*%22%2C%22Origin%22%3A%22https%3A%2F%2Flordflix.org%22%2C%22Referer%22%3A%22https%3A%2F%2Flordflix.org%2F%22%2C%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F137.0.0.0+Safari%2F537.36%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Crown Auto",
+      "provider": "sourcepack-lordflix",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fcdn.1shows.app%2Fe%2FDBkXNgRLVVNaQFNEUA%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150+Safari%2F537.36%22%2C%22Accept%22%3A%22*%2F*%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": false
+    }
+  ]
+}

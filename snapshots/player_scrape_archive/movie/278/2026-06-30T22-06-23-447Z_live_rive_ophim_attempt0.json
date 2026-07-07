@@ -1,0 +1,18 @@
+{
+  "createdAt": "2026-06-30T22:06:23.447Z",
+  "family": "rive",
+  "provider": "ophim",
+  "phase": "live",
+  "attempt": 0,
+  "request": {
+    "type": "movie",
+    "id": "278"
+  },
+  "url": "https://scrapper.rivestream.org/api/provider?provider=ophim&id=278",
+  "status": null,
+  "ok": false,
+  "sourceCount": 0,
+  "error": "timeout",
+  "responseBody": null,
+  "responseText": null
+}

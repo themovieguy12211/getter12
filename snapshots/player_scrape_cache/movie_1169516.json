@@ -1,0 +1,62 @@
+{
+  "cachedAt": "2026-06-30T22:16:45.122Z",
+  "urlsRefreshedAt": "2026-06-30T22:16:45.122Z",
+  "sources": [
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fconvert-h264%2Fe1b640123ade8cf2df78598927cf3fb4.mp4%3Fsign%3D145ccd37b844ce1b1ea436450361736a%26t%3D1782855719&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "VaultFlix 360p",
+      "provider": "sourcepack-momlover-vault",
+      "default": true
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2F5b2ae387654414e58f73d6be6680f10e.mp4%3Fsign%3D5966d29e96c16c22071b32bfa35f3884%26t%3D1782855402&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "VaultFlix 480p",
+      "provider": "sourcepack-momlover-vault",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2Fa7e7002e21ea113d22b33a80f93d8c4c.mp4%3Fsign%3Dcc1887b92ea081516715b177de5133d7%26t%3D1782855091&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "VaultFlix 1080p",
+      "provider": "sourcepack-momlover-vault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fimg1.fvcwo.com%2Fhls_mps%2F412ca1c49c0929528b255e456ad58a469d9823a0%2F480%2Findex_preview_255.m3u8%3Fauth_key%3DtKpVBaH6OnSIZoxjWID5OMRqK4C%252FWgEUVJsNCdLa28E%253D%26expire%3D1782861660956&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150+Safari%2F537.36%22%2C%22Accept%22%3A%22*%2F*%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.vidzee.wtf%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F252255350d142a02023132175310350b1e0b1751323c291e1e352b2b2a2f54261d0e3b2d352c0d2c2b35115224242455545c54&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 1",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F55002f57062a0637231025070d01090e06251217290217283d14152e312d373b052455545056525250575456%3Fhash%3D1dK3bNbSGt&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 2",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Ffsharetv.co%2Fapi%2Fmedia%2F0c101014175e4b4b120a005149091d4a170c051601140b0d0a104a070b0924175656523b120a00513b0b0a090d07160b170b02103b070b09240645224907290814322217542f0b35171c3408253e342914132b131e071157513e2b0f5d023c0b5657560a3b165d2d110b572335200a3516342c0f2d353e063736002454552653373e223634235222213c2b2230273e2a272d36342a2750522f362a2d2b3324242455545056525250575456%3Fhash%3D7749f1e6-6216-44cb-88bd-a2e79516a1d6&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36+Edg%2F148.0.0.0%22%2C%22Accept%22%3A%22text%2Fhtml%2Capplication%2Fxhtml%2Bxml%2Capplication%2Fxml%3Bq%3D0.9%2C*%2F*%3Bq%3D0.8%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%2C%22Referer%22%3A%22https%3A%2F%2Ffsharetv.co%2F%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Thunder 3",
+      "provider": "sourcepack-fsonic",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fsrv315.brigeriny.store%2Faes%2F0%2Ff47ef3795a9c3f356d7445ce58a437b9f7135532df3eaedd3b5ecde3cae0f6a2%2FT7hTb2SrPtoSLKx284asaA%2F1782944192%2Fstorage4%2Fmovies%2Fwelcome-to-the-jungle-2013%2F50a3036ce5bfc715d6e7bb743a14f39c.mp4%2Findex.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F127.0.0.0+Safari%2F537.36%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Vertex 480p",
+      "provider": "sourcepack-lookmovie",
+      "default": false
+    }
+  ]
+}
