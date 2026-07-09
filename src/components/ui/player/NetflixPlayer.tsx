@@ -169,6 +169,8 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
   const progressDragRef = useRef(false);
   const preferredSubtitleIdRef = useRef<number>(-1);
   const playbackSpeedRef = useRef(1);
+  const onFatalErrorRef = useRef(onFatalError);
+  onFatalErrorRef.current = onFatalError;
 
   const [sources, setSources] = useState<StreamSourceOption[]>([]);
   const [activeSourceIndex, setActiveSourceIndex] = useState(0);
@@ -468,10 +470,10 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
         void video.play().catch(() => {});
       } else {
         setError("HLS is not supported in this browser.");
-        onFatalError?.("HLS not supported");
+        onFatalErrorRef.current?.("HLS not supported");
       }
     },
-    [startAt, onFatalError],
+    [startAt],
   );
 
   // ── Fetch playlist ────────────────────────────────────────────────────────────
@@ -490,7 +492,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
         const parsed = pickHlsSources(payload);
         if (parsed.length === 0) {
           setError("No streams are available right now.");
-          onFatalError?.("No streams");
+          onFatalErrorRef.current?.("No streams");
           return;
         }
         // ── Pre-flight: test manifest + first TS on each source ──────────
@@ -552,11 +554,12 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
       .catch(() => {
         if (cancelled) return;
         setError("Could not load stream sources.");
-        onFatalError?.("Fetch failed");
+        onFatalErrorRef.current?.("Fetch failed");
       });
 
     return () => { cancelled = true; };
-  }, [playlistUrl, loadSource, onFatalError]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playlistUrl]);
 
   // ── Fetch external subtitles (Wyzie) ──────────────────────────────────────────
 

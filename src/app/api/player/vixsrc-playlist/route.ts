@@ -54,12 +54,6 @@ async function getCachedClientSources(
 }
 
 /**
- * ─── MOVISH CONFIG ───────────────────────────────────────────────────────────
- */
-const MOVISH_ORIGIN = "https://movish.net";
-const MOVISH_REFERER = "https://movish.net/";
-
-/**
  * ─── RIVESTREAM SCRAPER CONFIG ───────────────────────────────────────────────
  */
 const SCRAPPER_BASE = "https://scrapper.rivestream.org";
@@ -1006,15 +1000,6 @@ const fetchStreamVaultSources = async (
   }
 };
 
-const fetchMovishSources = async (
-  requestParams: ParsedMediaRequest,
-  runContext: ScrapeRunContext,
-): Promise<PlaylistSource[]> => {
-  // Movish uses runtime JavaScript to load stream URLs - requires headless browser rendering
-  // Disabled for now since it can't work with simple server-side HTML parsing
-  console.log(`[Movish] DISABLED - requires browser rendering`);
-  return [];
-};
 
 const dedupeSources = (sources: PlaylistSource[]): PlaylistSource[] => {
   const seen = new Set<string>();
@@ -1029,9 +1014,6 @@ const normalizePlaylistSourceType = (source: PlaylistSource): PlaylistSource => 
 const providerOrder = (provider: string | undefined) => {
   // Top Priority: SourcePack (aether is #1)
   if (provider?.startsWith("sourcepack-")) return sourcePackProviderOrder(provider);
-
-  // NovaCast (Movish)
-  if (provider === "movish") return 10;
 
   // FlowCast
   if (provider === "flowcast") return 11;
@@ -1123,10 +1105,9 @@ export const GET = async (request: NextRequest) => {
 
   console.log(`[Rive Response] Processing ${requestParams.type} (${requestParams.id})`);
 
-  const [rivResults, tulnexResults, movishResult, sourcePackSources] = await Promise.all([
+  const [rivResults, tulnexResults, sourcePackSources] = await Promise.all([
     Promise.allSettled([] as any[]), // Rive disabled — DNS dead
     Promise.allSettled([] as any[]), // Tulnex disabled — dead
-    fetchMovishSources(requestParams, runContext),
     fetchSourcePackSources(requestParams, clientIp),
   ]);
 
@@ -1159,9 +1140,6 @@ export const GET = async (request: NextRequest) => {
     }
   });
 
-  // Add Movish sources (kept separate — excluded from cache due to time-limited signed URLs)
-  const movishSources = Array.isArray(movishResult) ? movishResult : [];
-  allSources.push(...movishSources);
 
   if (Object.keys(riveSourceCount).length > 0) {
     console.log(`[Rive] Summary:`, JSON.stringify(riveSourceCount, null, 2));

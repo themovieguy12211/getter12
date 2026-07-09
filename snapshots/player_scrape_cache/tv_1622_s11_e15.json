@@ -1,0 +1,433 @@
+{
+  "cachedAt": "2026-07-09T12:57:03.202Z",
+  "urlsRefreshedAt": "2026-07-09T12:57:03.202Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAw3K0XaCIBgA4FcCTIvdrYWdVPCIIMad9FvO1KztlPH023f94TUJHW7P0dqtVyfUuBBFJNqs8DnaBJS2H0Bm5QLxUF4c210nMy88sN97oRIiSnpvqu4nReJdfdOD3vEw3y9P4Y8oV5fF9VtTICHdKBe1D_NWJbpSSclHkPZKI4XAt32xEqyqUrzN9M7qXM.T9SBL072snms53Dz0MgLUVa2OA3sVOQ860gSFN2p71_Xtqac4NwoOdpw9xMB5nXSKxb3RrzALTpjjTwLM9lUNgyB0bIb5y9QidZNNC8wfxZjcsmAmigkjGF1g7JhhkKnJ8v_74D1_wwDI9ZLxkobWYCSmAVmP6B.diQD7QQEAAA--%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "ForgeCast Auto",
+      "provider": "sourcepack-momlover-forge",
+      "default": true
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2Fa16dcf50bf50bb6ad3ea392a4a841108.mp4%3Fsign%3D9d7d8962cf8b96c3d7df822749abd8be%26t%3D1783599929&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "ForgeCast 360p",
+      "provider": "sourcepack-momlover-forge",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fconvert-h264%2Fb6bf2843f31439765c37fe3c57cbbe43.mp4%3Fsign%3Da82d59ebe699ca40e99e306bffcf6f63%26t%3D1783599929&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%2C%22Origin%22%3A%22https%3A%2F%2Fplayer.cinezo.live%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "ForgeCast 720p",
+      "provider": "sourcepack-momlover-forge",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fstreams.icefy.top%2F00eedae71fe8e80954ca3a7618ee3053%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fstreams.icefy.top%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fstreams.icefy.top%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Frostbyte",
+      "provider": "sourcepack-icefy",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fp.111477.xyz%2Fbulk%3Fu%3Dhttps%253A%252F%252Fa.111477.xyz%252Ftvs%252FSupernatural%252FSeason%2B11%252FSupernatural%2B%25282005%2529%2B-%2BS11E15%2B-%2BBeyond%2Bthe%2BMat%2B%255BBluray-1080p%2BRemux%255D%255BDTS-HD%2BMA%2B5.1%255D%255BAVC%255D.mkv&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Fp.111477.xyz%2Fbulk%3Fu%3Dhttps%253A%252F%252Fa.111477.xyz%252Ftvs%252FSupernatural%252FSeason%2B11%252FSupernatural.S11E15.1080p.BluRay.x265-KONTRAST.mp4&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Faqua-vulture-337623.hostingersite.com%2Fvid1.php%3Furl%3D%252Fvid%252Fseries%252F720p%252Ftt0460681-s11e15_1280x720.m3u8&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 720p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fastream-9-1.voxzer.org%2Fstream%2F5e0f1c3cab6f7140d0075cb3%2F720%2Findex.m3u8&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 720p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fen.notorrent2.workers.dev%2F%3Furl%3Dvc5odldXq3bE2So_1CcBoAQgVT8-cehtZFw2nFL4GhphfI8QDj0zdZzVoW1Zo02CEix8SRVzsV94QHyKTvgDDjxFk1MIGiJVvPnpJgLhC_I%253D&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Flatam.notorrent2.workers.dev%2F%3Furl%3D9EIFRgLzq_RT1awc04d5hH71JQgVG9yWowElWk1uC0OgFr5l77cep36gPKU_euV-Zd0iUScHwNy1HSVDWTMHW-Ag7UiktUbZHvBHwTw%253D&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Flatam.notorrent2.workers.dev%2F%3Furl%3DqgoH9hn0iRrfNaxIkG62k99l7oSg6iodIdvztFzyNRE0Upz5cvAU-OFUXdaLd-P9qU7s3ZL2Nlc3x_OtSK8MDXdUu-hS0Diwqg8fkPs%253D&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Flatam.notorrent2.workers.dev%2F%3Furl%3DaTJkDaxeyr0_JTziaMmxeHbxPNMXXDw1yoKrrZT8xZG_G-b4lB5DBG_S5_NlB64LbaosxhAHenaSkev8167Y0bwGpf2hA1IYcvue0zMcyjtP9y7wSTVmatiH9_zOuoXBvlnD9JAeShgnhvi_O18%253D&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cdn.piracy.cloud/mp4-proxy?url=https%3A%2F%2Faqua-vulture-337623.hostingersite.com%2Flat_67.php%3Furl%3Dhttps%253A%252F%252Fstream-4091-31-168.pkcdn.org%252Fkuohpmkqjaikkfn2mdj72iitmhfunscavs5qvs3sd3myarmp7drrpaffnu%252Fv.mp4&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fpt.notorrent2.workers.dev%2F%3Furl%3DObvJktW68Zmq1L6qLh115ziEPkCo4C55E4XuXs8qefLFp0DT3GnYGN1Qv2HWpxR3XLQcHarWd0sPmaRI0ypg5pi3Qoy6YOkFxVDqHLDLHDQ%253D&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 1080p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Faqua-vulture-337623.hostingersite.com%2Fvid1.php%3Furl%3D%252Fvid%252Fseries%252F480p%252Ftt0460681-s11e15_640x360.m3u8&headers=%7B%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Nexus 480p",
+      "provider": "sourcepack-notorrent",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://ok.horseapples.cc/content?v=JqWB_iSwMpWx5NqZgTXmkoUiD4L3piCA5EcKFY3VsmK3zYKzG0VxMVKsQmZviy7Io2V9Q6xfp09fwtSZkXrNSgTVbfGvRVnkVUmh1hP6YM2Sbq5fr9m4khOCvKCJ6UpvS57thqArlNSa70IDfcNROJvncbNq4d7d2YgN3GKHzhb6064bf19a0uDexD265scH-ebfFiCXv58ON1kmzzWvKA",
+      "label": "Crown 1",
+      "provider": "sourcepack-lordflix",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://ok.horseapples.cc/content?v=9-Ru-ZUaVWjiRqx4gDEYEHCNNmMWhC0Xm9mlWig1uNNDHK9K14U9Ko2t4xll5_U19hymItEsk0aIuLNQqHlZr-AR4GE8DJf_HSXWu6iqfOirGsIur8B1ku8Mbrvv2PlSxC1tw_6XeawHMJ0-7uZlOrCS2MpKfQcqPuBRJRg9Wjtu0e6-wrPEh-Bmm_QQ_s1hZPEjzu4yjzyOhFYXZliixB8cq4TQZ7fjNOZw2YcZAvDUzvlWzKDHdQteedR_k-fXQ-xQu_BH3BVa4fjYXe2MSrB7eL1Czq-zKicYOVAhXkxasSGImbe-J8jIqzH0K_DpZZRsbZi14DneoTO-leZ2JZTuzeu4fBRIh2Msp4CLnaBHegB-zU8ukBwFRuh5XuWcrRBv_P2kUc47BjYd4lUHJK-5xJsdplINIk4VlRwUbdB4KlO80j24QxeT9ghTJMUHfpfv5Ff3Gtwvoq7J4l107B_K5jX3zeOSUHPF2YUDmdWQ2JZLVtZA1pShP-0jtKX-4U74sGvgs1SyVjaYFpR0OI4gaCWj0o9pG5oyGwiLlp8B6EXR1NlyCvxY93vPx3vERfVCB4D0-1v-GaMlCH63op2T1tkftmdsaqC7GWUQllYgnE2kfk5NTDvJUAn-z6yI0OBX_7A8Wfa5RiCQSyNocXUXqQkMw3EIkvBVDyTFBfuLn8iJdtK5efE1CXKtXsXUvhgyAMTbtvvb358KdRrXNw",
+      "label": "Crown 2",
+      "provider": "sourcepack-lordflix",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://tcloud.lordflix.club/tcloud?u=aHR0cHM6Ly9zcTMuY2Fydm9uaS5jeW91L3Y0L2hsZC9vcjkxby9jZi1tYXN0ZXIuMTc1NjUyODYzNS50eHQ_dD03OWNmZWM1Y2IzMjQ1OWZmNTUwZmE2NWImZT0xNzY1MjQxNTc4",
+      "label": "Crown 3",
+      "provider": "sourcepack-lordflix",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://free.finepulfe.xyz/tv/1622-ws4nh/S11/E15/master.m3u8",
+      "label": "Crown 4",
+      "provider": "sourcepack-lordflix",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://img1.klcxm.com/hls_mps/290ea12b506329d196e1aa021ac7ff2e/720/index_273.m3u8?auth_key=0fKS3O5d78gYYUOY57lb7WLE%2FtRFkAX8SxMwYSrPpY4%3D&expire=1783612601550",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vixsrc.to/playlist/179076?type=video&rendition=1080p&token=Jeh9jrrxN8XjCoFrjpuOmg&expires=1788785799&edge=sc-u7-01",
+      "label": "Meridian",
+      "provider": "sourcepack-vixsrc",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAw3Oy3KCMBQA0F9KAkHpkkKCOAnDzUNlB4SREnx0RNvm6.vqbE.MU.LSdEQbtxnGOKHpNk22EXVD0iWURh_CS.xmyOojMMHa6GBuoVsmLrG86Hy6NjOYuhQvWKYfiORtj9Znr1Z_ui47tWTMGddAsEaRtWxZg4Djxl0cq02D9sRylU8PZZfZ.DOWhP2NxS0eNHQdy3R_uU_AAEnyiE2Qhczlt0a_HDz1o6efXX6KDjPsemteA19KhRYwSB60lrng7b2_gmjJ.8kHogjdd6Ei2uPncGThhO1TsR16m7UziyW3lWSV6fg9ab2gtVqLPp_EmFfBFj6Ir5QpU2BVutkEsFqfI6NR.g_jSgW_QQEAAA--%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%3B+rv%3A124.0%29+Gecko%2F20100101+Firefox%2F124.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 1",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAwXBa3eCIBgA4L8kGDr3bR7FS2lJ8JJ883ZiAuZZrVy_fs8zhNNIgi708a7z8MfohWEQoDHAyOuDiUSf7KKsAG0kr3MlIlL7MYAhT.UesjfVe5zHP_W2OZjVDenj1sjt3Tv1Lc1K1KK9wZR6TA1iiKouM1gIxNq5PA7C1mdE00nYrnYv0nJ77ygsfRbdeR4TPlOokmoHQPe1gVnl9MXdJps51jJRvAF9ZLggkN184GU8yGirLIvbRe3O9gv1KdR7fPXYAnp0rGiXtTn4111HWdXPzY_KVixyWg3.euJO32soK3EpPJGoeErsE7LtJXK7SqeT3tJCIHWaLjQ94O23QfHMBDk03Iv.AV5kOnxBAQAA%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%3B+rv%3A124.0%29+Gecko%2F20100101+Firefox%2F124.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 2",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAwXByVKDMAAA0F8CGgvx1ioBWYJkLdwSgkNNoEzLyPL1vgdVB7sAKq0AOKsfEAIdKh1FJuyBgmH_bqz_xsQ1J6IGhG.BnuaE_eKdT.ZKT4b2jLSF5x80bQPuLqC8R4CjVhk35.WInpU0N.qRM_YEI3whLRKJcNnepfbgY1a19g31VoCKlTvneG8sjpvbQMVtrgnL7qWFgFj03Uxu6jiROkVVcXIrGV.bRsPa3SHFo1FljOOaEdI4wbBzK05gXtLlqxWPZx_DXXNMm3Hdu3E58gMXhbfx2vNf.cEDvC.DlPVTTZe_SqJcsOxsPuADuznLvciT6cBkLGwtYaJ9snAXb_XJfLaHB_8BKT0LjEEBAAA-%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%3B+rv%3A124.0%29+Gecko%2F20100101+Firefox%2F124.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 3",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fplaylist%2FFaNpH47jQqE7vQJQeEtp4HyPLzEigAZcFyJ9vHRfFlRElA4pXL2SrlXKIRDwmukptN-2wu5b5Q0-lb6UjWjKyw5FbIUjcu1h-dtaFZGkdEjxmYgg4w%2Flist.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%3B+rv%3A124.0%29+Gecko%2F20100101+Firefox%2F124.0%22%2C%22referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%2C%22origin%22%3A%22https%3A%2F%2Fbrightpathsignals.com%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Atlas 4",
+      "provider": "sourcepack-vidapi",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fsrv315.tatidy.store%2Faes%2F0%2F099c4ddc950546dcbf57bb57e7e052964492fc6519bc9ab2c7d11c5ba2e4e219%2FMgl6ND4-vAUscIl_QKMTDA%2F1783645000%2Fstorage5%2Fshows%2F0460681-supernatural-2005%2F7-S11E15-1549537039%2F660711e8cf0861b0d3176da5de71ae71.mp4%2Findex.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F127.0.0.0+Safari%2F537.36%22%2C%22Accept-Language%22%3A%22en-US%2Cen%3Bq%3D0.9%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Vertex 720",
+      "provider": "sourcepack-lookmovie",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAw3OWXaCMBQA0C1lAms_EaIioYWQRPiDPGgOk57WFmT1dQX3tl1j94iyeuezltaIQYfr_VuHWEeg2fnvahSbiAAnCD3Tk.sFD5b2FDwVqkg2xX6G8B1COKs5TeysvbQ_s9IAqqdxq8ZAq1ksNRkP8uoczEFRUWfSyJlCQ5SHAxXDFwXjdHt0U0G5dyFVKfjopwXIvA..bZ9RuencHtlfa36elvDB8sGTnCdSR2t7XG8NQcuHeax5tIZ2QkSGYwhhoBuuFkBYizllWVG5l3GpxzsTan3dgZuIJwmxXknuE6j4s5njJcFw1TiPig1.LzQ_AFJeNuGHItVNIS4ljqeS4Js4BTor0P4fg7TPH0EBAAA-%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%7D",
+      "label": "StreamVault 1",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAwXB3VqDIAAA0FdCGJt2FwUiS2wKKN75g59fYrmynD595ww4AB1G5yEcwnA4Iez6zoURbN0FhuDinrKKHrX5.jOsD_QhoCvzPI_ztEV.6wNfpnSZr0DQG5KkpMFfwzxOpyhzbLlbZU8dM4lT.lEak1nP3nQlWcrJZzclezdjrPx4V9xnikaoOTSoX0mgwFrpajwKYFGhhGonv.nZEDeJOQf5o.DiXU.4MYjiDuJrG9SohuvZ6OhbVWLV03J2sYS9r..6IruK_V7HvUjLnBacnBrzjKwOuIzt1rEEyg_xo18ibg3b7CFJUyVbVo6_KRRzC.XN0NXLedm1Z6MCuVeccA0fU32A6B_8e00aQQEAAA--%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%7D",
+      "label": "StreamVault 2",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fpl%2FH4sIAAAAAAAAAw3P0ZKCIBQA0F8C1Cn3scSshEYERN7Q29YIFlNN4_b12xecOat0hfMhSc7rfIRflyGMHUnQmK4dZEOOf45oj6EDI0K8HlGMQOzWEXsQ3cLUrVm0KskwQRzD1YEByj82trN9sxmlPeH1QA9Pq4PqaIPAxOp8g0xLlojpULOpbGxxZeBD19KXqhO9l_iOer3Ztx7qcwFLT77.50I6n79YZSnvGmLnPEhyx1Lyk5Sb0hn.AOqzHoe3U0vh5LgIrU8KqUR2mKtCT9bniiu9tQZSexNVW4k4TvbEjH_YStBRi0WX1rSU17wIf3wXnsPugoHQzFWBMg2zKuF7hknQLGn80iuJ8n.aKqXIQQEAAA--%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%7D",
+      "label": "StreamVault 3",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fwealthcreationmethod.site%2FqnSBJsNW2%2Fplaylist%2FFaNpH47jQqE7vQJQeEtp4HyPLzEigAZcFyJ9vHRfFlRElA4pXL2SrlXKIRDwmukptN-2wu5b5Q0-lb6UjWjKyw5FbIUjcu1h-dtaFZGkdEjxmYgg4w%2Flist.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fbrightpathsignals.com%2F%22%7D",
+      "label": "StreamVault 4",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fgoodstream.cc%252Fstreamsvr%252FxyVvvYjyjm%252F1-53%253Fe%253DNno4cTljSE5TZnpDa25qd2g4Y3lNM1BQZ0ljaERybGNTYS9ocTlTWk9TTT0E%26headers%3D%257B%2522referer%2522%253A%2522https%253A%252F%252Fgoodstream.cc%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22referer%22%3A%22https%3A%2F%2Fgoodstream.cc%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 5",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fgoodstream.cc%252Fpl%252F51daAIObfE88eU7%252F0-53%253Fe%253DNno4cTljSE5TZnpDa25qd2g4Y3lNM1BQZ0ljaERybGNTYS9ocTlTWk9TTT0E%26headers%3D%257B%2522referer%2522%253A%2522https%253A%252F%252Fgoodstream.cc%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22referer%22%3A%22https%3A%2F%2Fgoodstream.cc%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 6",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fwealthcreationmethod.site%252FqnSBJsNW2%252Fpl%252FH4sIAAAAAAAAAwXB0XaCIAAA0F8CwZV79KQxFzRBQHkjsEOK1nHtZH797nUX8AFclqYeod111.PLHu8w_HDgCjML8ee5jUqMrBVacT1Ugc33xRQdViRAIwGSR_404wuyOfw65CeRqNgATi_bF_6G6uHBeuPQbbJgVshQUeIZI2oWY5Rel6En9coBPyj0GCQxiQMP3U8GMlS_1bRakTxzLtebmFXODvTNWn8Wc_ESbV7ZVlGTZEUDQt4k48KP3NLSn.wcF0XKmW0y6fRKLClwN.2xKLI_e3zWuvGcgfTHAzh4DYcTirJG4aZVl9KxWr0qE7PlrYv3RUBW9UUcdYyDnSLVLcd29MYhZfwGsn__xNNlQQEAAA--%252Fmaster.m3u8%26headers%3D%257B%2522origin%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%2522%252C%2522referer%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 7",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fwealthcreationmethod.site%252FqnSBJsNW2%252Fpl%252FH4sIAAAAAAAAAw3M3XqCIAAA0FcCTZu7NMVyiV_Ij3AnUDOBasvNzaffzgMcmFm90TG8bEG6zTYaahBtX9LhcoHDOU3AKwszkO4hm6lebSCx5uouJ141JTlaUAsh1AEHs5iijFTwCv9mCxHzSByWekK9pe__p3LC1aBD9x9RqU_pCbLlSE_cRx3lSlKfWCYjFmAnBf.S0RzMbezbQrWD4zt6Y7FccTHAUbLKQY4OcSfgTq_mW16zJ0Y4VVN91Gx809FIW1rfcZRdTzRvG5j3.vpcBVfEVKowpaKS5zsT8IF5RLV4LmYdE8H95uwfnFUc6KByOnmH_YNwyBPq5nDe2w.GSNGsKGL7elC9XOwKsj_f8jXJQQEAAA--%252Fmaster.m3u8%26headers%3D%257B%2522origin%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%2522%252C%2522referer%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 8",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fwealthcreationmethod.site%252FqnSBJsNW2%252Fpl%252FH4sIAAAAAAAAAw3NyXaCMBQA0F8KBK1055CgWB4VyEvNLhA8kQB14FTg6.vu7u5Sl97lUtKgCklQLr0wrFe.rqhZUe_Dr.gnSkHlDsiRok0jq85dfCwJC7REqWdoJaJGj7dGDFT0t6tqzVL7WSrc.KeJ7XRjHiUDLvzhafYKNGtzvR1S3dlb9gPbUwOPhCJT_eZcFyDNjO5tAYW6lg4WsOOv3CERwk2Kmknw9QxdfEv2yZg366lu7LVugSFZTO_viduwzQo2ZRKjPCIEuvGZ7_kBettJZu.K2LHqUOtIRWcXjBmPX6JXG.PUAX02g.O_xlMOhboLF39rwRV6mBY7WFae_Tq1Ca27QdZuYdVMwn86ykBbQQEAAA--%252Fmaster.m3u8%26headers%3D%257B%2522origin%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%2522%252C%2522referer%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 9",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fup-1.eat-peach.sbs%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fwealthcreationmethod.site%252FqnSBJsNW2%252Fplaylist%252FFaNpH47jQqE7vQJQeEtp4HyPLzEigAZcFyJ9vHRfFlRElA4pXL2SrlXKIRDwmukptN-2wu5b5Q0-lb6UjWjKyw5FbIUjcu1h-dtaFZGkdEjxmYgg4w%252Flist.m3u8%26headers%3D%257B%2522origin%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%2522%252C%2522referer%2522%253A%2522https%253A%252F%252Fnextgencloudfabric.com%252F%2522%252C%2522user-agent%2522%253A%2522Mozilla%252F5.0%2520%28Windows%2520NT%252010.0%253B%2520Win64%253B%2520x64%29%2520AppleWebKit%252F537.36%2520%28KHTML%252C%2520like%2520Gecko%29%2520Chrome%252F143.0.0.0%2520Safari%252F537.36%2522%257D&h=%7B%22origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22user-agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F143.0.0.0+Safari%2F537.36%22%7D",
+      "label": "StreamVault 10",
+      "provider": "sourcepack-streamvault",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vidapi-sabrina-proxy.swift-wren.workers.dev/v/VP6iRnESIO_jUr_b-gQkK9QOdrqoZWGG9qsjxq4YkAEfrTpTSrewE8Q7xYWKCea2O-KDhEySK_A1ztWzfhG3O-S9CwpI_3tEHuIVUq_KrqJ8GnXCb3if2krbp2MlLTb_GAiwdjOe3dpH8SG7zoIyNYFEop3mMSXVBWCrbM2SCVmLZiZWN05yuX0qfMdfl9DM7VnMnl1ywDo9_nYafEx3qDkP4lkbQIJWUl_qRr89Xul4GN4ghKT4jzqJBQuI0ujKWhMOAsyuOakUM_ASBa5FrP2QmK5NCG-l5fK5x1PKc7jhtdAORLugbDAwkbINmnB429AR0XT8Aa3aeWwKXEpALfNvQ4eMBgIeZ-2sumdPCgoO-pt9yp25k8o2rOVcofzxOFZuxraXIvEasDpD33B-VWhu6bGzbiIFSzIAbk_mqbj9OLrACpwJMkybREQ4O2ypDs3MwSBOeqt6hXa3YwBxN3iSp2asmPZNDjRpnyh2OJvycMgwToO9rz3w7LBikkwywj55RN1TxS630KbQJzE-3OesCsYb291xJdXGbSrQlv9z3Ta08O-uiR4kNqvu-E8nDBDRwHgPZ_PfIssw6c7Q1o7V63vudqOQKIELrHyps64s_NmwSC25VcE8w4As2YteUe8GeltqaSQVj8RT6RQ2mBqWIrnR-ExGQEx46kyL5w/index.m3u8",
+      "label": "Dulo 1",
+      "provider": "sourcepack-dulo",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://den.dulo.tv/ap1/stream/v2.AQMO9ORXMrQuiz-CCPRHenPdxloPRe5K8TzCuh09AD4p_Lv8vAmjAHHqBkiAt_wLLMPEeQyLeLGNcJSVaIGNarD0iTo7dtM3RSdizeeiksVuriSpktrGsQ-KUt-TQhIbWK36J0XZCZO12gjY4dnDrE9msBANSucO3eYP1uorcrkuIGs5lUHkaAjBU_NPAvkENWEJEHssn2iuTEIEUTIS9Ps825cgeFZKv4OUdGOwEFfrLv1B4vJhg-C7LS0ZsMlzvchx9_Ge7JYCAbKQTacUsQRvPWFkSOmmXJDprWRt3d1MvV9rPHqxulbrUz_f4vu09txIrwXZuNNpFuJfn3YL-JwiHGvZSwpYk4OUmLn4OL4kWG-eeogYVJJoxbq6gfgTMIwKnz_1te9z04sH7FFmYBilHoj6SdR3Moc-rrRsSTQKK1vP0fuyyONvuHfxjwMkJa6KrMchEmW43o0vQf3mTKFU4_bEoX75uscGZsFFEb0RwU3LDZkrro09F9w3HevDSNzSVQt9U10BlCLUp3X-FLhdWB_VuaO5tweie3YWWR5JpQoq46yxCIcR8yMnw0usPPqgyuJ0jG6_hVPMeOWUHuFmrVS3cFWJpmUaF84_NcDJCRrBxv9mziY2wxg",
+      "label": "Dulo 3",
+      "provider": "sourcepack-dulo",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://den.dulo.tv/ap1/stream/v2.DwxM3OrQ6rHadPJ1rS_r9PwtCjbved1xjMaToiRWLSy1iH8fw3f2xhM9Zr7_hn6WKEuiVGfsvhzFDmZv-JkZZq8as0HXd9nfnGixBlwtVU__-ZyNduH1KXuhsSgF6mU0UWxZlfXRo-kMWrvg-II7YhZKdaAgHmGGNQojyTgQfp07VUHhK6Vgc_JzYRgA4Sf5rWaBRdJDFq6X68Qal7ZdnpHdM1SbeEX8HDpqOtZmQizEKSCUOh6-TLMtcY6nfLK15TggWfXfs3qtZF5zhkFBQiJVQe_2KiQCvJhAEVxPh3opbpshES36f_LF1AE_DtPer1ONlPR751PQ_yctJfIGf0nbwuYyZf0PQRxAenN7Q-ZhBFJO7tB3llDVwbxSXvqZqP0vyH-BvxG-9QEI19WPPoMUHtchKPp8-dgdY1B1G9ThAe6-ubIvDOAKw4Y7tPafVUG0uaR6yfa0mM6guEUmXFXP0T3yH3cmXH3q3XR_gOLWkPqhwyfttWGYgQdzfVoqIqHt65YagXZxpUOPmHtLrzNhTqPSZCp-kw_vPGCqrngZ9Wo88F1-WdIZckN2H15p6R_Q6GRHRw77mXQ2jiS0q4vqtGq4knzLAe1hM5A-jqlniU7mEcUF",
+      "label": "Dulo 4",
+      "provider": "sourcepack-dulo",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://prx-1559-ant.vmwesa.online/hls2/02/02612/wy56wpwxvx96_n/master.m3u8?t=khcA1yItACyeXnKGE_AdU06S84_4DF0btgt7FzTd6xM%3D&s=1783601800&e=43200&v=&srv=bck-1564-ant-p&i=0.4&sp=0&asn=14593",
+      "label": "FSOnline",
+      "provider": "sourcepack-fsonline",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://hls03.cdnvideo11.shop/Supernatural---Season-1Ep15.m3u8",
+      "label": "KissKH",
+      "provider": "sourcepack-kisskh",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://streamguide.cfd/Cffi-stream/m?t=TAKu5K53EHK9LCYAHgJphLeIYKzE08CX_zdrUbzmp--rbBi-BgdBBWFlJRuGgSuTG9nl0MRVPz-UY5XpvxrW3BPpUWqAG8a6jDw3uv2ZMrhmFKPv0Y9v55bDbA90iMmtz41J8gN20NqlGtipy0E1T7f0OIqjvsuNyafsltqOv8qlJbwd9IsFHO1jsnYGYwEkYVtWg2UWWDDPiY-k-IDmQ0Gn1bJ19n8Ptmkj3ZAw_yaHWCivzrdxKbKGIrxlV16BT2r_92pFksUM83LFxTxVz6671OTft_xZzUw7RPT0-F3mlQCx9h8oupIMYOJjcKJ3_IUfajYVGCzEq2McJr0nHvhN3S-rM6F8E3BavUeNgmTbBT3kd2xuH-NV7M0XQ0MJ-6PuxbFbvkqAUPUXjhoHN6QKYIfBf6IQ9ICWSm-kU2ahbjNmwD_I5ysxHEewJb1fyivvIbjjka5tEunTHMVQ2H9X0FFX2t45aFfh4sZwadpyKNfHp1dmwNirE40sWw_jujRapTyE1bxN2SaMAy4-OVL7sPOCNfhhFi7eEgUBBKjgaeqPRrRwPJv4yFBMR0yGaIU5q0lRMjiIbZIIgSaWGDn482s3U2DsKvQKkqCDHWv3EFTNoKvvde0hqorEqjZx4d3ytvCbPgPK_V1-culqznm5Cv14gCLwdID42ZYHCQSycu9_5ExcV3TeBm4p4GY65GGi3OOD1JQ1P_DHl0m0NHnSAHZ9Zgv6VsmRJ5pDRPVgIfZPhlCW2XMO_fkf7BHe3b-4b86F1SoA-J9kIXDQ9340W-vdQgXKKQf4rK9gmVJ6QJpIHDjTwJNUnU2pt7twFGiEO27iu0hDnKjZMZy00DAZoubH4ZyvnX526R2JBqz-cOJhSp83fQpcrBmYblcFnTD6cX6tshC3hOtqgI9PM84bc5pUBzyeDJL6aWrI1elrl84Oxo6gfg4Ii17o.OlUvm5aJIBjfLNao2PkiJ9OZLwXZQ4Fhyc1_58llURk",
+      "label": "StreamGuide",
+      "provider": "sourcepack-streamguide",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.ironbubble.site/r2/cdn2/UXBNSXl3dnRYMDRTN2JIV3k2TC15QTpFZThUVjZhd1BoZ09kcVJ0SVNaNTQzSjEzWFRuRzZFcFpZb21oMElNYUhpbnhyVDlaU2dESHd6ZmpKRkpVZDNYYWNpQ2dUN1l3QW9yNlQtX21mNXA1ejJmcVpnMWFZT3lKd1ctTEJVN1FLaw/playlist.m3u8",
+      "label": "VidCore",
+      "provider": "sourcepack-vidcore",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://moon.ironwallnet.net/dash/06_25/10/18/C2VJ7KZP/1179322.mpd?key=egyhZVd_YGspFl2W_iOxlTaxFInW30NM5xNCpeXwn2abFnzFJsNwqeT1JoJVmGjZCzz16wD7s9tAePZtEdmwLXhLtncNXkb4Pq0ffUFa8b-2GZZ62z09mwBKzxee21BKZ6KXsApSOBvd4iLh1RZ4rI8-rmpl_2xmtM_AZuL_ST9RpGuxdjHxI3JTrsj7S8Z8WJvYJpwq1co2-I_jLpxNfkEWTgNWEQjzduSsuavGA3uDOf94EtMwSHAhsc2ff4B5ZFqYK1B9xI6pyB_6B3OZcupa9ZzTjj7SuQhhO7SRWtOsVFldtFPRzgIc0Ed7R6dnxLxSBpKjFejWPwHnERCdwyYJWxevIsdME7zr27eiOwAbJzs2PjM4iTWmeDo1gTVFNxMLFFH4XKGLsZzdoqpnNPo",
+      "label": "VidFast 2",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://gme.stormfire66.com/s/afc7d47f/ma9yIsUHLd1oEUKmveBRD7G3Bq906aVTDGgvpXZk7gsGsrtpOGfsHs7zDASpC6szEq8DzxwRHnG-3D4w66DwpoQ_o6oLftEKyvcy_iXC6eTdrG4sTySOCWcl3uZ2I1U3KtB7EJr1kkB7EPclWKzeg0ImUY14oHthOClsoAivsWVNgz4uUa-o9FFZ0YQ92EEjIK1Q7D-4B6a31ZPxQPMHYwqhaKObYvZZ67M2wQRQihP-7PxoLTIh1de88rsWlCH17S_uNdxUgPV3SP5vVZEtXmOOpNDf0HlHkG6EguJfLVcfNdlaVbQXP2qQvstuNJ-cmsmWyWXvsbSdX0jQukXcdikiZjzTmAoTFcG_myfIoKuKxZNCgPQjdOZLdM6t5ceY.m3u8",
+      "label": "VidFast 3",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://syr.bellevianetwork.sbs/v4/hld/or91o/cf-master.1756528635.txt?t=79cfec5cb32459ff550fa65b&e=1765241578",
+      "label": "XPass 1",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vip.1x2.space/playlist/LitPSYbD-CCR24At_xvFXDjuothg83OEttrejXs9UY4H_Ih3--BmJm9aB6m85PmRhgOMpXBvqW6ttbt6FEgRpaik9IuRWfXpOQrJeRTEtL1dO0j_79yD6WJP8xM/master.m3u8",
+      "label": "XPass 2",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://suprox.xpass.top/proxy2/A2eMQorfO46-q7mIQNg4ieNc2_EWvUa6lQGfpJ3rrOuV20dxK0XwwQ/2/master.m3u8",
+      "label": "XPass 3",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cflul.bx9.workers.dev/vid/8fQwrZ28iIcjTB0DAuGfg296YGIWxueNJ6U-jhfoxBti22pofskasQ",
+      "label": "XPass 4",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cflul.bx9.workers.dev/vid/mrPvjfUB0j51JjxGlS27OX5Z_cEkwp_YZNBOy82tBWWWWzjnn6cg-A",
+      "label": "XPass 5",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cflul.bx9.workers.dev/vid/yhtw_ldrhIB9xtpXUKXSqCqe7z1kmZJfx3N4S7frj5xIzouZXci7sQ",
+      "label": "XPass 6",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/uVoG4LHseVcEzPMnXdz9sELZyYNMZbJEHHJkZhPpLSlyc7EjgSwkCA",
+      "label": "XPass 9",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/v3Wpxu1LE5IWVWAeOYKVBTQZ4xhk7XIAObqbxv43s5vDuEbThy5nCw",
+      "label": "XPass 10",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfmix.bx7.workers.dev/proxy/KpHZ341fSd_6dLkdX3SY72w1PKWXBmgb7R568NexRzNJM9YjyGeEU-ur.mp4",
+      "label": "XPass 11",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfmix.bx7.workers.dev/proxy/81rtvN-baRT8HgOvY5EL4MFWzZG3MCWVfZxgZ8sl0ZzF_nLTAQIMJavsRQ.mp4",
+      "label": "XPass 12",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://mol.1x2.space/playlist/fyUUFpHHvHnJ3NVyu0rCDziytYkypHaT5YLQ03Y4UYcPqY114aZiIz0GB_6_s6yR0lzZqWx3Kh2GT5b9AfP3Nbz44Ds",
+      "label": "XPass 13",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://mol.1x2.space/playlist/c3cVEJCYuyTKks9qu0rCDziytYkypHaT5YLQ03Y4UYcPqY114aZiIz0GB_6_s6yR0lzZqdA-09rE-fqydWt0sy8Bs0g",
+      "label": "XPass 14",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfzur.p4l.workers.dev/mp4/PuCca_s47q-F410DRcgxj-rnmdhjJLkqVszCpdw4HTTSI9qhgaSj3w.mp4",
+      "label": "XPass 15",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://ps1.1x2.space/enproxy/cmkCC5fK5zrdnstztVeSB3qyuZRt-TTM-92OhSpsT_Vzj5dF9OY7MWYVRfLxv_78zWnoqCVq6TykkbRZBT1KrvvKupnOS92hMw_bFzFRQx-XM4P31XWVpyAdCRr25lwhbvd0mtYcoMf6OwhzpHFna0C_-UKQLM-1l7cw3wFmghPwcIZenKc2DJFeoJMLR-Pgsf8sDUohtlCR32EPnctCWuTfucehP2cWID00XR9cRmT5t7-KrToutPyDeZAzjTHC3iGXOFIc_hw1cid1-MVlb_vkC_-wgHkum_O_y0CCwl7R64fSE9Gspm9RxqqzCe5WoPqk7KRIEB9wRTbd2rzvQCdQbmqpRsFzbPtCE1lyaMIanBZO7TtDn84fV8uQ/master.m3u8",
+      "label": "XPass 16",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://stormvv.vodvidl.site/mp/resource/2edcc4354f7bd0e657916bb3131d8fd4.mp4?sign=87e9434918f42d8848cc8ada72516420&t=1783521724",
+      "label": "Sentinel",
+      "provider": "sourcepack-vidlink",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://goodstream.cc/streamsvr/xyVvvYjyjm/1-53?e=NldTSzFNLzVlOGJZWlBwYkhZS1ZmV3U2VFlJanlSVVplQVNMRTN4MXpmRT0U",
+      "label": "Haven",
+      "provider": "sourcepack-vidnest",
+      "default": false
+    }
+  ]
+}

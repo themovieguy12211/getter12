@@ -1702,5 +1702,43 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s11_e15",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "11",
+      "episode": "15"
+    },
+    "attempts": 0,
+    "dueAt": "2026-07-09T18:57:03.192Z",
+    "createdAt": "2026-07-09T12:57:03.192Z",
+    "updatedAt": "2026-07-09T12:57:03.192Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1622_s11_e16",
+    "request": {
+      "type": "tv",
+      "id": "1622",
+      "season": "11",
+      "episode": "16"
+    },
+    "attempts": 0,
+    "dueAt": "2026-07-09T19:12:08.997Z",
+    "createdAt": "2026-07-09T13:12:08.997Z",
+    "updatedAt": "2026-07-09T13:12:08.997Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]
