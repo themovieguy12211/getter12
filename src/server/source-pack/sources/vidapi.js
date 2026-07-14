@@ -1,53 +1,48 @@
-const BASE_URL = 'https://vaplayer.ru';
-const IFRAME_URL = 'https://brightpathsignals.com';
-const API_URL = 'https://streamdata.vaplayer.ru/api.php';
+import { fetchJson, USER_AGENT } from '../utils/helpers.js';
 
-const UA_LIST = [
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
-    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Safari/605.1.15',
-    'Mozilla/5.0 (X11; Linux x86_64; rv:125.0) Gecko/20100101 Firefox/125.0',
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0',
-];
+const API_BASE = 'https://streamdata.vaplayer.ru/api.php';
+const EMBED_ORIGIN = 'https://nextgencloudfabric.com';
 
-const getUA = () => UA_LIST[Math.floor(Math.random() * UA_LIST.length)];
+export const VERIFY_HEADERS = {
+    'User-Agent': USER_AGENT,
+    'Referer': `${EMBED_ORIGIN}/`,
+    'Origin': EMBED_ORIGIN
+};
 
-export const SKIP_VERIFY = true;
-export const MULTI_URL = true;
-
-function getHeaders() {
-    return {
-        'User-Agent': getUA(),
-        'referer': `${IFRAME_URL}/`,
-        'origin': IFRAME_URL,
-    };
-}
-
-export async function getStream(id, s, e) {
-    const headers = getHeaders();
-    const url = new URL(API_URL);
-    url.searchParams.set('tmdb', id);
-
-    if (s != null && e != null) {
-        url.searchParams.set('type', 'tv');
-        url.searchParams.set('season', String(s));
-        url.searchParams.set('episode', String(e));
-    } else {
-        url.searchParams.set('type', 'movie');
+function extractStreamUrls(obj, urls = new Set()) {
+    if (!obj) return urls;
+    if (typeof obj === 'string') {
+        if (obj.startsWith('http') && (obj.includes('.m3u8') || obj.includes('.mp4') || obj.includes('.mpd'))) urls.add(obj);
+    } else if (Array.isArray(obj)) {
+        for (const item of obj) extractStreamUrls(item, urls);
+    } else if (typeof obj === 'object') {
+        for (const val of Object.values(obj)) extractStreamUrls(val, urls);
     }
-
-    const res = await fetch(url.toString(), { headers });
-    if (!res.ok) return null;
-
-    const json = await res.json();
-    if (json.status_code !== '200' || !json.data) return null;
-
-    const streamUrls = (json.data.stream_urls ?? []).filter(
-        u => !u.includes('strategicgrowthpartners')
-    );
-
-    if (!streamUrls.length) return null;
-
-    return {
-        allUrls: streamUrls.map(u => ({ url: u, headers })),
-    };
+    return urls;
 }
+
+export async function getStream({ id, s, e }) {
+    try {
+        const isTv = s != null && e != null;
+        const type = isTv ? 'tv' : 'movie';
+        const url = `${API_BASE}?tmdb=${id}&type=${type}${isTv ? `&season=${s}&episode=${e}` : ''}`;
+        const data = await fetchJson(url, { headers: { 'Accept': '*/*', 'Origin': EMBED_ORIGIN, 'Referer': `${EMBED_ORIGIN}/`, 'User-Agent': USER_AGENT }, signal: AbortSignal.timeout(10000) });
+        const streamUrls = Array.from(extractStreamUrls(data));
+        if (!streamUrls.length) return null;
+
+        let subs = [];
+        if (data.subtitles && Array.isArray(data.subtitles)) subs = data.subtitles;
+        else if (data.captions && Array.isArray(data.captions)) subs = data.captions;
+        const subtitles = subs.map(sub => ({ url: sub.url || sub.file || sub.src, lang: sub.display || sub.label || sub.language || sub.lang || 'Unknown' })).filter(s => s.url);
+
+        const allUrls = streamUrls.map(streamUrl => {
+            let type = 'mp4';
+            if (streamUrl.includes('.mpd')) type = 'dash';
+            else if (streamUrl.includes('.m3u8')) type = 'hls';
+            return { url: streamUrl, server: 'VidAPI', quality: 'Auto', type, headers: VERIFY_HEADERS, subtitles: subtitles.length > 0 ? subtitles : undefined, skipProxy: true };
+        });
+        return allUrls.length ? { allUrls } : null;
+    } catch { return null; }
+}
+
+export async function getSources() { return ['VidAPI']; }

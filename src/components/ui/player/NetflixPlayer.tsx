@@ -313,6 +313,7 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
             season,
             episode,
             progress: d > 0 ? ct / d : 0,
+            playerSource: "321movies",
           },
         },
         "*",

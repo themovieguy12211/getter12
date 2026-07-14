@@ -99,10 +99,15 @@ const SOURCE_PACK_ORDER: Record<string, number> = {
   icefy: 1,
   notorrent: 2,
   vidapi: 3,
-  streamguide: 4,
-  vidcore: 5,
-  vidfast: 6,
-  xpass: 7,
+  vidcore: 4,
+  vidfast: 5,
+  xpass: 6,
+  "1embed": 7,
+  mapple: 8,
+  opstream: 9,
+  vidbolt: 10,
+  vidrift: 11,
+  vidup: 12,
 };
 
 const SUBTITLE_BASES = [

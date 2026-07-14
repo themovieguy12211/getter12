@@ -1687,23 +1687,6 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "movie_1280738",
-    "request": {
-      "type": "movie",
-      "id": "1280738"
-    },
-    "attempts": 0,
-    "dueAt": "2026-07-07T23:23:26.249Z",
-    "createdAt": "2026-06-20T13:45:49.000Z",
-    "updatedAt": "2026-07-07T17:23:26.249Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
     "requestKey": "tv_1622_s11_e15",
     "request": {
       "type": "tv",
@@ -1734,6 +1717,23 @@
     "dueAt": "2026-07-09T19:12:08.997Z",
     "createdAt": "2026-07-09T13:12:08.997Z",
     "updatedAt": "2026-07-09T13:12:08.997Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_1280738",
+    "request": {
+      "type": "movie",
+      "id": "1280738"
+    },
+    "attempts": 0,
+    "dueAt": "2026-07-14T23:06:24.845Z",
+    "createdAt": "2026-06-20T13:45:49.000Z",
+    "updatedAt": "2026-07-14T17:06:24.845Z",
     "missingProviders": [
       "flowcast",
       "guru",
