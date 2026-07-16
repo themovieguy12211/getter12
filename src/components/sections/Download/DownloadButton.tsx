@@ -3,7 +3,7 @@
 import { Button } from "@heroui/react";
 import { HiDownload } from "react-icons/hi";
 
-const APK_URL = "https://apkpure.com/p/com.mova321";
+const APK_URL = "https://r2.piracy.cloud/apk/321movav5.apk";
 
 const DownloadButton: React.FC = () => (
   <a href={APK_URL} download className="shrink-0">
