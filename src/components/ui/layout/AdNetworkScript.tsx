@@ -28,9 +28,35 @@ const AdNetworkScript: React.FC = () => {
       </Script>
       */}
 
-      <Script id="popup-ad-tag" strategy="afterInteractive" data-cfasync="false">
-        {`(function(){try{var parent=[document.documentElement,document.body].filter(Boolean).pop();if(!parent)return;var s=parent.appendChild(document.createElement('script'));s.dataset.zone='11191583';s.onload=function(){window.__AD_SCRIPTS_LOADED__=true};s.onerror=function(){window.__AD_CHECK_COMPLETE__=true;window.__ADBLOCK_DETECTED__=true};s.src='https://llvpn.com/tag.min.js';}catch(e){}})();`}
-      </Script>
+      <Script
+        id="popup-ad-tag"
+        src="//ph.cosedcost.com/rFE1GaTX8mMEsIn/142876"
+        data-cfasync="false"
+        strategy="afterInteractive"
+        async
+        onLoad={() => {
+          (window as any).__AD_SCRIPTS_LOADED__ = true;
+        }}
+        onError={() => {
+          (window as any).__AD_CHECK_COMPLETE__ = true;
+          (window as any).__ADBLOCK_DETECTED__ = true;
+        }}
+      />
+
+      <Script
+        id="vignette-ad-tag"
+        src="//bt.caulireid.com/sY7zeYbEtg1aa8J/142877"
+        data-cfasync="false"
+        strategy="afterInteractive"
+        async
+        onLoad={() => {
+          (window as any).__AD_SCRIPTS_LOADED__ = true;
+        }}
+        onError={() => {
+          (window as any).__AD_CHECK_COMPLETE__ = true;
+          (window as any).__ADBLOCK_DETECTED__ = true;
+        }}
+      />
 
       <Script
         id="5gvci-ad-tag"
