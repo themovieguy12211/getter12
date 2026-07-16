@@ -12,6 +12,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { MovieDetails } from "tmdb-ts/dist/types/movies";
 import { usePlayerEvents } from "@/hooks/usePlayerEvents";
 import useSupabaseUser from "@/hooks/useSupabaseUser";
+import useAdBlockDetector from "@/hooks/useAdBlockDetector";
 import { isPremiumUser } from "@/utils/billing/premium";
 import { createPartyRoom } from "@/actions/party";
 import { markMediaVisited } from "@/actions/histories";
@@ -41,6 +42,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
 
   const { data: user } = useSupabaseUser();
   const isPremium = isPremiumUser(user);
+  const { isAdBlockDetected } = useAdBlockDetector();
 
   const allPlayers = useMemo(
     () => getMoviePlayers(movie.id, startAt, piracyEmbedUrl, customEmbeds),
@@ -63,6 +65,7 @@ const MoviePlayer: React.FC<MoviePlayerProps> = ({ movie, startAt, piracyEmbedUr
     saveHistory: true,
     trackUiState: false,
     media: { id: movie.id, type: "movie" },
+    adBlockDetected: isAdBlockDetected,
   });
   useDocumentTitle(`Play ${title} | ${siteConfig.name}`);
 

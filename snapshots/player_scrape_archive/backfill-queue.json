@@ -1740,5 +1740,24 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_46952_s10_e7",
+    "request": {
+      "type": "tv",
+      "id": "46952",
+      "season": "10",
+      "episode": "7"
+    },
+    "attempts": 0,
+    "dueAt": "2026-07-16T15:49:45.625Z",
+    "createdAt": "2026-07-16T09:49:45.625Z",
+    "updatedAt": "2026-07-16T09:49:45.625Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

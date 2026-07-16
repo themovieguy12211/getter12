@@ -205,7 +205,9 @@ export const syncHistory = async (
       )
       .select();
 
-    const eligibleActiveSeconds = Math.max(0, Math.floor(data.activeWatchSeconds ?? 0));
+    const claimedActiveSeconds = Math.max(0, Math.floor(data.activeWatchSeconds ?? 0));
+    const maxPlausibleSeconds = mediaRuntimeSeconds > 0 ? mediaRuntimeSeconds : Infinity;
+    const eligibleActiveSeconds = Math.min(claimedActiveSeconds, maxPlausibleSeconds);
     const currentMilestones = calculateWatchMilestones(eligibleActiveSeconds);
     const todayRewardPoints = await getTodayRewardPoints(adminSupabase, user.id);
     const remainingToday = Math.max(0, WATCH_POINTS_DAILY_CAP - todayRewardPoints);
@@ -213,7 +215,7 @@ export const syncHistory = async (
 
     const { data: lastWatchReward } = await adminSupabase
       .from("reward_ledger")
-      .select("metadata")
+      .select("metadata, created_at")
       .eq("user_id", user.id)
       .like("entry_type", "watch_active_%")
       .contains("metadata", {
@@ -229,7 +231,15 @@ export const syncHistory = async (
       (lastWatchReward?.metadata as Record<string, unknown> | null)?.milestones ?? 0,
     );
     const milestoneDelta = Math.max(0, currentMilestones - lastMilestoneCount);
-    const watchPoints = is321MoviePlayer && !data.adBlockDetected ? Math.min(remainingToday, milestoneDelta) : 0;
+
+    // Rate limit: require at least 10 real minutes between reward events for the same media.
+    // Prevents spoofing activeWatchSeconds to claim milestones faster than real time.
+    const lastRewardAt = lastWatchReward?.created_at ? new Date(lastWatchReward.created_at).getTime() : 0;
+    const secondsSinceLastReward = lastRewardAt > 0 ? (Date.now() - lastRewardAt) / 1000 : Infinity;
+    const MIN_SECONDS_BETWEEN_REWARDS = 10 * 60;
+    const rateLimited = milestoneDelta > 0 && secondsSinceLastReward < MIN_SECONDS_BETWEEN_REWARDS;
+
+    const watchPoints = is321MoviePlayer && !data.adBlockDetected && !rateLimited ? Math.min(remainingToday, milestoneDelta) : 0;
     const rewardKey = watchPoints > 0 ? `watch:${mediaId}:${data.mediaType}:${data.season || 0}:${data.episode || 0}:${currentMilestones}` : null;
 
     if (watchPoints > 0 && rewardKey) {

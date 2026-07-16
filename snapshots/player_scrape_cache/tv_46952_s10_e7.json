@@ -1,0 +1,230 @@
+{
+  "cachedAt": "2026-07-16T09:49:45.640Z",
+  "urlsRefreshedAt": "2026-07-16T09:49:45.640Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://img1.klcxm.com/hls/245130033/720/index_273.m3u8?auth_key=dMkCyuZBzTTa%2F3K9Jn8m%2FZy2XkusXnWlJu%2FCI%2FDKBBo%3D&expire=1784203902957",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fstreams.icefy.top%2F9c17539fa4edef2a56e7f11516e21491%2Fmaster.m3u8&headers=%7B%22Referer%22%3A%22https%3A%2F%2Fstreams.icefy.top%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fstreams.icefy.top%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Frostbyte",
+      "provider": "sourcepack-icefy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.ironbubble.site/r2/cdn2/cmdDVGhwQkl1cDVuUTBudmpuajY1ZzpJSUlVeUpEN3UtWWJjMEg1TXdvRlltMXNwZ0FjSmdqZWVYODJOdHQwRjFzNlhaOURCenFQRnQtSDBFZHVnYkRvZnR5MTB2YjRUdXZHWlcySzYyVmlXVmZoV251OTRmRmotYkpSVnpoOEx4Zw/playlist.m3u8",
+      "label": "Onyx",
+      "provider": "sourcepack-vidcore",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.ironbubble.site/s/afc7d47f/ma9yIsUHLd1oEUKmveBRD7G3Bq906aVTDGgvpXZk7gsV9uzh7vlSj6baG7D3Cj-jDt95i6Y0WyqT-acbmRaNNwopNsA-zfn8wYA576d1ejzk_D_DPeIb2-_qToiWhp-jy2fMqh-hK20fogW2vdMtMYBLlFObfdCZO-lsrdMS9tynZOb8WCB6w8wSzevDvW41ZfTVy9vh2Vwuxcjvf5dDfEc0EQ3M9nLtPJCZ2sJHeu8d2L7aDFDYmfXxSagOtXssNtaRN0UIwKujZgDtsw8v3q0q8pnII4Cd8I8hE3kY8aVEqAYtzSU9GkC4C1v9dEJpNMpx7NLNLH4VEFzOlvBroGMvGCg2-HoApLFixEsO2lONmNuhGdALzhQUqAGhxk-F.m3u8",
+      "label": "Velocity 2",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vip.1x2.space/playlist/InxDGdXC-XSR09h-9hvFVzy0othi8SSE4t7Vj3luWYcHrIgh--BscXENE6i65eOagAhFHnSuLkd-EzJ9CBuBwIi7/master.m3u8",
+      "label": "Spectra 1",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://suprox.xpass.top/proxy2/EqPGXXMqzmjp1HsA3d80aHb7q7VEPUIZwoCF1ygZxYIqqj2eg_KUJA/2/master.m3u8",
+      "label": "Spectra 2",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cflul.ax5.workers.dev/vid/Ewx-ojnEPmSXcp77czh_7IU2xSaxOOyyx2BHpgf6owa4tXlYq4k22g",
+      "label": "Spectra 3",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://s39.trovianaworks.online/v4/is9/kogxl/cf-master.1756352135.txt?t=79cfec5cb32459ff550fa65b&e=1765241578",
+      "label": "Spectra 4",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://mol.1x2.space/playlist/dW4HSZKKrW-J39gvu0rIWCbloYg0pWyY44nWMLC2PD4OTl05A2msNFXK",
+      "label": "Spectra 5",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/EKxGsjuoODEj-70B2qlVcDxBhSK0783Dd0E6jvEkdnc93nJF8CtACA",
+      "label": "Spectra 6",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/2xMolXYOMgpTj90roe14h2p3pp-e_5VqA1HpdpKvkTVEWYWDE4HPUg",
+      "label": "Spectra 7",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/VTDzN6v7uzDgqiNyIvktdGwh8Yms-30VAhN5BL9bcMjgxG79t0xyUw",
+      "label": "Spectra 8",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfbw.p2l.workers.dev/stream/UWl4RIRmUkqv9BO8bIo98MH6eB8nhLh8_8Wo_DeVHqKPr7Ia9N9xtw",
+      "label": "Spectra 9",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfmix.bx7.workers.dev/proxy/4kGr4aYurzZhESDEDjH4Lmq7mClHpiXB4CprzoCRbNiOTE1k2rP4M51y.mp4",
+      "label": "Spectra 10",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://cfmix.bx7.workers.dev/proxy/SyEJFl7pEkaBZ7k86fLn0nLCv5jYb-gHlEtvzFyCSWL8WBEB8WVVuq80.mp4",
+      "label": "Spectra 11",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://ps1.1x2.space/enproxy/cmkCC5fK5zrIg8xyo1OCAm236Yszvi3HuNKJjGA4CdtQ-sZ87KUWKHQOVO3lt_r7-1CD0SBk0DrVs69aBgVC9__TjKLQCvmbLivbPQd9djKzLKPY6waZuDkWblbK5QkjX9l4j8sHiPifFjBymE8xZgeP7F_pR9mX5L0alQY2swCxQtoUgP85MeZ15fdMc4CQ291WFilumT2lyG4-t-4DEr3GufS5ZQI6SxUSfy43d3Cq4fm5zTkunuH6PJ8Wl1Km0xu3H0RmzCAFY1VozrYgKP30C-e25FArmpSgj22XsVKwx4maBcDj4TYd3qi2FOlMqP6o9a9GRMJ_WDnqWoAIJXgvWTV8tAI/master.m3u8",
+      "label": "Spectra 15",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_ZzIyazRxWWxYdDRhd282ZmdwSEIyeHl5T094YVN4MlVJN19oemM3N3BjWFNtUEVuam8teHdFL2Rpdi92ZWQuc3Jla3Jvdy41eGEubHVsZmMvLzpzcHR0aA%3D%3D&sig=78eeecb09c18.1784195369.jk2s67",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cflul.ax5.workers.dev/vid/Ewx-ojnEPmSXcp77czh_7IU2xSaxOOyyx2BHpgf6owa4tXlYq4k22g?format=.m3u8",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_ODY1MjAyNDg3MT1zZXJpcHhlJlFMSElabVVqU2hoMVc4OGdIdDNxRjlOUzVpMVM3T0JhdUQxRlNpdVJFaVE9bmVrb3Q%2FNHBtLjcwZTAxc18yMDYxNDcydHQvb3QudnRub3AudnQ2ZWdhcm90cy8vOnNwdHRo&sig=6985c1f1710b.1784195367.p84qvg",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://storage6tv.pontv.to/tt2741602_s10e07.mp4?token=QiERuiSF1DuaBO7S1i5SN9Fq3tHg88W1hhSjUmZIHLQ&expires=1784202568",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://api.purstream.club/api/v1/watch/hls/master?u=aHR0cHM6Ly9mcmVlLmZpbmVwdWxmZS54eXovdHYvNDY5NTItb2tqMzEvUzEwL0UwNy9tYXN0ZXIubTN1OA&s=mGOlI1EIcSwVTchOw4jvymDN",
+      "label": "Zenith pulse | 720p | MULTI",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://api.purstream.club/api/v1/watch/hls/master?u=aHR0cHM6Ly9mcmVlLmZpbmVwdWxmZS54eXovdHYvNDY5NTItb2tqMzEvUzEwL0UwNy9tYXN0ZXIubTN1OA&s=mGOlI1EIcSwVTchOw4jvymDN&format=.m3u8",
+      "label": "Zenith pulse | 720p | MULTI",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_RDclMjIlKkYyJSoyMiVBMyUyMiV0cGVjY0EyMiVDMiUyMiU2My43MzVGMiV0aUtiZVdlbHBwQTAyJSk0NngwMiVCMyU0Nm5pVzAyJUIzJTAuMDEwMiVUTjAyJXN3b2RuaVcoMDIlMC41RjIlYWxsaXpvTTIyJUEzJTIyJXRuZWdBLXJlc1UyMiVDMiUyMiVGMiVtb2MuY2lyYmFmZHVvbGNuZWd0eGVuRjIlRjIlQTMlc3B0dGgyMiVBMyUyMiVyZXJlZmVSMjIlQzIlMjIlbW9jLmNpcmJhZmR1b2xjbmVndHhlbkYyJUYyJUEzJXNwdHRoMjIlQTMlMjIlbmlnaXJPMjIlQjclPXNyZWRhZWgmOHUzbS5yZXRzYW1GMiVBQVFBaFFXcHdwMmZmVWFFTEdlV0JScDFkcFNiWTYwUmd4NFY0WjlKaXM3RTBWZFBpVHczdmdlQ0hFZkk2ajJ1YVNFeXFjUVYwZm5Fc0Y3emZ3bGNYS2pwOEZQVldMU19DS2RfTnZMdVJlUU5tMEJQMThBZkRWSkoxNXBKMkoud1lwbXYycDZzdnZmMEVwSTV6M2xwcDZxb3NfR1RLV3lmTkRPZUZIR1cwbWlac2lseWpVTXliMEJYS2t4N2RlTGozalFHRjVSd29ab3Z6ZHpVa1U0bVc5U3lPQTRwSjdnNkZxdTMubkprWGJ0cFZ4YXVVOURKTThOM0o3YnlnclRiX2NJUVk4Z0Z2VThnQUhqWEFDQ05KWDRnOGU1dHB2c05LMUZ0T1ZjeFBFZUFGa21PV3I0Y3V2Z3JCc0MwQUFBSUQ2V1VEM3dBQUFBQUFBQUFJczRIRjIlbHBGMiVyTnpCR1E2c3hGMiVldGlzLnNhZWRpZ25pbmVkcmFndGhnaW5kaW10ZWl1cUYyJUYyJUEzJXNwdHRoPWxydT95eG9ycC92ZWQuc3Jla3Jvdy54b2JlbWlycC44dTNtLy86c3B0dGg%3D&sig=ff9f1f62c463.1784195372.eyyxuv",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_RDclMjIlKkYyJSoyMiVBMyUyMiV0cGVjY0EyMiVDMiUyMiU2My43MzVGMiVpcmFmYVMwMiU1MjFGMiVlbW9yaEMwMiUpb2tjZUcwMiVla2lsMDIlQzIlTE1USEsoMDIlNjMuNzM1RjIldGlLYmVXZWxwcEEwMiUpNDZ4MDIlQjMlNDZuaVcwMiVCMyUwLjAxMDIlVE4wMiVzd29kbmlXKDAyJTAuNUYyJWFsbGl6b00yMiVBMyUyMiV0bmVnQS1yZXNVMjIlQzIlMjIlRjIlY2MubWFlcnRzZG9vZ0YyJUYyJUEzJXNwdHRoMjIlQTMlMjIlcmVyZWZlUjIyJUMyJTIyJWNjLm1hZXJ0c2Rvb2dGMiVGMiVBMyVzcHR0aDIyJUEzJTIyJW5pZ2lyTzIyJUI3JT1zcmVkYWVoJlUwVFJtcFhNNE5UUk1OVlFscFZWU2xuYUpsRlYyVTNWbVoxU1poa1l3QmxXWkpHT2xWekxORnpTVGRsTkQzJWVGMyUzLTBGMiVoTlJhVkRiUFRXRjIlcnZzbWFlcnRzRjIlY2MubWFlcnRzZG9vZ0YyJUYyJUEzJXNwdHRoPWxydT84dTNtLnl4b3JwLTh1M20vbW9jLnJ1aGFzZ251dGdudXRnbnV0c2V2b2xhbmljY3VwcGFjYW5pcmVsbGFiLy86c3B0dGg%3D&sig=f5c23d1ffc25.1784195372.mbohrc",
+      "label": "Zenith LS-25",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_RDclMjIlZXZpbC5uYXlvbHBGMiVGMiVBMyVzcHR0aDIyJUEzJTIyJW5pZ2lyTzIyJUMyJTIyJUYyJWV2aWwubmF5b2xwRjIlRjIlQTMlc3B0dGgyMiVBMyUyMiVyZXJlZmVSMjIlQzIlMjIlOS4wRDMlcUIzJW5lQzIlU1UtbmUyMiVBMyUyMiVlZ2F1Z25hTC10cGVjY0EyMiVDMiUyMiUqRjIlKjIyJUEzJTIyJXRwZWNjQTIyJUMyJTIyJTYzLjczNUYyJWlyYWZhUzAyJTg5LjQ4ODYuMC40MzFGMiVlbW9yaEMwMiUpb2tjZUcwMiVla2lsMDIlQzIlTE1USEsoMDIlNjMuNzM1RjIldGlLYmVXZWxwcEEwMiUpNDZ4MDIlQjMlNDZuaVcwMiVCMyUwLjAxMDIlVE4wMiVzd29kbmlXKDAyJTAuNUYyJWFsbGl6b00yMiVBMyUyMiV0bmVnQS1yZXNVMjIlQjclPXNyZWRhZWgmOHUzbS5yZXRzYW1GMiUwMDJhMzIyZTI5MjUyNGY5YzNhNDgwYWI5ZTNmZDNiZDE4YjdhNzAwNjcwYjI3MmM4NmZiNzNhZWZhN2ZkMTI3M2U5OGEyZjE3YThmNjExMTAxYTc3NGIwMGNkYTE4ZGYwYTllYjItMmRlMDk5YjNlN2M2YzkyZmUzZjM3MmM2LTNlNjkzMTEyYTJhZTY1YWNGMiVzbGhGMiVldmlsLm5heW9scEYyJUYyJUEzJXNwdHRoPWxydT84dTNtLnl4b3JwLTh1M20vbW9jLnJ1aGFzZ251dGdudXRnbnV0c2V2b2xhbmljY3VwcGFjYW5pcmVsbGFiLy86c3B0dGg%3D&sig=a6f83c6cc16a.1784195372.rkprx3",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://m3u8.primebox.workers.dev/proxy?url=https%3A%2F%2Fquietmidnightgardeningideas.site%2Fxs6QGBzNr%2Fpl%2FH4sIAAAAAAAAAw3DUW6DIAAA0CsBrgvuc4rWOmkFAeEPxcVOtF1KNsvpt5e8g4XJNCCAXjHAg8UvFg8YQIc_bTrgyb7J3N8MJD9UuaxVptbXkJn.3uqF6g7Jp4AOyS9Wm4UkUzdzvoZowR5FGQj3jLed7xkKXB0byMUjylisZim0WGHFeODNfyWKTG_soq6ppl3z5IpE0fvvs6p2vmpYw.J2Jp51JJVDfA81PB0mNQeRuLvN_dKC_SLWVPF8pjKXclwfz7FsEnf0VQcqyESau2j6IfEHCegv3wTiPdV0E7siJ9Z4V4xgR06YbSpd1pRBWeGLEaUff2pwpWQhAQAA%2Fmaster.m3u8",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://ballerinacappuccinalovestungtungtungsahur.com/m3u8-proxy.m3u8?url=https%3A%2F%2Fgoodstream.cc%2Fstreamsvr%2FWTPbDVaRNh%2F0-3%3Fe%3DNldTSzFNLzVlOGJZWlBwYkhZS1ZmV3U2VFlJanlSVVplQVNMRTN4MXpmRT0U",
+      "label": "Zenith LS-25",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://ballerinacappuccinalovestungtungtungsahur.com/m3u8-proxy.m3u8?url=https%3A%2F%2Fployan.live%2Fhls%2Fca56ea2a211396e3-6c273f3ef29c6c7e3b990ed2-2be9a0fd81adc00b477a101116f8a71f2a89e3721df7afea37bf68c272b076007a7b81db3df3e9ba084a3c9f425292e223a200%2Fmaster.m3u8",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_NzY5ODkxNDg3MT1lcmlweGUmMzVmNThhNDA2OGY3NjViZWY5NmYwNDRkMzViOGZmZWQ9cGllc2FibmVrb3Q%2FOHUzbS4yMjgzMDEtb2VkaXYvZXZpbC5kaXZvZy8vOnNwdHRo&sig=7a7cd2da65d6.1784195367.naqpe9",
+      "label": "Zenith HD",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://govid.live/video-103822.m3u8?tokenbaseip=deff8b53d440f69feb567f8604a85f53&expire=1784198967",
+      "label": "Zenith HD",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://gate-1-an.vmeas.cloud/hls2/04/02445/bbjnyj5lo9fb_n/master.m3u8?t=Req_-5XR4Wu7Er75n6XV4FVQ1dxV9NvwIzftf3_Rnr4%3D&s=1784193126&e=43200&v=&srv=box-1481-u10&i=0.4&sp=0&asn=44486",
+      "label": "Titan",
+      "provider": "sourcepack-mapple",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vidrift.in/api/proxy/hls?url=https%3A%2F%2Fquietmidnightgardeningideas.site%2Fxs6QGBzNr%2Fpl%2FH4sIAAAAAAAAAw3Py3KCMBhA4VfKxah0aeHHBgiTkAuww6DNEGipdabq09fdWX0zB288PZ.3yZZQdLog7Lc75vcDe_X.wpLLW0cPi7WcyBYOFVij2jmXX31hF86rSdx91geDPomn86AJr1Umsp4G3phAxzZkvfmjFYinyrHUBGrRjhtJEtQvd6xTEauIHt0M5YDX6aRVKfLbT5MzOk6w2iiJnaH3E1xP.ZjKiJ0HhUWER.OS7ya7FaPjrDPsozkq4k1yU8cQ7HtSKgSqdiK1RnCPQ9HFNegnxMas7mzGp5wOj9dLq5bu.jIqbf29Q7Ye0khqrebKAXPAf_8Bw_.COyEBAAA-%2Fmaster.m3u8",
+      "label": "Rift",
+      "provider": "sourcepack-vidrift",
+      "default": false
+    }
+  ]
+}

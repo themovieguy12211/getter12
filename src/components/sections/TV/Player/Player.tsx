@@ -12,6 +12,7 @@ import useBreakpoints from "@/hooks/useBreakpoints";
 import { ADS_WARNING_STORAGE_KEY, SpacingClasses } from "@/utils/constants";
 import { usePlayerEvents } from "@/hooks/usePlayerEvents";
 import useSupabaseUser from "@/hooks/useSupabaseUser";
+import useAdBlockDetector from "@/hooks/useAdBlockDetector";
 import { isPremiumUser } from "@/utils/billing/premium";
 import { createPartyRoom } from "@/actions/party";
 import { markEpisodeCompleted, markMediaVisited } from "@/actions/histories";
@@ -67,6 +68,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
 
   const { data: user } = useSupabaseUser();
   const isPremium = isPremiumUser(user);
+  const { isAdBlockDetected } = useAdBlockDetector();
 
   const { mobile } = useBreakpoints();
   const allPlayers = useMemo(
@@ -155,6 +157,7 @@ const TvShowPlayer: React.FC<TvShowPlayerProps> = ({
     trackUiState: false,
     media: { id, type: "tv" },
     metadata: { season: episode.season_number, episode: episode.episode_number },
+    adBlockDetected: isAdBlockDetected,
     onPlay: cancelAutoNext,
     onTimeUpdate: (data) => {
       const duration = Number(data.duration);
