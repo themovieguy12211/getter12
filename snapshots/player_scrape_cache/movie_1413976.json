@@ -1,0 +1,111 @@
+{
+  "cachedAt": "2026-07-18T20:07:51.811Z",
+  "urlsRefreshedAt": "2026-07-18T20:07:51.811Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://cdn.1shows.app/movie/1u6S04GMjKJtfZsHLXD1C823p1QZZDqm3lsCkBmc1Y4.ruPP8Sbd/bigtits.m3u8",
+      "label": "Cipher",
+      "provider": "sourcepack-vidzee",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.ironwallnet.net/r2/cdn2/SkVyM2U4MlpuTFFORmctUGFYeUZtUTpxTEctU1pZLXhHTlZJX19fT24xb1RhQXM3QTJya2dJQ2l2czNwcnFVZUU5REcxYkdib1hyTnROOG4xVVlYYUdJUjd5TmdZdERGdFdaeHhtdk16UFpSazZGWDFpWmhOemVUMi1INVVucXgyaw/playlist.m3u8",
+      "label": "Onyx",
+      "provider": "sourcepack-vidcore",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.ironwallnet.net/s/afc7d47f/ma9yIsUHLd1oEUKmveBRD7G3Bq906aVTDGgvpXZk7gvqfcRgMcPsj-JMXuOP4CXz8-51REE2qeJy9cRbVkKdLczqGnWL0KrV2JF4eFRzE3PKo0RZoeYWv0W9VOM48xU_5N0h4SuVOgZiIPG1DYMJzLThq78I6IupgQPjJJ_gPv5RhOW6-3gABgHsN7Z4tggDhIIxIIp5-7FasOP12NtGjcfRSOkiFpktb8auIoW8M4tagrOz_-7Ekv3kq5JZ5UC1TaCm8DmboPAJWdFRBFSyCNYajwD2ZQinN3Wfpb0UM3Lk6uEZB2f2AQIuA1pV4wYZAvoV3boiYB2Kc-E6pbHStwUsPPSkm7RkpKCOZTedjyXjBkPbEkINhAqI9D5i8kbk.m3u8",
+      "label": "Velocity 2",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vip.1x2.space/playlist/LSlOT9eU_SKR0ooq_hvFVj_hooNk8iSEtozf3ixmWIUA-t8q--BscXENE6i65eOagAiKOnEP-SFGtieN5LYYdJYU/master.m3u8",
+      "label": "Spectra 1",
+      "provider": "sourcepack-xpass",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_MTU0MjE0NDg3MT1zZXJpcHhlJjhOQUNCMHJEazFqUm9hMFBTa1FyZWJiVjVJeW9wczNEQUFVcXNPQ3NVTDg9bmVrb3Q%2FNHBtLjMxNzkwMzUzdHQvb3QudnRub3AuMWVnYXJvdHMvLzpzcHR0aA%3D%3D&sig=0a3f14fc958d.1784405250.bxx3tm",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://storage1.pontv.to/tt35309713.mp4?token=8LUsCOsqUAAD3spoyI5VbberQkSP0aoRj1kDr0BCAN8&expires=1784412451",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_RDclMjIlKkYyJSoyMiVBMyUyMiV0cGVjY0EyMiVDMiUyMiU2My43MzVGMiV0aUtiZVdlbHBwQTAyJSk0NngwMiVCMyU0Nm5pVzAyJUIzJTAuMDEwMiVUTjAyJXN3b2RuaVcoMDIlMC41RjIlYWxsaXpvTTIyJUEzJTIyJXRuZWdBLXJlc1UyMiVDMiUyMiVGMiVtb2MuY2lyYmFmZHVvbGNuZWd0eGVuRjIlRjIlQTMlc3B0dGgyMiVBMyUyMiVyZXJlZmVSMjIlQzIlMjIlbW9jLmNpcmJhZmR1b2xjbmVndHhlbkYyJUYyJUEzJXNwdHRoMjIlQTMlMjIlbmlnaXJPMjIlQjclPXNyZWRhZWgmOHUzbS5yZXRzYW1GMiUtLUFBQUVRUU9pZVBHOVQwSFFnNVIzcU8zdHk2MXZEcjFlM3dER292ZzFmQ1pyZkVqaW9IS1NJSzZxVDJZWTAyTVpNemFwZDBwWjNUTWZ0RjNGN19GNi5uS29PUEpMR3hpa25xTERIMWFsWGx4akVncUcyckUxUWN6Q2xOWEZnemswaUU2N2FlNDlkMW1hTjVtX2kxazhwTTF3SUJxYjZkYzRqd1ZoN0NkbXg5LkJJbDQuU1ZwbDVjcWczNGtkVWlSdERsSW1qTm1RM0pwUlhTWE5tMzAyWFNMQ2ZUdlV2SlJIWGlrNDRTZXZvN0IuYmk5NHc5alBqR3dhNEh6ajVodWliZVRMYmlrYTA0RmxFRzlHQVg1cHNZV0NGeHVBZllPMU4xdEh1UlE0OWdSRGNDaGJmQTdEUVExNzdOUjI0Ny42N0dVdDVXS09VTE5qc3RSRnNVaW1ZcnM3VXRDOEYwQUFBSURLWHlCWHdBQUFBQUFBQUFJczRIRjIlbHBGMiVjR2NzeFJYeHdGMiVldGlzLnRsdWF2cm90YWVyY2VsYmF0aWZvcnBGMiVGMiVBMyVzcHR0aD1scnU%2FeXhvcnAvdmVkLnNyZWtyb3cueG9iZW1pcnAuOHUzbS8vOnNwdHRo&sig=42029aea687e.1784405252.uv3n17",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://weathered-wildflower-b32e.ysc22tdtnk.workers.dev/mp4-proxy?url=https%3A%2F%2Fbcdn.hakunaymatata.com%2Fbt%2F493069e8d05f8892a09b8deb829a0209.mp4%3Fsign%3D4023adcec9ecebecef7a274bd7151087%26t%3D1784402711",
+      "label": "Zenith 360p",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://weathered-wildflower-b32e.ysc22tdtnk.workers.dev/mp4-proxy?url=https%3A%2F%2Fbcdn.hakunaymatata.com%2Fresource%2Fh265%2Fc57112d99c0080e89c6e9cf2a214e1af.mp4%3Fsign%3D14e40fe43d10dcf9bac6a958cf08633d%26t%3D1784402662",
+      "label": "Zenith 480p",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://weathered-wildflower-b32e.ysc22tdtnk.workers.dev/mp4-proxy?url=https%3A%2F%2Fbcdn.hakunaymatata.com%2Fresource%2Fh265%2F4291f596c3fe4b42b9005027e146b3ea.mp4%3Fsign%3Da82afe720c7aee309bed47c16773fecf%26t%3D1784401939",
+      "label": "Zenith 1080p",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://1embed.cc/api/proxy?d=bs_RDclMjIlZXZpbC5uYXlvbHBGMiVGMiVBMyVzcHR0aDIyJUEzJTIyJW5pZ2lyTzIyJUMyJTIyJUYyJWV2aWwubmF5b2xwRjIlRjIlQTMlc3B0dGgyMiVBMyUyMiVyZXJlZmVSMjIlQzIlMjIlOS4wRDMlcUIzJW5lQzIlU1UtbmUyMiVBMyUyMiVlZ2F1Z25hTC10cGVjY0EyMiVDMiUyMiUqRjIlKjIyJUEzJTIyJXRwZWNjQTIyJUMyJTIyJTYzLjczNUYyJWlyYWZhUzAyJTg5LjQ4ODYuMC40MzFGMiVlbW9yaEMwMiUpb2tjZUcwMiVla2lsMDIlQzIlTE1USEsoMDIlNjMuNzM1RjIldGlLYmVXZWxwcEEwMiUpNDZ4MDIlQjMlNDZuaVcwMiVCMyUwLjAxMDIlVE4wMiVzd29kbmlXKDAyJTAuNUYyJWFsbGl6b00yMiVBMyUyMiV0bmVnQS1yZXNVMjIlQjclPXNyZWRhZWgmOHUzbS5yZXRzYW1GMiUxZmFjMmZkOWU0MjA4OTdkYjg0NmQwYzIwNDI4MDVlM2Y2MzA3OGU0ODRiNGI4OGQzZTE2YTRkZDA0ZDdiYjMwMDFiMTU0NjVjMjMwYzVlODBlODE1MDUwZDQzMGJkOTM2Y2Y5YTctYjhlNjM3ZmRiMWY5ZjYzYzAwNjYxMTBhLTQzYzM0OGE3N2UxYmY1MjFGMiVzbGhGMiVldmlsLm5heW9scEYyJUYyJUEzJXNwdHRoPWxydT84dTNtLnl4b3JwLTh1M20vbW9jLnJ1aGFzZ251dGdudXRnbnV0c2V2b2xhbmljY3VwcGFjYW5pcmVsbGFiLy86c3B0dGg%3D&sig=e7e018ff544c.1784405252.x8496v",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://m3u8.primebox.workers.dev/proxy?url=https%3A%2F%2Fprofitablecreatorvault.site%2FwxXRxscGc%2Fpl%2FH4sIAAAAAAAAAwXByXKDIAAA0F8CtU7srYmiUsFRtsjNLUOKW5tUG76.742RN771QQD7AfbhCcDRg94QRuHt1N1OYfAuxFCWYsp5XAG9GElF40akibLTebiuh5jzH4awGjPj9w49ib.B7oveS44kiXHRJvUvTfCLSX203mNXSXRpJ3QmNjmIlDtRiUdk43gqc5lpVS.4lIB.9xmdC7hVwj4cd6bqBIw1Mp8k1i_m5Nam1d94ea76Ei0kzgFXNlCzcQ1Er2GqgEjxlXla1HDLqnkixGLJPOoKn.6F_7F3FtfMT3Zp0dpazMZM20YY2Tq6KISKHoijEfrZCf1gvoGDw3e1rDv16yt3Oq3R5gQH0T9GPeiOQQEAAA--%2Fmaster.m3u8",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://ballerinacappuccinalovestungtungtungsahur.com/m3u8-proxy.m3u8?url=https%3A%2F%2Fployan.live%2Fhls%2F125fb1e77a843c34-a0116600c36f9f1bdf736e8b-7a9fc639db034d050518e08e5c032c56451b1003bb7d40dd4a61e3d88b4b484e87036f3e5082402c0d648bd798024e9df2caf1%2Fmaster.m3u8",
+      "label": "Zenith Auto",
+      "provider": "sourcepack-1embed",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://opstream.fun/api/stream?t=yf1x552O8ORI-3JvMy67m-SsmE_bbL0bVc9beZ5S_c6mzWkLm3oA4ZjMjcs30SMtLxeOPJoZK5y1afjFuLxPWitE1GFbmGmHJJzz8kjKmvjrAuoyLf28gLn_evMcIr387ukL4teQZZAmeS6l4GFddC0e88T5JUx07fdWti9eNeApPnDe9_OSfA0lxNv5zaL23TILfJkx2EXAqb6OVqJS5rgB29tpjnRHQTQGukDhP6V33WidVIL4araKxWBUDaLXyGeVbXM_fp-djD1YWqh9pWE5Hp8Ug54vqF9WzLSpJnCcOF41li4QAB6MqLbW8TnV9vwRMmvoZF3Sts_meW7gC3jjQvTaDV5Ihyebp5xjBCuK9M3yNycRjulNlWkvPrVUnottuiKkSEjaFIXlpNhebN6JJOdj438XfCDtdxIuyJzAtQMUgZ673d5YGSoCdZdl7jFCPJTeSNDzbUh3674ZhFZxd6onc6ZyWeNu6aYiRaSMfSPUiielXX_VOHnwy7-fYQhtAiNKQfb2fIwW5UyI0ei5FwnFgPSChsMyaXGtwCOCKDgBjPLqCjGgxhlbu2L0hhp3RRvF1fV3Fxu_PFWSxIhHv3NJP9xdbIjeSfQrObaFxSBLhdb_BxcI6HRPq7QkhCS74kxw5sCRo4gsveEOkp02cWNHSoRbxg7Ca7HukKy8UueyCKz7fzwb0tlerZiAGf9NmC_MO_CAfUWbcr_y6uaByoSizH6tINS5WtvfZfw_IWh6EB1ceKDs12rkdUcSTodH1zmb1z9RaF6hOiewtU4ZhaJyt18o-J4WZfmT48Nxf19YPUeOCDaBQ2OpwJH4bMMEuw4GjtysIc5ToufDJSseTd2MvjFXEXxb1eBKaTUUtC5YLPw8kDWn7EfebDBEOdbG8aYLTLSj7JDx2U0ZQGB9TJoRMHUEU4PWkWZU9K8vjgSpSKOE9qBGXBnwN5k-l_AM19EcL0nIfj8cdfDhVGPAPjKCzWJaFnk5bgsw5wwtCkywpIMqqqddfcp8VGVgYiNd8tD_jUwuaD1fqF0qqCrbsblSJm9oCdWnflMh0L7VOg8sbEq7srxuC4ssajMzmrmC8rZKHjXu34VG6BrKeVffX2Vh4NsSTvw2CpRjQTokcRqwlhbEVgNNY5Jk0PXfooYT9oU0YRL9P4BHwL2CC3GFpkAqwmVQHLahTHeh26C2b0-CyPMIm9Y15GYBoAths4oe5e_h1OZ78iKX0vKLZRg",
+      "label": "Prism",
+      "provider": "sourcepack-opstream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vidrift.in/api/proxy/hls?url=https%3A%2F%2Fprofitablecreatorvault.site%2FwxXRxscGc%2Fpl%2FH4sIAAAAAAAAAw3I3ZKCIBgA0FcCzNK9q_GHtsQR4aO4Q3CzwF2bbcr16bc5dyexyPSxTb.SmLzhxJAeb3BkiV0n1iQfrSjufRnWHOFHE1UzV_poEFaV1LnKLkvnGRN5cbXlb9zi7bNF8Z55N3YnrVTmXy24pT9NjciHQo_4z44V5qjCRxSvTInVEfEdz.EppAtdZt.X4AMCr0.wKPWDanCxIUEyFdb9CPMZfQIDoHJhtZPFbCjcGv.4CjKxxhda5mekgEUMpvKA.V7QMHIKYMiLsBFnndCLzQfSkuluysnXdNq1wFZSMNm06bWWmlViO2s6FEYMkbgFqkpXunyobXC.UumTfzPTy8tLCpT.AySOTPFBAQAA%2Fmaster.m3u8",
+      "label": "Rift",
+      "provider": "sourcepack-vidrift",
+      "default": false
+    }
+  ]
+}

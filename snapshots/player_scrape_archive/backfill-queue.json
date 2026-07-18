@@ -1568,23 +1568,6 @@
     "reason": "No playable sources found"
   },
   {
-    "requestKey": "movie_1413976",
-    "request": {
-      "type": "movie",
-      "id": "1413976"
-    },
-    "attempts": 0,
-    "dueAt": "2026-07-01T03:57:09.702Z",
-    "createdAt": "2026-06-30T21:57:09.702Z",
-    "updatedAt": "2026-06-30T21:57:09.702Z",
-    "missingProviders": [
-      "flowcast",
-      "guru",
-      "primevids"
-    ],
-    "reason": "No playable sources found"
-  },
-  {
     "requestKey": "movie_278",
     "request": {
       "type": "movie",
@@ -1753,6 +1736,23 @@
     "dueAt": "2026-07-16T15:49:45.625Z",
     "createdAt": "2026-07-16T09:49:45.625Z",
     "updatedAt": "2026-07-16T09:49:45.625Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_1413976",
+    "request": {
+      "type": "movie",
+      "id": "1413976"
+    },
+    "attempts": 0,
+    "dueAt": "2026-07-19T02:07:51.804Z",
+    "createdAt": "2026-06-30T21:57:09.702Z",
+    "updatedAt": "2026-07-18T20:07:51.804Z",
     "missingProviders": [
       "flowcast",
       "guru",

@@ -496,23 +496,26 @@ const NetflixPlayer: React.FC<NetflixPlayerProps> = ({
           onFatalErrorRef.current?.("No streams");
           return;
         }
-        // ── Pre-flight: test manifest + first TS on each source ──────────
+        // ── Pre-flight: test manifest reachability on each source ──────────
+        const preflightFetch = (url: string, timeoutMs: number) => {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), timeoutMs);
+          return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
+        };
         const checkedSources = (await Promise.allSettled(
           parsed.map(async (s) => {
             try {
-              const res = await fetch(s.file, { signal: AbortSignal.timeout(5000) });
+              const isMp4 = /\/mp4-proxy|\.mp4([?#]|$)/i.test(s.file);
+              if (isMp4) {
+                const res = await preflightFetch(s.file, 5000);
+                if (!res.ok) return null;
+                res.body?.cancel();
+                return s;
+              }
+              const res = await preflightFetch(s.file, 5000);
               if (!res.ok) return null;
               const text = await res.text();
               if (!text.trim() || text.includes('<html')) return null;
-              // Test first TS segment
-              for (const line of text.split('\n')) {
-                const t = line.trim();
-                if (t && !t.startsWith('#') && (t.endsWith('.ts') || t.includes('.ts?'))) {
-                  const tsRes = await fetch(new URL(t, s.file).toString(), { signal: AbortSignal.timeout(4000) });
-                  if (!tsRes.ok) return null;
-                  break;
-                }
-              }
               return s;
             } catch { return null; }
           }),
