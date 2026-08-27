@@ -1,0 +1,174 @@
+{
+  "cachedAt": "2026-08-27T12:46:42.968Z",
+  "urlsRefreshedAt": "2026-08-27T12:46:42.968Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://moon.peakstorm.top/vd/bWplTE1JSF9Sd001Mk12R1RYNTkzdzpjV0hOUlBKZFl0U0NJeHNjLXRQLWdmYktCZm15dDFaNVdTQ3hrb2pfZUpJ/master.m3u8",
+      "label": "Onyx",
+      "provider": "sourcepack-vidcore",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.peakstorm.top/vd/bWplTE1JSF9Sd001Mk12R1RYNTkzdzpjV0hOUlBKZFl0U0NJeHNjLXRQLWdmYktCZm15dDFaNVdTQ3hrb2pfZUpJ/index-s1080p-v1-a1.m3u8",
+      "label": "Velocity 2",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.peakstorm.top/s/afc7d47f/ma9yIsUHLd1oEUKmveBRD7G3Bq906aVTDGgvpXZk7gsBHtG7foM89i0a_7lxzyRj2dd9RfPQ4JKw7KwBKn8nqGLOF5MPs7xtP7IzzvZqIRsLCeFV2PZf7aV6sNLHr3lCwrt8BfmstdD_1bGGgpPvbwlHmCIT3XUjqe0TdFpD7s8qf74o0HGNPrJNrRfK46C1aSnAd-mLSnQiHA06sS3minHX1qYySQOLxEsfT0p-3lWXTyheZM8zQT5VxtSXc5y-260QAYwRRDhTmAyuB9yBMHCwR-E1ENizfR88C6VxQay-ChGZ5hbwArZokWerT43YLtzgO_K24SN3KBRxiqVO8Sosiho38raonlnjFrbfMktf-oZeU07OTMP5rO-OJiem.m3u8",
+      "label": "Velocity 3",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.peakstorm.top/r6/ma9yIsUHLd1oEUKmveBRD6CL9aSh9fi08J7f9fAYJaJBpCdYD0B-GAdVd7Zg6lACo8F67V8n20Xhl51_593TUkhcd9hFZcoR7LlT9DOAAq1JFB27gQOSnsm0hV08y7qYMqtlYkatjutNqw1rZ-mJ3pyQuEDmvLbIuFW3r9pD0uAkuJlvIhBTaty5_Hxy8W9uOCe3F8NF0yUxyIVd2-EV9bNiZpvMY4dvVAAJrS1MZ1_x24PZAwO1Bc5vgIVwqE16_RNkWDpY_6Djc_pQ-a-d2neBm5GyUHhmNBw0pwntsV2LvuVvrxxlqScalpccQ4DQ2NUk6whkjEoGcuPSstSUsw.m3u8",
+      "label": "Velocity 4",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://i-cdn-0.jemsa431ilk.com/stream2/i-cdn-0/dae8da18f1660b977dbcf8cadcf8812a/MJTMsp1RshGTygnMNRUR2N2MSlnWXZEdMNDZzQWe5MDZzMmdZJTO1R2RWVHZDljekhkSsl1VwYnWtx2cihVT2lleOtmWHVFNNpnRs1kMS1WTUd2daRUSz0UbNJjWEFleO1mTp1EVjdXTE1UP:1787836401:93.84.111.118:cc6ef1220acdc35465cb50bf79ede1a34c0f115a2b44e594548da50973c8c99b:=8EVNV3TEFVdNRVR4xkaFh3TB1TP/index.m3u8",
+      "label": "Velocity 5",
+      "provider": "sourcepack-vidfast",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://p1-s25-s1.s1q2105.com/hls/uNynJqv1apIqp0xhwrzG1pBT7TCX3ivs/master.m3u8?token=01615ec8f7b41c2fc63221bced62f6bd-1787856388-2a06%3A98c0%3A3600%3A%3A103-0fbe8cbc3a865af703bc7726d510cf7ae483ebefe5b861921444327e000b6221",
+      "label": "Rive HLS",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://strm2.uqload.vc/hls2/03/05349/4zf3jva2kdig_,l,n,h,.urlset/master.m3u8?t=OoRSU48HyQ5XS08GpqR5-xmbrsoHIjbI2svWx4syO5M&s=1787827588&e=43200&v=295842&i=0.0&sp=0",
+      "label": "Rive HLS",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://proxy.valhallastream.dpdns.org/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fresource%2Ff8023615991acb9692a2608355abea34.mp4%3Fsign%3Def26553079da45abcba41aec17ec9ee9%26t%3D1787815526",
+      "label": "Rive 480",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://proxy.valhallastream.dpdns.org/proxy?url=https%3A%2F%2Fbcdnxw.hakunaymatata.com%2Fbt%2Ff98d6bc175b89c5a6595128f32c77f7a.mp4%3Fsign%3Da81ecce3f15d9d43428a30a003a677a1%26t%3D1787815010",
+      "label": "Rive 360",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://img1.fvcwo.com/myhls/2026/7/Moana/Hin_720ts/index_255.m3u8?auth_key=0HKPkJmUzk4TfVRAARLaLrF1Ld1jT274b5qWo1r%2FU%2Fk%3D&expire=1787845600682",
+      "label": "Rive 720p | Hindi",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://img1.swclb.com/myhls/2026/7/Moana/Hin_480ts/index_304.m3u8?auth_key=eKvcc%2FEkA2J%2BVPR%2BCKI6z7Z2vbO9fIFskTS9WjVApv4%3D&expire=1787845600681",
+      "label": "Rive 480p | Hindi",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://glendale-plumbing.com/c/v1/GgBjECnpf_SLWkbdvvQVpAUixDONBd5WMCnVwA/master.m3u8?_v=34403446",
+      "label": "Bcine Auto",
+      "provider": "sourcepack-bcine",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://abdx.tv/hls-proxy?url=https%3A%2F%2Fdigitalgrowthblueprint.site%2F0284yj9RD%2Fpl%2FH4sIAAAAAAAAAw3MWXaCMBQA0C0lkUH7WSVQKMEQ8oD8AdFSZRKxcLL6ehdwG.1adY0qUhG0dyzHblz3au1cZ6.bq.M4H.DhKPOYzHusVHHfhDwcq92nqOX.LzLdURO6Jt72qnq.ZoR.KbGwmrJbTGgge04agDGhqah_Dy2TbQxDaVKqHurEXixQWHRTotDP9o28md8nuEA786G0eQ8nMWhbyHWuszSsC7bLb4A1TOfKH7EaQl6Z8BERPQqarilAoGg4w.DZOisNQ8hKg8kHnzLZsTnup6fyl3NKYNOZMjJr25yGvDkuSNHuWQ10k2jLQepbUtAkvrdBJpc5Qh2.5OC8n63smBf7LADz_gkelUGHf4K.ualBAQAA%2Fmaster.m3u8&referer=https%3A%2F%2Fnextgencloudfabric.com%2F&origin=https%3A%2F%2Fnextgencloudfabric.com&_v=34403446",
+      "label": "Bcine Auto",
+      "provider": "sourcepack-bcine",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://fun.1embed.lol/api/proxy?url=https%3A%2F%2Feidolonicengine.website%2Fpl%2FH4sIAAAAAAAAAwXB0W6DIBQA0F.iEG1d0hdXbasRhgrifVPROkTWJaazfP3OIQd00sHUBeEUkemEj7qLhgn3JJx0h_Dxo7huf41Kq17.HPSyL2JpvUQC1SrrOHnaSulsdPS7WSVmAu2F0wzW3eRYb6XhHtzwogreY7Vt4OmtRtSASgHwxmsFBVyyBHzic6TbUURba.mT1ncMYu5qR1mOs2tTP149zn5HayVLyk_q7sGALW_JXDI5vwvb.qqKsBZWVGtJcj8X1MQXwDYsSRwPskVMpWGfBCBvOuPrbpnY48bAhZvYffHz.R.FVMrZCQEAAA--%2Fmaster.m3u8&referer=https%3A%2F%2Fcloudorchestranova.com%2F&origin=https%3A%2F%2Fcloudorchestranova.com&_v=34403446",
+      "label": "Bcine Auto",
+      "provider": "sourcepack-bcine",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fdigitalgrowthblueprint.site%2F0284yj9RD%2Fpl%2FH4sIAAAAAAAAAwXBy3KDIBQA0F8CiTZ0WSNGG.9EBHzsEGxTxQwdnWj9.p5jTD_oyNLzFzJ9ROxbYBA6U4pDG1Bzit4LWRyfgQkFyvZKqMqgcIPm4xcqyoz4JvXUZTxZTi1aR3Fxm7xKBGm.GNbdh5ge5ei8lLsvpwXxxqGuyTMxAYbapd2YvBSzt_bJQnPJNRCOtcRxka5lQfzthjIy1LzVE3A9WyYubCzGBwbikj4N45b4FGbm.4urS.RXiNfIBPlLB3DIOXtVwv3UbNrU3LVqOu2Q.rqXXCqJ52EuiE7cH4ic2yO_lsqFFVNblfgGkL3DvPses041D8mnKegTvpQ1XTiGJ6g81knX2gPRf7Fs1xNBAQAA%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F122.0.0.0+Safari%2F537.36%22%7D",
+      "label": "Frame Auto",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fdigitalgrowthblueprint.site%2F0284yj9RD%2Fpl%2FH4sIAAAAAAAAAwXB2XKCMBQA0F9KAor00SkRM3Iz2TVvkaAI0XasC_L1Pacri_a0DGHRFatF6Ap0LE.rmHX5qcjDchm.wDx2nLK1RdFzBz13_h6qBVGu79Xcs1aVTzPIg7zJZ2cj5o5tQTNi6vNLDRXy2jKnm89xjLmp4G41u3aO_cmBanBlFjYJwcBwRP7C3Za4b6.0mX41BqGubGo1JSL5ddxvc28w2xHfc2s.wuHMpMOkcRI22Z2cxWxn.Am3ZHTGakPlQ1zbqcHgm73FSgNvyOMibEyQVe9mgNDiCtskX5B87ykbxVg26lLWfuMPgqDJuOktDbjGSMJp_9KIUkvwxo12hHo9Co3KfwZQ_lpBAQAA%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F122.0.0.0+Safari%2F537.36%22%7D",
+      "label": "Frame Auto",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fdigitalgrowthblueprint.site%2F0284yj9RD%2Fpl%2FH4sIAAAAAAAAAw3Ky3KDIBQA0F9CjGbsrq1ejBMwokBkJ1zbTH2MnSSj8evbsz5xTJ1D_0WjA_pjHydd3x8TTIJj6Hrn.jeZai7D0bRqPaAZQ9fclMxV6Nk2VVTndioKtfNVsCgvU_00GTxstlVlA4snoq1muLQzfmiGMf74VSg8y8EavrcrEnm2r0eJxAo_WNHlonAp3tT4TVUKd92M2s2K1iMAz8WJfyajolHcXJeXDywpUx7ZcVmNiahh4rfT2Fm23Gt4f7lB1pxuF1QSLPiwIUmr1Za6AU5dWBRuLrhl226zoOn2G5EE4tbYybGg.j_PTtlAwTJzjczm4imuYmk15GoCqDN9RtAGd5L8Af1MEGlBAQAA%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F122.0.0.0+Safari%2F537.36%22%7D",
+      "label": "Frame Auto",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://vidmody.com/vs/tt27419466#.m3u8",
+      "label": "Frame Auto",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://tv.imgcdn.kim/newtv/hls/hs/1260017500.m3u8",
+      "label": "Frame Auto",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://s21.freecdn4.top/files/220884/1080p/1080p.m3u8?in=unknown%3A%3Aes",
+      "label": "Frame ​​1080p",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://s21.freecdn4.top/files/220884/720p/720p.m3u8?in=unknown%3A%3Aes",
+      "label": "Frame ​​​720p",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://img1.hvncw.com/myhls/2026/7/Moana/Hin_720ts/index_309.m3u8?auth_key=7aRhr7N8Bi5kBpyZf13zTABMv4Op4ZsBSdgefXLZR6w%3D&expire=1787845598762",
+      "label": "Frame 1080",
+      "provider": "sourcepack-frame",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://streamvaultsrc.click/stream-proxy/pl?u=https%3A%2F%2Fdigitalgrowthblueprint.site%2F0284yj9RD%2Fpl%2FH4sIAAAAAAAAAw3N0XaCIBgA4FdCkMzdZRNdE3aEH0juMO2UEnW2zqyefvte4EOIDiuPViRD1OcH77MMH3Hq1zlZH1OP3hwuiTyvUw5BDxXlLTDMTfGjQOBe0yBKepVGvzS..yERxOAc.Ey_jd3xFhmpY1G696IcUOB22lk7bRJjgxtD9_Tl49pHTfpYTKI2zOzNkweWDoSlrZV2rEI3bu8T14ZLaBe.3yRjfVpZ.ECH6JSIDqlZYkmCl2Zo1Db_UprteigWiegvxA0.hFMtL_I2xhu0UTCd3OD_KSCaEli3.MAqPzuj5wco5FQ3FdxP8tNWeXTaVYLJFC7h3Lyc6EHWY0UXOzHVoLxxL5T_AfxvFEdBAQAA%2Fmaster.m3u8&h=%7B%22Referer%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fnextgencloudfabric.com%22%2C%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F122.0.0.0+Safari%2F537.36%22%7D",
+      "label": "PeeStream Auto",
+      "provider": "sourcepack-peestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://api.luna-stream.me/anime/megaplay/proxy?url=https%3A%2F%2Fcdn.kryntal.top%2Fanime%2F02e74f10e0327ad868d138f2b4fdd6f0%2Ff6a78ba9d3e8dce184ac45e57247a17e%2Fmaster.m3u8",
+      "label": "Luna Sub auto",
+      "provider": "sourcepack-luna-sub",
+      "default": false
+    }
+  ]
+}
