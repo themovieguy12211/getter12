@@ -1,0 +1,17 @@
+<script data-cfasync="false" async type="text/javascript" src="//ss.tuffoonaskant.com/rQxI7iOxtjc/MaWJB"></script>
+Shufflebox (vignette):
+<script data-cfasync="false" async type="text/javascript" src="//qq.baggerspaces.com/spb9amIjDJqvh9/ELAVw"></script>
+
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+
+# TypeScript
+tsconfig.tsbuildinfo
+
+# Local environment
+.env
+.env.local
+.env.*.local
