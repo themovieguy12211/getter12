@@ -64,7 +64,7 @@ const AdNetworkScript: React.FC = () => {
         id="mrmnd-popunder"
         src="https://ss.mrmnd.com/popunder.js"
         data-mndpopid="91db0ee6-089e-4386-8302-052f8aa0f530"
-        data-delay-seconds="120"
+        data-delay-seconds="10"
         data-frequency-cap="4"
         data-frequency-cap-hours="1"
         strategy="afterInteractive"
