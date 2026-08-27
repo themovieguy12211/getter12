@@ -16,17 +16,17 @@ export const SOURCES = [
     { key: 'vidup', sourceFile: 'vidup', label: 'Pinnacle', proxyParam: 'vu', timeout: 25000, jitter: 600, retries: 2, objectArgs: true, skipProxy: true,},
 
     // ─── NEW (from SDK) ─────────────────────────────────────────────────────────
-    { key: 'rivestream', sourceFile: 'rivestream', label: 'Rive', proxyParam: 'rs', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'bcine', sourceFile: 'bcine', label: 'Bcine', proxyParam: 'bc', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'cinesrc', sourceFile: 'cinesrc', label: 'CineSrc', proxyParam: 'cr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'frame', sourceFile: 'frame', label: 'Frame', proxyParam: 'fr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'peestream', sourceFile: 'peestream', label: 'PeeStream', proxyParam: 'pe', timeout: 25000, jitter: 600, retries: 2, objectArgs: true },
-    { key: 'pstream', sourceFile: 'pstream', label: 'FlyStream', proxyParam: 'pl', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'nova', sourceFile: 'nova', label: 'Nova', proxyParam: 'nv', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'vidvault', sourceFile: 'vidvault', label: 'VidVault', proxyParam: 'vv', timeout: 25000, jitter: 600, retries: 2, objectArgs: true },
-    { key: 'lmscript', sourceFile: 'lmscript', label: 'LMScript', proxyParam: 'lx', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'luna-sub', sourceFile: 'luna', label: 'Luna Sub', proxyParam: 'lu', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'anihq', sourceFile: 'anihq', label: 'AniHQ', proxyParam: 'aq', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'rivestream', sourceFile: 'rivestream', label: 'Cascade', proxyParam: 'rs', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'bcine', sourceFile: 'bcine', label: 'Crest', proxyParam: 'bc', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'cinesrc', sourceFile: 'cinesrc', label: 'Ember', proxyParam: 'cr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'frame', sourceFile: 'frame', label: 'Horizon', proxyParam: 'fr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'peestream', sourceFile: 'peestream', label: 'Surge', proxyParam: 'pe', timeout: 25000, jitter: 600, retries: 2, objectArgs: true },
+    { key: 'pstream', sourceFile: 'pstream', label: 'Flux', proxyParam: 'pl', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'nova', sourceFile: 'nova', label: 'Pulsar', proxyParam: 'nv', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'vidvault', sourceFile: 'vidvault', label: 'Stronghold', proxyParam: 'vv', timeout: 25000, jitter: 600, retries: 2, objectArgs: true },
+    { key: 'lmscript', sourceFile: 'lmscript', label: 'Codex', proxyParam: 'lx', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'luna-sub', sourceFile: 'luna', label: 'Celestial', proxyParam: 'lu', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
+    { key: 'anihq', sourceFile: 'anihq', label: 'Sakura', proxyParam: 'aq', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
 
     // ─── DISABLED (unconfirmed) ─────────────────────────────────────────────────
     // { key: 'vidlink', sourceFile: 'vidlink', label: 'Sentinel', proxyParam: 'vl', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true,},

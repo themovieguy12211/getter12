@@ -67,6 +67,7 @@ const AdNetworkScript: React.FC = () => {
         data-delay-seconds="10"
         data-frequency-cap="4"
         data-frequency-cap-hours="1"
+        data-fallback-type="TABUNDER"
         strategy="afterInteractive"
         async
         onLoad={() => {
