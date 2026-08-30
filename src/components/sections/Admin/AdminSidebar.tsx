@@ -10,6 +10,7 @@ const NAV_ITEMS: Array<{ id: AdminTab; label: string; icon: string }> = [
   { id: "activity", label: "Activity", icon: "bi-play-circle" },
   { id: "rewards", label: "Rewards", icon: "bi-gift" },
   { id: "embeds", label: "Embeds", icon: "bi-film" },
+  { id: "playmate", label: "Playmate", icon: "bi-cloud-upload" },
 ];
 
 type Props = {

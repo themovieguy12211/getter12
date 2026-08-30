@@ -12,6 +12,7 @@ import PremiumTab from "./tabs/PremiumTab";
 import ActivityTab from "./tabs/ActivityTab";
 import RewardsTab from "./tabs/RewardsTab";
 import EmbedsTab from "./tabs/EmbedsTab";
+import PlaymateTab from "./tabs/PlaymateTab";
 
 async function fetchDashboard(search: string): Promise<AdminDashboardResponse> {
   const params = new URLSearchParams();
@@ -98,6 +99,7 @@ const AdminPanel = () => {
           />
         )}
         {activeTab === "embeds" && <EmbedsTab />}
+        {activeTab === "playmate" && <PlaymateTab />}
       </div>
     </>
   );

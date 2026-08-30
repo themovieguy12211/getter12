@@ -17,8 +17,6 @@ export const SOURCES = [
 
     // ─── NEW (from SDK) ─────────────────────────────────────────────────────────
     { key: 'rivestream', sourceFile: 'rivestream', label: 'Cascade', proxyParam: 'rs', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'bcine', sourceFile: 'bcine', label: 'Crest', proxyParam: 'bc', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
-    { key: 'cinesrc', sourceFile: 'cinesrc', label: 'Ember', proxyParam: 'cr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
     { key: 'frame', sourceFile: 'frame', label: 'Horizon', proxyParam: 'fr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
     { key: 'peestream', sourceFile: 'peestream', label: 'Surge', proxyParam: 'pe', timeout: 25000, jitter: 600, retries: 2, objectArgs: true },
     { key: 'pstream', sourceFile: 'pstream', label: 'Flux', proxyParam: 'pl', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },

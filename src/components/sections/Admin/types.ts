@@ -1,6 +1,6 @@
 import type { Referral, RewardAccount, RewardRequest, RewardRequestStatus } from "@/types/rewards";
 
-export type AdminTab = "overview" | "users" | "community" | "premium" | "activity" | "rewards" | "embeds";
+export type AdminTab = "overview" | "users" | "community" | "premium" | "activity" | "rewards" | "embeds" | "playmate";
 
 export type AdminUser = {
   id: string;
