@@ -87,15 +87,13 @@ const AdNetworkScript: React.FC = () => {
         strategy="afterInteractive"
         onLoad={() => {
           (window as any).__AD_SCRIPTS_LOADED__ = true;
+          (window as any).aclib?.runPop({ zoneId: '11355558' });
         }}
         onError={() => {
           (window as any).__AD_CHECK_COMPLETE__ = true;
           (window as any).__ADBLOCK_DETECTED__ = true;
         }}
       />
-      <Script id="adcash-pop" strategy="afterInteractive">
-        {`aclib.runPop({ zoneId: '11355558' });`}
-      </Script>
 
       {/*
       <Script
