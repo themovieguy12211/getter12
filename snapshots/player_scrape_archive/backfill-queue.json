@@ -1776,5 +1776,22 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "movie_860508",
+    "request": {
+      "type": "movie",
+      "id": "860508"
+    },
+    "attempts": 0,
+    "dueAt": "2026-08-30T14:28:30.602Z",
+    "createdAt": "2026-08-30T08:28:30.602Z",
+    "updatedAt": "2026-08-30T08:28:30.602Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

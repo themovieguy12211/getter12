@@ -60,6 +60,7 @@ const AdNetworkScript: React.FC = () => {
       />
       */}
 
+      {/*
       <Script
         id="mrmnd-popunder"
         src="https://ss.mrmnd.com/popunder.js"
@@ -78,6 +79,23 @@ const AdNetworkScript: React.FC = () => {
           (window as any).__ADBLOCK_DETECTED__ = true;
         }}
       />
+      */}
+
+      <Script
+        id="aclib"
+        src="//acscdn.com/script/aclib.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          (window as any).__AD_SCRIPTS_LOADED__ = true;
+        }}
+        onError={() => {
+          (window as any).__AD_CHECK_COMPLETE__ = true;
+          (window as any).__ADBLOCK_DETECTED__ = true;
+        }}
+      />
+      <Script id="adcash-pop" strategy="afterInteractive">
+        {`aclib.runPop({ zoneId: '11355558' });`}
+      </Script>
 
       {/*
       <Script
