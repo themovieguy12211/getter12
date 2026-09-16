@@ -95,19 +95,15 @@ const SOURCE_PACK_SKIP_KEYS = new Set<string>([]);
 const SOURCE_PACK_DOWNLOAD_KEYS = new Set(["02movie", "moviebox"]);
 
 const SOURCE_PACK_ORDER: Record<string, number> = {
-  vidzee: 0,
-  icefy: 1,
-  notorrent: 2,
-  vidapi: 3,
-  vidcore: 4,
-  vidfast: 5,
-  xpass: 6,
-  "1embed": 7,
-  mapple: 8,
-  opstream: 9,
-  vidbolt: 10,
-  vidrift: 11,
-  vidup: 12,
+  // New SDK sources first
+  bcine: 0,
+  cinesrc: 1,
+  cinejoy: 2,
+  movienight: 3,
+  movy: 4,
+  streamaggregator: 5,
+  vidgod: 6,
+  vuflix: 7,
 };
 
 const SUBTITLE_BASES = [

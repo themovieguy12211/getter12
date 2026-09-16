@@ -1793,5 +1793,81 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s6_e11",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "6",
+      "episode": "11"
+    },
+    "attempts": 0,
+    "dueAt": "2026-09-16T20:43:50.383Z",
+    "createdAt": "2026-09-16T14:11:43.582Z",
+    "updatedAt": "2026-09-16T14:43:50.383Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s6_e12",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "6",
+      "episode": "12"
+    },
+    "attempts": 0,
+    "dueAt": "2026-09-16T21:01:59.300Z",
+    "createdAt": "2026-09-16T14:44:16.245Z",
+    "updatedAt": "2026-09-16T15:01:59.300Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s6_e13",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "6",
+      "episode": "13"
+    },
+    "attempts": 0,
+    "dueAt": "2026-09-16T21:50:45.895Z",
+    "createdAt": "2026-09-16T15:50:45.895Z",
+    "updatedAt": "2026-09-16T15:50:45.895Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s6_e14",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "6",
+      "episode": "14"
+    },
+    "attempts": 0,
+    "dueAt": "2026-09-17T00:28:00.556Z",
+    "createdAt": "2026-09-16T18:28:00.556Z",
+    "updatedAt": "2026-09-16T18:28:00.556Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

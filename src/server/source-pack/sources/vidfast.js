@@ -19,7 +19,7 @@ async function getVidfastMeta(id, s, e) {
         if (!htmlRes.ok) return null;
         const html = await htmlRes.text();
 
-        const match = html.match(/\\"en\\":\\"(.*?)\\"/) || html.match(/"en":"(.*?)"/);
+        const match = html.match(/\\"(?:en|token)\\":\\"(.*?)\\"/) || html.match(/"(?:en|token)":"(.*?)"/);
         const enText = match ? match[1] : null;
         if (!enText) return null;
 

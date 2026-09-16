@@ -26,6 +26,16 @@ export const SOURCES = [
     { key: 'luna-sub', sourceFile: 'luna', label: 'Celestial', proxyParam: 'lu', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
     { key: 'anihq', sourceFile: 'anihq', label: 'Sakura', proxyParam: 'aq', timeout: 25000, jitter: 500, retries: 2, objectArgs: true },
 
+    // ─── NEW SDK SOURCES (added — streaming only) ───────────────────────────────
+    { key: 'bcine', sourceFile: 'bcine', label: 'Bcine', proxyParam: 'bc', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, cdnHeaders: [{ pattern: /1embed\.cc|videasy\.to/i, headers: { Referer: 'https://bcine.ru/', Origin: 'https://bcine.ru' } }], },
+    { key: 'cinesrc', sourceFile: 'cinesrc', label: 'CineSrc', proxyParam: 'csr', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, cdnHeaders: [{ pattern: /glendale-plumbing\.com|1embed\.cc|bright\d+\.online/i, headers: { Referer: 'https://cinesrc.st/', Origin: 'https://cinesrc.st' } }], },
+    { key: 'cinejoy', sourceFile: 'cinejoy', label: 'Cinejoy', proxyParam: 'cj', timeout: 20000, jitter: 500, retries: 1, objectArgs: true, skipProxy: true, },
+    { key: 'movienight', sourceFile: 'movienight', label: 'MovieNight', proxyParam: 'mn', timeout: 20000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, cdnHeaders: [{ pattern: /movienig\.ht/i, headers: { Referer: 'https://movienig.ht/', Origin: 'https://movienig.ht' } }], },
+    { key: 'movy', sourceFile: 'movy', label: 'Movy', proxyParam: 'mv', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, cdnHeaders: [{ pattern: /wecollege\.net|movy\.bz/i, headers: { Referer: 'https://www.movy.bz/', Origin: 'https://www.movy.bz' } }], },
+    { key: 'streamaggregator', sourceFile: 'streamaggregator', label: 'StreamAggregator', proxyParam: 'sa', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, cdnHeaders: [{ pattern: /streamaggregator\.in/i, headers: { Referer: 'https://streamaggregator.in/', Origin: 'https://streamaggregator.in' } }], },
+    { key: 'vidgod', sourceFile: 'vidgod', label: 'VidGod', proxyParam: 'vg', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, },
+    { key: 'vuflix', sourceFile: 'vuflix', label: 'Vuflix', proxyParam: 'vfx', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true, cdnHeaders: [{ pattern: /vuflix\.co/i, headers: { Referer: 'https://vuflix.co/', Origin: 'https://vuflix.co' } }], },
+
     // ─── DISABLED (unconfirmed) ─────────────────────────────────────────────────
     // { key: 'vidlink', sourceFile: 'vidlink', label: 'Sentinel', proxyParam: 'vl', timeout: 25000, jitter: 500, retries: 2, objectArgs: true, skipProxy: true,},
     // { key: 'meowtv', sourceFile: 'meowtv', label: 'Luminox', proxyParam: 'mt', timeout: 25000, jitter: 500, retries: 2,},

@@ -21,7 +21,7 @@ async function getDynamicServers(id, s, e) {
         if (!htmlRes.ok) return null;
         const html = await htmlRes.text();
 
-        const match = html.match(/\\"en\\":\\"(.*?)\\"/) || html.match(/"en":"(.*?)"/);
+        const match = html.match(/\\"(?:en|token)\\":\\"(.*?)\\"/) || html.match(/"(?:en|token)":"(.*?)"/);
         const enToken = match ? match[1] : null;
         if (!enToken) return null;
 
