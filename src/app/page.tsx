@@ -23,7 +23,7 @@ const HomePage: NextPage = () => {
         >
           <img
             src=""
-            alt="Put you Bannre Here"
+            alt="Put you Banner Here"
             width={300}
             height={150}
             className="h-[150px] w-[300px] object-cover"
