@@ -22,8 +22,8 @@ const HomePage: NextPage = () => {
           aria-label="Visit sponsor offer"
         >
           <img
-            src="/epic.png"
-            alt="Sponsor banner"
+            src=""
+            alt="Put you Bannre Here"
             width={300}
             height={150}
             className="h-[150px] w-[300px] object-cover"
