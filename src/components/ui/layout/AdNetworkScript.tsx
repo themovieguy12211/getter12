@@ -82,12 +82,17 @@ const AdNetworkScript: React.FC = () => {
       */}
 
       <Script
-        id="aclib"
-        src="//acscdn.com/script/aclib.js"
+        id="mrmnd-popunder"
+        src="https://ss.mrmnd.com/popunder.js"
+        data-mndpopid="91db0ee6-089e-4386-8302-052f8aa0f530"
+        data-delay-seconds="10"
+        data-frequency-cap="4"
+        data-frequency-cap-hours="1"
+        data-fallback-type="TABUNDER"
         strategy="afterInteractive"
+        async
         onLoad={() => {
           (window as any).__AD_SCRIPTS_LOADED__ = true;
-          (window as any).aclib?.runPop({ zoneId: '11355558' });
         }}
         onError={() => {
           (window as any).__AD_CHECK_COMPLETE__ = true;
