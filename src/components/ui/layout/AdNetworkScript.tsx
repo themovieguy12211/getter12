@@ -81,24 +81,7 @@ const AdNetworkScript: React.FC = () => {
       />
       */}
 
-      <Script
-        id="mrmnd-popunder"
-        src="https://ss.mrmnd.com/popunder.js"
-        data-mndpopid="91db0ee6-089e-4386-8302-052f8aa0f530"
-        data-delay-seconds="10"
-        data-frequency-cap="4"
-        data-frequency-cap-hours="1"
-        data-fallback-type="TABUNDER"
-        strategy="afterInteractive"
-        async
-        onLoad={() => {
-          (window as any).__AD_SCRIPTS_LOADED__ = true;
-        }}
-        onError={() => {
-          (window as any).__AD_CHECK_COMPLETE__ = true;
-          (window as any).__ADBLOCK_DETECTED__ = true;
-        }}
-      />
+     
 
       {/*
       <Script
