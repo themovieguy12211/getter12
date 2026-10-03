@@ -1,11 +1,9 @@
 import { NextPage } from "next";
 import dynamic from "next/dynamic";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 const ContinueWatching = dynamic(() => import("@/components/sections/Home/ContinueWatching"));
 const HomePageList = dynamic(() => import("@/components/sections/Home/List"));
 const AppDownload = dynamic(() => import("@/components/sections/Home/AppDownload"));
-
-const sponsorUrl =
-  "https://rryy.cc/";
 
 const HomePage: NextPage = () => {
   return (
@@ -13,24 +11,7 @@ const HomePage: NextPage = () => {
       <ContinueWatching />
       <AppDownload />
 
-      <section className="flex justify-center px-2">
-        <a
-          href={sponsorUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="block overflow-hidden rounded-xl border border-white/10 transition-transform hover:scale-[1.01]"
-          aria-label="Visit sponsor offer"
-        >
-          <img
-            src=""
-            alt="Put you Banner Here"
-            width={300}
-            height={150}
-            className="h-[150px] w-[300px] object-cover"
-            loading="lazy"
-          />
-        </a>
-      </section>
+      <SponsorBanner />
 
       <div className="flex flex-col gap-4">
         <HomePageList />

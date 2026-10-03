@@ -10,6 +10,7 @@ import { Image } from "tmdb-ts";
 import dynamic from "next/dynamic";
 import { Params } from "@/types";
 import { NextPage } from "next";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 const PhotosSection = dynamic(() => import("@/components/ui/other/PhotosSection"));
 const BackdropSection = dynamic(() => import("@/components/sections/Movie/Detail/Backdrop"));
 const OverviewSection = dynamic(() => import("@/components/sections/Movie/Detail/Overview"));
@@ -51,6 +52,7 @@ const MovieDetailPage: NextPage<Params<{ id: number }>> = ({ params }) => {
         <div className="flex flex-col gap-10">
           <BackdropSection movie={movie} />
           <OverviewSection movie={movie} />
+          <SponsorBanner />
           <CommunitySection mediaId={id} mediaType="movie" />
           <CastsSection casts={movie.credits.cast as Cast[]} />
           <PhotosSection images={movie.images.backdrops as Image[]} />

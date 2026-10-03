@@ -9,6 +9,7 @@ import { notFound } from "next/navigation";
 import { Suspense, use } from "react";
 import dynamic from "next/dynamic";
 import { NextPage } from "next";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 const PhotosSection = dynamic(() => import("@/components/ui/other/PhotosSection"));
 const TvShowRelatedSection = dynamic(() => import("@/components/sections/TV/Details/Related"));
 const TvShowCastsSection = dynamic(() => import("@/components/sections/TV/Details/Casts"));
@@ -65,6 +66,7 @@ const TVShowDetailPage: NextPage<Params<{ id: number }>> = ({ params }) => {
             onViewEpisodesClick={() => scrollIntoView({ alignment: "center" })}
             tv={tv}
           />
+          <SponsorBanner />
           <CommunitySection mediaId={id} mediaType="tv" color="warning" />
           <TvShowCastsSection casts={tv.credits.cast} />
           <PhotosSection images={tv.images.backdrops} type="tv" />

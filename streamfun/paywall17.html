@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="rgb(14, 15, 11)">
+  <title>Watch Live Sports From Anywhere</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;
+      background: rgb(14, 15, 11);
+      min-height: 100vh; min-height: 100svh;
+    }
+    .root { background: rgb(14, 15, 11); width: 100%; min-height: 100vh; min-height: 100svh; display: flex; justify-content: center; }
+    .column { display: flex; flex-direction: column; width: 480px; max-width: 100%; margin: 0 auto; position: relative; background: rgb(14, 16, 13); }
+    .inner { display: flex; flex-direction: column; gap: 14px; padding: calc(40px + env(safe-area-inset-top)) 20px calc(24px + env(safe-area-inset-bottom)); }
+    .head { display: flex; flex-direction: column; gap: 6px; }
+    .kicker { color: rgb(64, 217, 75); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1 { margin: 0; font-size: 26px; line-height: 30px; color: #fff; font-weight: 800; }
+
+    .player {
+      position: relative; border-radius: 16px; overflow: hidden;
+      background:
+        radial-gradient(120% 90% at 30% 0%, #16351b 0%, transparent 55%),
+        radial-gradient(120% 90% at 90% 100%, #0f2a3a 0%, transparent 55%),
+        #000;
+      aspect-ratio: 16 / 10; width: 100%;
+    }
+    .player video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .liveBadge {
+      position: absolute; top: 12px; left: 12px; z-index: 1;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 8px; border-radius: 8px; background: rgba(0,0,0,0.55);
+      color: rgb(255,92,92); font-size: 11px; font-weight: 800; letter-spacing: 0.06em;
+    }
+    .liveDot { width: 7px; height: 7px; border-radius: 50%; background: rgb(255,92,92); animation: pulse 1.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.35; transform: scale(0.75); } }
+    @media (prefers-reduced-motion: reduce) { .liveDot { animation: none; } }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="column">
+      <div class="inner">
+        <div class="head">
+          <span class="kicker">🔴 LIVE SPORTS</span>
+          <h1>Watch Live Sports From Anywhere</h1>
+        </div>
+
+        <!-- Site player. The locker is mounted here (mount: '.player'). -->
+        <div class="player">
+          <video id="clip" muted loop playsinline preload="auto">
+            <source src="/assets/video/test.mp4" type="video/mp4">
+          </video>
+          <span class="liveBadge"><span class="liveDot"></span>LIVE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Locker settings: where to mount, what to control, where to send without VPN -->
+  <script>
+    window.StreamSharkLocker = {
+      mount: '.player',      // player container the locker is mounted on
+      player: '#clip',       // video we control (teaser/block)
+      apiUrl: 'https://api.streamfun.io/api/v1/connection/status',
+      vpnUrl: 'https://securevpb.online/Q4PJpQPd?cost={cost}&currency=usd&external_id=${SUBID}&creative_id={bannerid}&ad_campaign_id={campaignid}&source={zoneid}',
+      lockDelay: 6000,       // lock after 6 seconds
+      poll: 5000,            // re-check VPN every 5 seconds
+      canClose: true,        // close icon in the corner: dismiss the message and keep playing
+      platforms: ['android'] // who sees the locker: ios / android / desktop
+    };
+  </script>
+  <script src="streamfun-locker.js"></script>
+</body>
+</html>

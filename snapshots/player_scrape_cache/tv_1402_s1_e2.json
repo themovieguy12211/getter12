@@ -1,0 +1,104 @@
+{
+  "cachedAt": "2026-10-03T17:52:45.994Z",
+  "urlsRefreshedAt": "2026-10-03T17:52:45.994Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fglendale-plumbing.com%2Fc%2Fv1%2FFwAbxad5LsgqWrjSlGMljRVFtlArMIF15w%2Fmaster.m3u8%3F_v%3D34403446&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fbcine.ru%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fbcine.ru%22%2C%22X-Forwarded-For%22%3A%22%3A%3A1%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Bcine Auto",
+      "provider": "sourcepack-bcine",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://glendale-plumbing.com/c/v1/FwAbxad5LsgqWrjSlGMljRVFtlArMIF15w/master.m3u8?_v=34403446",
+      "label": "CineSrc Auto",
+      "provider": "sourcepack-cinesrc",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://proxy.scrapeequalsgayporn.st/api/stream/proxy?u=aHR0cHM6Ly9raXRoYW5ka2luZXRpYy5zaXRlL3BsL0g0c0lBQUFBQUFBQUF3M0lTVzZETUJRQTBDc3hoQ0dWc21oQURGYnNCQV9maEoxamd3aERZVUVSOWVtYjFaTmU0SFhhN2J6WWRZUDJGWjlOMUo1VjdJZXZTSHVoRHJ2b2lfdG91UXZLOUh0em1RVUhqLmlHaFRsaGVUeGdCS29BYlUyQkxCNmJ3aVRiVzllTk5UOHJVUmtPbUpnb0hxNkZ5R0EybnhjQ0pTU2REajVrdTVUcjZTN0duZWFaTUJMU1ptNVNYbjliTnBCUy5RUzFLWUJ3VFFCNTdHaE9COGF2VHltYjM2cGVrY2tONWRsS09HUk1PMmdnZWJfZExNTHRSMkxMblRoRVZPT3hrS0dmMU45VzRobHFXaXdlczlxcnJFbGsya3RlWTAubW9KVHQ0VkZkTHYuYkZ2S21DUUVBQUEtLS9tYXN0ZXIubTN1OD90b2tlbj1leUowZVhBaU9pSktWMVFpTENKaGJHY2lPaUpJVXpJMU5pSjkuZXlKcGMzTWlPaUp0ZVMxaGRYUm9JaXdpYVdGMElqb3hOemt4TURRM056RTJMQ0p1WW1ZaU9qRTNPVEV3TkRjM01UWXNJbVY0Y0NJNk1UYzVNVEEyTWpFeE5pd2lhWEJmWTJsa2NpSTZJakU0TlM0eU1UTXVNVFUxTGpBdk1qUWlmUS5xdk85cmNzOXY2MjFmaTJHYlNBbFdOc2hkTjVuNkVCMXpfeHZNV0VqYUFV&k=p&s=vidsrc%7EgwT97E2fe6X3M-A1g1GDb2iCiea",
+      "label": "MovieNight 1",
+      "provider": "sourcepack-movienight",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://proxy.scrapeequalsgayporn.st/api/stream/proxy?u=aHR0cHM6Ly9uZWJ1bGEuYnJpZ2h0Njcub25saW5lL2hscy9kYzA2NDFiZC1lMTIxLTRhMzMtYjNmOS05OWU5NTBkODk3YjYvbWFzdGVyLm0zdTg&s=cinejoy%7EiI52UXlUSIWOocec7i-U3cw6-yW&k=p",
+      "label": "MovieNight 2",
+      "provider": "sourcepack-movienight",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://u14.vidzy.cc/hls2/05/00015/oklwzx1j1my4_n/master.m3u8?t=Uy1fWvSkXjQVpuUWUe4b5sLGuaVMiO8jblVC0bsyJr8&s=1791048427&e=172800&f=79980&i=0.0&sp=0",
+      "label": "Movy 1",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/b3f8c21a/ma9yIsUHLd1oEUKmveBRD3r-Cs2CXFqQf_0KMdFebI0jR8Pl6z7RuU8jrurV5UISWRjm2aP4Q95KQNPzlg4UU-L2aSw7eymDE4aAh2Suk0VaoMZmV9U1jYzYm-XZwUh2f5B8ChI3XZQI0ke7C32EMbtksQN0KjGE1mbjXHyVDLiVAFVgd2CSXmcKluFpWyNlk9J-E1qnxUZbC1xYqP8WmfN8TV5RpDnNoJGWp09KDVy6xN1OgQed8zRppCY8YqwX3jhrnrTFf1IZxGl_2wO9spBpKuV4hEwbGt3qAXM42wMm-631qwAlxJPSsv9Zdj517yFCt6Ml4qLCrP2cc4Lf9QbXaOlFCq_UdksTJgvUA2P1IYBWetNKJuQr3-eWsUCBZeG2Ybt4LiSzXx6KnmgPV86qlLkREi2n_I3FEQi7AT-a0FGpzr4GrnjoteNPQ8fWuyRpIJ5QmRtS_QB2jS2YXbENImgIb07AI6iNG5rebduBfi5-fvqInMrtxkJ_hYqp57OOLTGh6nZURcJUEi8Kzl_Cm5eKZvUc1hYq0nWMZ88XHljEzpRo0hs-6TMeJdawNrtseFQqSA91cqqs3mD4YoHWWc5BEWn-jfAgkYwq9f0NtT00VI30zjXUVo3GLhUEQFOQ2ebEeJ8THm6-A9JPNBRxQ8EdluxpO8up_LW3oVrHXJLoh_VmVDuHAJxnHF4h2Qtuiq0oIvs4FOMy8DiB4cXHOLf5GUYrfVI2fsdpdZxdqoErsZaKVUFqVYoujKcjdmVTXiG4ZOcO22MBJ7n7ug.m3u8",
+      "label": "Movy 2",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/b3f8c21a/ma9yIsUHLd1oEUKmveBRD3r-Cs2CXFqQf_0KMdFebI0jR8Pl6z7RuU8jrurV5UISWRjm2aP4Q95KQNPzlg4UU-L2aSw7eymDE4aAh2Suk0VaoMZmV9U1jYzYm-XZwUh2f5B8ChI3XZQI0ke7C32EMbtksQN0KjGE1mbjXHyVDLiVAFVgd2CSXmcKluFpWyNlk9J-E1qnxUZbC1xYqP8WmfN8TV5RpDnNoJGWp09KDVy6xN1OgQed8zRppCY8YqwX3jhrnrTFf1IZxGl_2wO9spBpKuV4hEwbGt3qAXM42wMm-631qwAlxJPSsv9Zdj517yFCt6Ml4qLCrP2cc4Lf9QbXaOlFCq_UdksTJgvUA2P1IYBWetNKJuQr3-eWsUCBZeG2Ybt4LiSzXx6KnmgPV86qlLkREi2n_I3FEQi7AT-a0FGpzr4GrnjoteNPQ8fWuyRpIJ5QmRtS_QB2jS2YXbENImgIb07AI6iNG5rebduBfi5-fvqInMrtxkJ_hYqp57OOLTGh6nZURcJUEi8Kzl_Cm5eKZvUc1hYq0nWMZ88XHljEzpRo0hs-6TMeJdawON5mA-2YXaE3s4E3gKknUPJvxPFnICp3axVPPbQzi26BwP1ehAYOV3sMcsjkSvUqEJZKelg_OyvU9_LePY-HUpl7gDgYXByUoEk_Ab3d_oCf9Ow-vCX1pQLwN7Rg1Q6MvAIatQn7h7ekn1Qj5Ax37gszaNBMXbvRzrhuiPOyNJsNC9PxrGEoxPlGtsdHfuJgJ_hl_kA8Lj4f4kaHbEx15Q.m3u8",
+      "label": "Movy 3",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/r6/ma9yIsUHLd1oEUKmveBRD7YAa6TtBq8pQ3HlTrfwAmYrtzPNYVbbhMseI1ii8lXcrUGyyqkObvoN9hdkP_nqJUSyeMUfHM8WOmU0Cg_cjtUI4aVuBaNeSr2HbYueh0cHMqVqN7XuZjbTey5L3T1cZMgU2oDyHuTVDuVl921v3qGSYS17j5ygGttD18dnsFz19TTwbFtSNpDmQgXgb-avuPWKEP9zgCVKcZJ_M4pqO1lxVPlJA6_hFOIEzjSlU2oX.m3u8",
+      "label": "Movy 4",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://goodstream.cc/streamsvr/TzaOLLZLMv/0-1?e=fcu7yAGjig9L9oruyRwMGw0te4r4m_TU",
+      "label": "VidGod LS-25",
+      "provider": "sourcepack-vidgod",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://goodstream.cc/pl/E6a58cAOUb84cfd/0-1?e=fcu7yAGjig9L9oruyRwMGw0te4r4m_TU",
+      "label": "VidGod GS-25",
+      "provider": "sourcepack-vidgod",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fproxy.valhallastream.com%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Flit.cheaptruckrepairs.cc%252Fplaylist%252FVlNLMIlej5O4Oxgi99MwgA.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F130.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fcinejoy.pk%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fcinejoy.pk%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 4K HDR",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fimg1.klnwm.com%2Fhls_mps%2Ff202b9b4f3e813395d759e0a03a718dc72e7adf3%2F720%2Findex_364.m3u8%3Fauth_key%3D73RiIXC5Q7wA8kHOBe01cy1E1JL6TNoremkRnA%252BOc8s%253D%26expire%3D1791060747635&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fwww.rivestream.app%2Fwatch%3Ftype%3Dtv%26id%3D1402%26season%3D1%26episode%3D2%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 720p | English",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fimg1.hlnom.com%2Fhls_mps%2Ff202b9b4f3e813395d759e0a03a718dc72e7adf3%2F480%2Findex_363.m3u8%3Fauth_key%3DkU08SDQ4eA1EWXvFQxaOosv0s8mIF5lWjUCup%252BA3o5M%253D%26expire%3D1791060747635&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fwww.rivestream.app%2Fwatch%3Ftype%3Dtv%26id%3D1402%26season%3D1%26episode%3D2%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 480p | English",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fglendale-plumbing.com%2Fc%2Fv1%2FFgBmc7tPzEftN0HnhnyocyHXPjeTGay_%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fcine.su%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fcine.su%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Flux Auto",
+      "provider": "sourcepack-pstream",
+      "default": false
+    }
+  ]
+}

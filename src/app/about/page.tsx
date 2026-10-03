@@ -3,6 +3,7 @@ import { Metadata } from "next/dist/lib/metadata/types/metadata-interface";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import { NextPage } from "next";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 const FAQ = dynamic(() => import("@/components/sections/About/FAQ"));
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ const AboutPage: NextPage = () => {
         <Suspense>
           <FAQ />
         </Suspense>
+        <SponsorBanner />
       </div>
     </div>
   );

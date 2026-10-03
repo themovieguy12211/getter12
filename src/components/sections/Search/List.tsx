@@ -15,6 +15,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Movie, Search, TV } from "tmdb-ts/dist/types";
 import MoviePosterCard from "../Movie/Cards/Poster";
 import SearchFilter from "./Filter";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 
 type FetchType = {
   page: number;
@@ -102,6 +103,7 @@ const SearchList = () => {
         isLoading={isFetching}
         onSearchSubmit={(value) => setSubmittedSearchQuery(value.trim())}
       />
+      <SponsorBanner />
       {triggered && (
         <>
           <div className="relative flex flex-col items-center gap-8">

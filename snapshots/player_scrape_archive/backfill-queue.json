@@ -1869,5 +1869,62 @@
       "primevids"
     ],
     "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s1_e1",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "1",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-10-03T23:25:47.970Z",
+    "createdAt": "2026-10-03T17:25:47.970Z",
+    "updatedAt": "2026-10-03T17:25:47.970Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_73223_s1_e1",
+    "request": {
+      "type": "tv",
+      "id": "73223",
+      "season": "1",
+      "episode": "1"
+    },
+    "attempts": 0,
+    "dueAt": "2026-10-03T23:45:59.288Z",
+    "createdAt": "2026-10-03T17:45:59.288Z",
+    "updatedAt": "2026-10-03T17:45:59.288Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
+  },
+  {
+    "requestKey": "tv_1402_s1_e2",
+    "request": {
+      "type": "tv",
+      "id": "1402",
+      "season": "1",
+      "episode": "2"
+    },
+    "attempts": 0,
+    "dueAt": "2026-10-03T23:52:45.988Z",
+    "createdAt": "2026-10-03T17:52:45.988Z",
+    "updatedAt": "2026-10-03T17:52:45.988Z",
+    "missingProviders": [
+      "flowcast",
+      "guru",
+      "primevids"
+    ],
+    "reason": "No playable sources found"
   }
 ]

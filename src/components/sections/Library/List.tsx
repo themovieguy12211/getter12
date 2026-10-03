@@ -17,6 +17,7 @@ import TvShowPosterCard from "../TV/Cards/Poster";
 import { getLoadingLabel } from "@/utils/movies";
 import { ITEMS_PER_PAGE } from "@/utils/constants";
 import ConfirmationModal from "@/components/ui/overlay/ConfirmationModal";
+import SponsorBanner from "@/components/ui/other/SponsorBanner";
 
 type SortOption = "title" | "release_date" | "vote_average" | "created_at";
 type FilterType = "movie" | "tv" | "all";
@@ -161,6 +162,7 @@ const LibraryList = () => {
             </Button>
           )}
         </div>
+        <SponsorBanner />
         {status === "pending" ? (
           <Spinner
             size="lg"

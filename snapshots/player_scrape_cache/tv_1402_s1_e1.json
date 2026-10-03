@@ -1,0 +1,132 @@
+{
+  "cachedAt": "2026-10-03T17:25:47.978Z",
+  "urlsRefreshedAt": "2026-10-03T17:25:47.978Z",
+  "sources": [
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fglendale-plumbing.com%2Fc%2Fv1%2FFwAbxad5LsgqWrjSlGMljRVFtlArMIF15A%2Fmaster.m3u8%3F_v%3D34403446&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fbcine.ru%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fbcine.ru%22%2C%22X-Forwarded-For%22%3A%22%3A%3A1%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Bcine Auto",
+      "provider": "sourcepack-bcine",
+      "default": true
+    },
+    {
+      "type": "hls",
+      "file": "https://glendale-plumbing.com/c/v1/FwAbxad5LsgqWrjSlGMljRVFtlArMIF15A/master.m3u8?_v=34403446",
+      "label": "CineSrc Auto",
+      "provider": "sourcepack-cinesrc",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://proxy.scrapeequalsgayporn.st/api/stream/proxy?u=aHR0cHM6Ly9yZXNvbmFuY2VvZnJ1aW4uc3BhY2UvcGwvSDRzSUFBQUFBQUFBQXdYQnlXNkRNQkFBMEZfQ1ptbW9sQXNLSnV4aG1YSHJtOEZVTEVORUE2MVV2cjd2Mlg3UGJPT2F3WF96SE41cmZlSDY0Z3k4czNWdmZYWDJleW5FV0VINGtvdDRJbTVXdTZERzUuanFlMUZKSWI1QkhxeFppVDd0elVNeW9IamlabWZpTm0xMUZpeFJTTUdxTVg2MWxMTjZkWDloeHFrTGN5dUhiV3E0SDZaOFlXYXBzeHEycklReDF2ZXhIdWJFVVJIOXRJeWNYSnFna051aVA0S3ltSVBkTENZRU1sNHAxWjRUdFhoTEhoQ1ptMGJWb0ZVM0xSUjdLU3NudndrR0pBaXNJMDQ1X09GcGRnUTNiYUtFY0RySWhNS3VtQXIwT2FwSGRiMy5BN3JPdU9BSkFRQUEvbWFzdGVyLm0zdTg_dG9rZW49ZXlKMGVYQWlPaUpLVjFRaUxDSmhiR2NpT2lKSVV6STFOaUo5LmV5SnBjM01pT2lKdGVTMWhkWFJvSWl3aWFXRjBJam94TnpreE1EUTNPRGd4TENKdVltWWlPakUzT1RFd05EYzRPREVzSW1WNGNDSTZNVGM1TVRBMk1qSTRNU3dpYVhCZlkybGtjaUk2SWpFNE5TNHlNVE11TVRVMUxqQXZNalFpZlEuM2Qxd0xVdXRFc3F0eEtfZHZQSkRGQXd6NVR1VGJNM3VwTklZckdxazlVMA&k=p&s=vidsrc%7EP1dPUDV2--mmso0cFJZgQ9LCcVn",
+      "label": "MovieNight",
+      "provider": "sourcepack-movienight",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.zenoak.top/vd/WFpwZlFOTWl4cE02QzdnUWlXeVIyQTp0bUdZTnM4a2FEX0N2WEd1SmN2QjQyTGR1ODZSeERUN2xEYjRQWVQ3MTFV/index-s1080p-v1-a1.m3u8",
+      "label": "Movy 1",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.zenoak.top/vd/WFpwZlFOTWl4cE02QzdnUWlXeVIyQTp0bUdZTnM4a2FEX0N2WEd1SmN2QjQyTGR1ODZSeERUN2xEYjRQWVQ3MTFV/index-s720p-v1-a1.m3u8",
+      "label": "Movy 2",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://moon.zenoak.top/vd/WFpwZlFOTWl4cE02QzdnUWlXeVIyQTp0bUdZTnM4a2FEX0N2WEd1SmN2QjQyTGR1ODZSeERUN2xEYjRQWVQ3MTFV/index-s480p-v1-a1.m3u8",
+      "label": "Movy 3",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://u14.vidzy.cc/hls2/05/00015/vk60b0t9dbmo_n/master.m3u8?t=YNkXVqIo4F8gdkzyTrE5u7W08P59eeH9MDPbMfOE2Qo&s=1791046954&e=172800&f=76171&i=0.0&sp=0",
+      "label": "Movy 4",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/b3f8c21a/ma9yIsUHLd1oEUKmveBRD87q1cKNL5FVqxAWe-OcZDzDEKFD6EEFuZGYHrddGKGYWE_ic5tCNyvNnuiiGeBSQRq0MrVRj1yXRBB1Hq0yG61NnkNKQjI2U1Ggo5_kjH2Fbt-_d8YF65uWtkdrCSHKUaFi5szzAj0qu0ygAw_5TY9HTYpqVdv3wpmM8PIA4bN0ubdNwkfGM-OUWY9E4ONNOSuFp1tOTczswKSadcGpVKcEkSVjDP2DIpVUYa-RfA_meF66yGwXv9bi5ntqOZvY8Aoc1bzg6AK79_VV9kzk8k3GdNgCBXFCglzY2uSpt-pg7MpOvZVi8PLHwpx279VZvnQ_TIQvOuv3tzZ6RbchbdIt0aoBpsDJ-AWYUxOTT_tbqgdsTa7LNp5BXUmM0afdlxYzvXnjQOAtkppvrSY1CWGGCKb2NjGRbNMYBPlgETZ6GeOK0ZU6ztkoaUHGq3pJyqo7JXunoBRJc8DuDtwwWh0zqeWnRveMaCQpwgg2-lyq2WPc9MxRWM6g2DOvQRBD45bKNYW855f5MeSmYKtST6LckAtLwVgxIuJPrODfE3TnikW5Z9ukPGbguIdv2MQJ6gxndbJcQ6ylS6Blx3eMSdvxGfz_LjAYKLHvs6kdfKfXhdZ-kjNV2EYKIhGV4ThPEEzplgIbj9Nk8mGPqY40By0Gt4t7pB5lNIk_Q8MvCwAPH67b02wua_UwzOM-f6tLbIJEqfC0_tjQnxxwtSS58RpItQxJsJWIqx9Nmz6CXGQcO93cRkmFF_RaWwlnvwoMAw.m3u8",
+      "label": "Movy 5",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/b3f8c21a/ma9yIsUHLd1oEUKmveBRD87q1cKNL5FVqxAWe-OcZDzDEKFD6EEFuZGYHrddGKGYWE_ic5tCNyvNnuiiGeBSQRq0MrVRj1yXRBB1Hq0yG61NnkNKQjI2U1Ggo5_kjH2Fbt-_d8YF65uWtkdrCSHKUaFi5szzAj0qu0ygAw_5TY9HTYpqVdv3wpmM8PIA4bN0ubdNwkfGM-OUWY9E4ONNOSuFp1tOTczswKSadcGpVKcEkSVjDP2DIpVUYa-RfA_meF66yGwXv9bi5ntqOZvY8Aoc1bzg6AK79_VV9kzk8k3GdNgCBXFCglzY2uSpt-pg7MpOvZVi8PLHwpx279VZvnQ_TIQvOuv3tzZ6RbchbdIt0aoBpsDJ-AWYUxOTT_tbqgdsTa7LNp5BXUmM0afdlxYzvXnjQOAtkppvrSY1CWGGCKb2NjGRbNMYBPlgETZ6GeOK0ZU6ztkoaUHGq3pJyqo7JXunoBRJc8DuDtwwWh0zqeWnRveMaCQpwgg2-lyq2WPc9MxRWM6g2DOvQRBD45bKNYW855f5MeSmYKtST6LckAtLwVgxIuJPrODfE3Tnzy6vQpOdd-r93S-L92JrIl_jHDkJR5HBBIHn6JIsPxjg2Q7Q3fbwWwPNLjMuR6EzI5vLHgqqbRLl3k5XhlYeWwuqAZQD6wk6oURctAXcMiO9eB0a0kXSOyfPZxqTXzGM3v1w9W5Kp_K4uV8WDdxi5lRDMFwsSw2FWNPt-ksagtAIQ1wSWWhuNd-bxqQCBP_yxIXOxgUb24ZeER8h9sDnaA.m3u8",
+      "label": "Movy 6",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://sun.paleoak.top/r6/ma9yIsUHLd1oEUKmveBRD7YAa6TtBq8pQ3HlTrfwAmYrtzPNYVbbhMseI1ii8lXcbsJ_JsPSlBCJMqVkGtzdbuHcr2FvEtmlebb2LIN7KR4ZtBkg52Mc8M1VRKd3gc0QFl-GTJi0in_Yxh2YdFCWvpVQs-tIQ9J6UmWXTFWbS88WOYF-VO7_m8glApVXonU6GpAWzSO69X68BGmo_L193lwkFuWkLOOYIwcUM05VBcnMuliGQHTMHT2rcBumhMnH.m3u8",
+      "label": "Movy 7",
+      "provider": "sourcepack-movy",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://goodstream.cc/streamsvr/k0_Enqm2YS/0-30?e=DyEktYjjOq_LAdKXPbZFe0mQ6vS_67_4",
+      "label": "VidGod LS-25",
+      "provider": "sourcepack-vidgod",
+      "default": false
+    },
+    {
+      "type": "mp4",
+      "file": "https://goodstream.cc/pl/dcb65bIa462AUOE/0-30?e=DyEktYjjOq_LAdKXPbZFe0mQ6vS_67_4",
+      "label": "VidGod GS-25",
+      "provider": "sourcepack-vidgod",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fproxy.valhallastream.com%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Flit.cheaptruckrepairs.cc%252Fplaylist%252FO5L6rpirrMkXBifLHrdHkw.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F130.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fcinejoy.pk%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fcinejoy.pk%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 4K HDR",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fproxy.valhallastream.com%2Fm3u8-proxy%3Furl%3Dhttps%253A%252F%252Fzcdn.bluevelvet.space%252Fplay%252FTxjnT6ym0fMvBjwx.rMLxL9TXLLJdaI7h6AUJ0ntClMva2uIPV-xsapc0OhfiYYtjzHflVSCs9jy4%252Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F130.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fbeta.cinecat.eu%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fbeta.cinecat.eu%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 4K HDR",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fcdn1.ngcorp.dad%2Fe%2FFh9IbkBZRlxTRlY%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fwww.rivestream.app%2Fwatch%3Ftype%3Dtv%26id%3D1402%26season%3D1%26episode%3D1%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade ipcloud",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fimg1.hlnom.com%2Fhls%2Fa9554c6984e6c90e36fd7f79fbea651737e389d3%2F720%2Findex_363.m3u8%3Fauth_key%3DsWrmbFk1aZmpThgkaATdh24E7UqkUe8RmjVbj7Y03NI%253D%26expire%3D1791059129965&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fwww.rivestream.app%2Fwatch%3Ftype%3Dtv%26id%3D1402%26season%3D1%26episode%3D1%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 720p | English",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fimg1.hlnom.com%2Fhls_mps%2Fa9554c6984e6c90e36fd7f79fbea651737e389d3%2F480%2Findex_363.m3u8%3Fauth_key%3DY07JDI3ObRV53FFI2H3xrpUorCzIOGuHOPbeU8Ci%252BZo%253D%26expire%3D1791059129962&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fwww.rivestream.app%2Fwatch%3Ftype%3Dtv%26id%3D1402%26season%3D1%26episode%3D1%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Cascade 480p | English",
+      "provider": "sourcepack-rivestream",
+      "default": false
+    },
+    {
+      "type": "hls",
+      "file": "https://cdn.piracy.cloud/m3u8-proxy/playlist.m3u8?url=https%3A%2F%2Fglendale-plumbing.com%2Fc%2Fv1%2FFgBmc7tPzEftN0HnhnyocyHXPjeTGay_%2Fmaster.m3u8&headers=%7B%22User-Agent%22%3A%22Mozilla%2F5.0+%28Windows+NT+10.0%3B+Win64%3B+x64%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F150.0.0.0+Safari%2F537.36%22%2C%22Referer%22%3A%22https%3A%2F%2Fcine.su%2F%22%2C%22Origin%22%3A%22https%3A%2F%2Fcine.su%22%7D&k=j7wYkYhVgQn5x2L6k2M8hVQfD4zN3bP1aR7uT0cXyE6dZX4sW",
+      "label": "Flux Auto",
+      "provider": "sourcepack-pstream",
+      "default": false
+    }
+  ]
+}
