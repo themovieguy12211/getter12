@@ -2,6 +2,25 @@ import { PlayersProps } from "@/types";
 
 export type CustomEmbed = { title: string; url: string };
 
+/**
+ * Pinned order for custom embeds: "vidara" first, "dood" second, then the
+ * rest in their original order. Matching is case-insensitive.
+ */
+const PINNED_CUSTOM_EMBED_ORDER = ["vidara", "dood"];
+
+const sortCustomEmbeds = (embeds: CustomEmbed[]): CustomEmbed[] =>
+  [...embeds].sort((a, b) => {
+    const aIndex = PINNED_CUSTOM_EMBED_ORDER.findIndex((p) =>
+      a.title.toLowerCase().includes(p),
+    );
+    const bIndex = PINNED_CUSTOM_EMBED_ORDER.findIndex((p) =>
+      b.title.toLowerCase().includes(p),
+    );
+    const aRank = aIndex === -1 ? PINNED_CUSTOM_EMBED_ORDER.length : aIndex;
+    const bRank = bIndex === -1 ? PINNED_CUSTOM_EMBED_ORDER.length : bIndex;
+    return aRank - bRank;
+  });
+
 const get321MoviePlaylistUrl = (id: string | number): string => {
   const params = new URLSearchParams({
     type: "movie",
@@ -43,16 +62,6 @@ export const getMoviePlayers = (
   piracyEmbedUrl?: string | null,
   customEmbeds?: CustomEmbed[],
 ): PlayersProps[] => {
-  if (customEmbeds?.length) {
-    return customEmbeds.map((embed) => ({
-      title: embed.title,
-      source: embed.url,
-      recommended: true,
-      fast: true,
-      ads: false,
-      resumable: false,
-    }));
-  }
   const players: PlayersProps[] = [];
   players.push(
     {
@@ -89,45 +98,9 @@ export const getMoviePlayers = (
       resumable: true,
     },
     {
-      title: "VidKing",
-      // NOTE: VidKing has a known issue with the `progress` query parameter where it stuck at that timestamp.
-      // Currently, this player can save playback progress but cannot resume from a specific timestamp.
-      // The `progress` parameter is commented out in the source URL until this is resolved.
-      source: `https://www.vidking.net/embed/movie/${id}?color=006fee&autoplay=false`, //&progress=${startAt || ""}`,
-      recommended: true,
-      fast: true,
-      resumable: true,
-    },
-    {
-      title: "<Embed>",
-      source: `https://embed.su/embed/movie/${id}`,
-      ads: true,
-    },
-    {
       title: "SuperEmbed",
-      source: `https://multiembed.mov/directstream.php?video_id=${id}&tmdb=1`,
+      source: `https://multiembed.mov/?video_id=${id}&tmdb=1`,
       fast: true,
-      ads: true,
-    },
-    {
-      title: "FilmKu",
-      source: `https://filmku.stream/embed/${id}`,
-      ads: true,
-    },
-    {
-      title: "NontonGo",
-      source: `https://www.nontongo.win/embed/movie/${id}`,
-      ads: true,
-    },
-    {
-      title: "AutoEmbed 1",
-      source: `https://autoembed.co/movie/tmdb/${id}`,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "AutoEmbed 2",
-      source: `https://player.autoembed.cc/embed/movie/${id}`,
       ads: true,
     },
     {
@@ -136,54 +109,13 @@ export const getMoviePlayers = (
       ads: true,
     },
     {
-      title: "VidSrc 1",
-      source: `https://vidsrc.xyz/embed/movie/${id}`,
-      ads: true,
-    },
-    {
-      title: "VidSrc 2",
+      title: "VidSrc",
       source: `https://vidsrc.to/embed/movie/${id}`,
       ads: true,
     },
     {
-      title: "VidSrc 3",
-      source: `https://vidsrc.icu/embed/movie/${id}`,
-      ads: true,
-    },
-    {
-      title: "VidSrc 4",
-      source: `https://vidsrc.cc/v2/embed/movie/${id}?autoPlay=false`,
-      ads: true,
-    },
-    {
-      title: "VidSrc 5",
-      source: `https://vidsrc.cc/v3/embed/movie/${id}?autoPlay=false`,
-      recommended: true,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "MoviesAPI",
-      source: `https://moviesapi.club/movie/${id}`,
-      ads: true,
-    },
-    {
-      title: "NexVid",
-      source: `https://nexvid.online/watch/movie/${id}`,
-      recommended: true,
-      fast: true,
-      ads: false,
-    },
-    {
-      title: "Smashy",
-      source: `https://player.smashy.stream/movie/${id}`,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "VidBinge",
-      source: `https://vidbinge.dev/embed/movie?tmdb=${id}`,
-      fast: true,
+      title: "vueeti",
+      source: `https://vumeto.xyz/embed/movie/${id}`,
       ads: true,
     },
   );
@@ -195,6 +127,20 @@ export const getMoviePlayers = (
       fast: true,
       ads: true,
     });
+  }
+  if (customEmbeds?.length) {
+    const customPlayers = sortCustomEmbeds(customEmbeds).map((embed) => ({
+      title: embed.title,
+      source: embed.url,
+      recommended: true,
+      fast: true,
+      ads: false,
+      resumable: false,
+    }));
+    return [
+      ...customPlayers,
+      ...players.filter((player) => player.title !== "321movies"),
+    ];
   }
   return players;
 };
@@ -218,16 +164,6 @@ export const getTvShowPlayers = (
   piracyEmbedUrl?: string | null,
   customEmbeds?: CustomEmbed[],
 ): PlayersProps[] => {
-  if (customEmbeds?.length) {
-    return customEmbeds.map((embed) => ({
-      title: embed.title,
-      source: embed.url,
-      recommended: true,
-      fast: true,
-      ads: false,
-      resumable: false,
-    }));
-  }
   const players: PlayersProps[] = [];
   players.push(
     {
@@ -263,104 +199,30 @@ export const getTvShowPlayers = (
       ads: true,
       resumable: true,
     },
-    {
-      title: "VidKing",
-      // NOTE: VidKing has a known issue with the `progress` query parameter where it stuck at that timestamp.
-      // Currently, this player can save playback progress but cannot resume from a specific timestamp.
-      // The `progress` parameter is commented out in the source URL until this is resolved.
-      source: `https://www.vidking.net/embed/tv/${id}/${season}/${episode}?color=f5a524&autoplay=false`, //&progress=${startAt || ""}`,
-      recommended: true,
-      fast: true,
-      resumable: true,
-    },
-    {
-      title: "<Embed>",
-      source: `https://embed.su/embed/tv/${id}/${season}/${episode}`,
-      ads: true,
-    },
+    
     {
       title: "SuperEmbed",
-      source: `https://multiembed.mov/directstream.php?video_id=${id}&tmdb=1&s=${season}&e=${episode}`,
+      source: `https://multiembed.mov/?video_id=${id}&tmdb=1&s=${season}&e=${episode}`,
       fast: true,
       ads: true,
     },
-    {
-      title: "FilmKu",
-      source: `https://filmku.stream/embed/series?tmdb=${id}&sea=${season}&epi=${episode}`,
-      ads: true,
-    },
-    {
-      title: "NontonGo",
-      source: `https://www.NontonGo.win/embed/tv/${id}/${season}/${episode}`,
-      ads: true,
-    },
-    {
-      title: "AutoEmbed 1",
-      source: `https://autoembed.co/tv/tmdb/${id}-${season}-${episode}`,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "AutoEmbed 2",
-      source: `https://player.autoembed.cc/embed/tv/${id}/${season}/${episode}`,
-      ads: true,
-    },
+
     {
       title: "2Embed",
       source: `https://www.2embed.cc/embedtv/${id}&s=${season}&e=${episode}`,
       ads: true,
     },
     {
-      title: "VidSrc 1",
-      source: `https://vidsrc.xyz/embed/tv/${id}/${season}/${episode}`,
-      ads: true,
-    },
-    {
-      title: "VidSrc 2",
+      title: "VidSrc",
       source: `https://vidsrc.to/embed/tv/${id}/${season}/${episode}`,
       ads: true,
     },
-    {
-      title: "VidSrc 3",
-      source: `https://vidsrc.icu/embed/tv/${id}/${season}/${episode}`,
+     {
+      title: "vueeti",
+      source: `https://vumeto.xyz/embed/tv/${id}/${season}/${episode}`,
       ads: true,
     },
-    {
-      title: "VidSrc 4",
-      source: `https://vidsrc.cc/v2/embed/tv/${id}/${season}/${episode}?autoPlay=false`,
-      ads: true,
-    },
-    {
-      title: "VidSrc 5",
-      source: `https://vidsrc.cc/v3/embed/tv/${id}/${season}/${episode}?autoPlay=false`,
-      recommended: true,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "MoviesAPI",
-      source: `https://moviesapi.club/tv/${id}-${season}-${episode}`,
-      ads: true,
-    },
-    {
-      title: "NexVid",
-      source: `https://nexvid.online/watch/show/${id}?s=${season}&e=${episode}`,
-      recommended: true,
-      fast: true,
-      ads: false,
-    },
-    {
-      title: "Smashy",
-      source: `https://player.smashy.stream/tv/${id}?s=${season}&e=${episode}`,
-      fast: true,
-      ads: true,
-    },
-    {
-      title: "VidBinge",
-      source: `https://vidbinge.dev/embed/tv?tmdb=${id}&season=${season}&episode=${episode}`,
-      fast: true,
-      ads: true,
-    },
+   
   );
   if (piracyEmbedUrl) {
     players.push({
@@ -370,6 +232,20 @@ export const getTvShowPlayers = (
       fast: true,
       ads: true,
     });
+  }
+  if (customEmbeds?.length) {
+    const customPlayers = sortCustomEmbeds(customEmbeds).map((embed) => ({
+      title: embed.title,
+      source: embed.url,
+      recommended: true,
+      fast: true,
+      ads: false,
+      resumable: false,
+    }));
+    return [
+      ...customPlayers,
+      ...players.filter((player) => player.title !== "321movies"),
+    ];
   }
   return players;
 };
