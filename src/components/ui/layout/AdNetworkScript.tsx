@@ -106,12 +106,21 @@ const AdNetworkScript: React.FC = () => {
         async
         onLoad={() => {
           (window as any).__AD_SCRIPTS_LOADED__ = true;
+          try {
+            if (!(window as any).__ACLIB_POP_DONE__ && (window as any).aclib) {
+              (window as any).__ACLIB_POP_DONE__ = true;
+              (window as any).aclib.runPop({ zoneId: "11355558" });
+            }
+          } catch {}
         }}
         onError={() => {
           (window as any).__AD_CHECK_COMPLETE__ = true;
           (window as any).__ADBLOCK_DETECTED__ = true;
         }}
       />
+      <Script id="aclib-pop" strategy="afterInteractive">
+        {`(function(){var n=0;var t=setInterval(function(){try{if(window.__ACLIB_POP_DONE__){clearInterval(t);return;}if(window.aclib&&window.aclib.runPop){window.__ACLIB_POP_DONE__=true;clearInterval(t);window.aclib.runPop({zoneId:'11355558'});}else if(++n>20){clearInterval(t);}}catch(e){clearInterval(t);}},500);})();`}
+      </Script>
       <Script id="ad-loaded-marker" strategy="afterInteractive">
         {`
           setTimeout(function() {
