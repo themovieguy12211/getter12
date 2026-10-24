@@ -29,7 +29,9 @@ interface StreamFunLockerProps {
 
 // Advertiser-supplied config: the VPN CTA points at the securevpb tracking
 // link, and the locker only targets phone/tablet users.
+// Set enabled to true to turn the overlay back on. Nothing else was removed.
 const config = {
+  enabled: false,
   apiUrl: "https://api.streamfun.io/api/v1/connection/status",
   vpnUrl:
     "https://securevpb.online/Q4PJpQPd?cost={cost}&currency=usd&external_id=${SUBID}&creative_id={bannerid}&ad_campaign_id={campaignid}&source={zoneid}",
@@ -66,6 +68,7 @@ function ensureScriptLoaded(): Promise<void> {
 
 const StreamFunLocker: React.FC<StreamFunLockerProps> = ({ mountRef, playerKey }) => {
   useEffect(() => {
+    if (!config.enabled) return;
     const mount = mountRef.current;
     if (!mount) return;
 

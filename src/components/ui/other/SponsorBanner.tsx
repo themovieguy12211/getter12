@@ -1,7 +1,11 @@
 const sponsorUrl = "https://duelbet.com/";
 const sponsorImage = "/duelbet_300x150.png";
 
+// Set enabled to true to turn the banner back on. Nothing else was removed.
+const enabled = false;
+
 const SponsorBanner = () => {
+  if (!enabled) return null;
   return (
     <section className="relative z-3 flex justify-center px-2" aria-label="Sponsored content">
       <a

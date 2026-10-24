@@ -99,6 +99,19 @@ const AdNetworkScript: React.FC = () => {
         }}
       />
       */}
+      <Script
+        id="aclib"
+        src="//acscdn.com/script/aclib.js"
+        strategy="afterInteractive"
+        async
+        onLoad={() => {
+          (window as any).__AD_SCRIPTS_LOADED__ = true;
+        }}
+        onError={() => {
+          (window as any).__AD_CHECK_COMPLETE__ = true;
+          (window as any).__ADBLOCK_DETECTED__ = true;
+        }}
+      />
       <Script id="ad-loaded-marker" strategy="afterInteractive">
         {`
           setTimeout(function() {
